@@ -151,17 +151,17 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
   }
 
   .section-y {
-    padding-block: 4.5rem;
+    padding-block: 4rem;
   }
   @media (min-width: 768px) {
-    .section-y { padding-block: 6.5rem; }
+    .section-y { padding-block: 5.75rem; }
   }
 
   .section-y-tight {
-    padding-block: 3rem;
+    padding-block: 2.75rem;
   }
   @media (min-width: 768px) {
-    .section-y-tight { padding-block: 4.25rem; }
+    .section-y-tight { padding-block: 3.75rem; }
   }
 
   .eyebrow {

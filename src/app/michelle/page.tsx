@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
-import { Img } from "@/components/Img";
 import { Arrow, Button } from "@/components/Button";
 import { Eyebrow } from "@/components/SectionIntro";
 import { PullQuote } from "@/components/PullQuote";
-import { FullBleed } from "@/components/FullBleed";
 import { SplitFeature } from "@/components/SplitFeature";
 import { EditorialCover } from "@/components/EditorialCover";
 import { StatStrip } from "@/components/MetaRow";
@@ -95,13 +93,6 @@ export default function MichelleHome() {
         </div>
       </section>
 
-      <FullBleed
-        src="/assets/michelle/03-treatment.jpg"
-        alt="Serum wird mit einer Pipette auf die Wange aufgetragen"
-        position="62% 45%"
-        height="tall"
-      />
-
       {/* Skin types as quiet meta */}
       <section className="section-y-tight">
         <div className="container-x">
@@ -132,42 +123,36 @@ export default function MichelleHome() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-8">
-            <div className="md:col-span-5">
-              <EditorialCover
-                href="/michelle/leistungen/"
-                eyebrow="Leistungen"
-                title="Treatments & Preise"
-                text="Aquafacial, Microneedling, Glass Skin, Lash & Brow — Orientierungspreise und der passende Einstieg."
-                image="/assets/michelle/03-treatment.jpg"
-                position="62% 50%"
-                alt="Serum auf der Wange"
-                aspect="tall"
-              />
-            </div>
-            <div className="md:col-span-4 md:pt-12 lg:pt-16">
-              <EditorialCover
-                href="/michelle/analyse/"
-                eyebrow="Analyse"
-                title="OBSERV & BalanceTest"
-                text="Außen sehen, innen mitdenken — die Technologie hinter jeder Empfehlung."
-                image="/assets/michelle/04-lash.jpg"
-                position="58% 50%"
-                alt="Geliftete Wimpern"
-                aspect="square"
-              />
-            </div>
-            <div className="md:col-span-3 md:pt-6">
-              <EditorialCover
-                href="/michelle/kontakt/"
-                eyebrow="Kontakt"
-                title="Studio & Termin"
-                text="Adresse, Telefon, WhatsApp — und der Platz für den Buchungskalender."
-                image="/assets/michelle/05-portal.jpg"
-                position="50% 50%"
-                aspect="tall"
-              />
-            </div>
+          <div className="mt-12 grid items-stretch gap-8 md:mt-16 md:grid-cols-3 md:gap-7">
+            <EditorialCover
+              href="/michelle/leistungen/"
+              eyebrow="Leistungen"
+              title="Treatments & Preise"
+              text="Aquafacial, Microneedling, Glass Skin, Lash & Brow — Orientierungspreise und der passende Einstieg."
+              image="/assets/michelle/03-treatment.jpg"
+              position="62% 50%"
+              alt="Serum auf der Wange"
+              aspect="tall"
+            />
+            <EditorialCover
+              href="/michelle/analyse/"
+              eyebrow="Analyse"
+              title="OBSERV & BalanceTest"
+              text="Außen sehen, innen mitdenken — die Technologie hinter jeder Empfehlung."
+              image="/assets/michelle/04-lash.jpg"
+              position="58% 50%"
+              alt="Geliftete Wimpern"
+              aspect="tall"
+            />
+            <EditorialCover
+              href="/michelle/kontakt/"
+              eyebrow="Kontakt"
+              title="Studio & Termin"
+              text="Adresse, Telefon, WhatsApp — und der Platz für den Buchungskalender."
+              image="/assets/michelle/05-portal.jpg"
+              position="50% 50%"
+              aspect="tall"
+            />
           </div>
         </div>
       </section>

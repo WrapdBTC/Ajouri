@@ -17,8 +17,8 @@ type Props = {
 
 /**
  * Unified overlay hero — full-bleed image + theme gradients + copy bottom-left.
- * Overlays are intentionally heavy so display type stays readable on pale/busy images
- * and before the photo settles.
+ * Overlays are heavy so display type stays readable on pale/busy images
+ * and before the photo settles (light and dark themes).
  */
 export function Hero({
   image,
@@ -43,19 +43,22 @@ export function Hero({
         priority
         className="anim-settle absolute inset-0 -z-10 h-full w-full object-cover"
       />
-      {/* Base wash so ink reads before image settles */}
-      <div aria-hidden className="absolute inset-0 -z-10 bg-bg/45" />
+      {/* Base wash — readable before image settles (stronger on pale themes) */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-bg/55" />
       <div
         aria-hidden
         className={`absolute inset-0 -z-10 bg-gradient-to-t from-bg ${
-          isPage ? "via-bg/80 to-bg/35" : "via-bg/75 to-bg/25"
+          isPage ? "via-bg/85 to-bg/45" : "via-bg/80 to-bg/35"
         }`}
       />
       <div
         aria-hidden
-        className={`absolute inset-0 -z-10 hidden bg-gradient-to-r from-bg/90 via-bg/40 to-bg/5 md:block ${
-          isPage ? "from-bg/85" : ""
-        }`}
+        className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-bg/95 via-bg/50 to-bg/10 md:block"
+      />
+      {/* Extra bottom scrim for busy photography */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 -z-10 h-[55%] bg-gradient-to-t from-bg via-bg/70 to-transparent"
       />
 
       <div
@@ -65,13 +68,11 @@ export function Hero({
             : "min-h-[calc(100svh-5.25rem)] pt-40 pb-16 md:pt-44 md:pb-20"
         }`}
       >
-        <div
-          className={`relative rounded-sm ${isPage ? "max-w-xl" : "max-w-3xl"}`}
-        >
-          {/* Soft scrim behind copy for pale heroes */}
+        <div className={`relative rounded-sm ${isPage ? "max-w-xl" : "max-w-3xl"}`}>
+          {/* Soft panel behind copy */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -inset-x-4 -inset-y-3 -z-10 rounded-sm bg-gradient-to-r from-bg/70 via-bg/35 to-transparent md:-inset-x-6 md:-inset-y-4"
+            className="pointer-events-none absolute -inset-x-5 -inset-y-4 -z-10 rounded-sm bg-gradient-to-r from-bg/80 via-bg/45 to-transparent md:-inset-x-8 md:-inset-y-5"
           />
           <div className="anim-rise">
             <Eyebrow>{eyebrow}</Eyebrow>
@@ -80,16 +81,16 @@ export function Hero({
             className={`anim-rise anim-rise-1 mt-5 text-ink ${isPage ? "display-2" : "display-1"}`}
             style={{
               textShadow:
-                "0 1px 2px color-mix(in oklab, var(--t-bg) 70%, transparent), 0 8px 28px color-mix(in oklab, var(--t-bg) 45%, transparent)",
+                "0 1px 2px color-mix(in oklab, var(--t-bg) 80%, transparent), 0 10px 32px color-mix(in oklab, var(--t-bg) 55%, transparent)",
             }}
           >
             {title}
           </h1>
           <p
-            className={`lead anim-rise anim-rise-2 !text-ink/90 ${isPage ? "mt-4" : "mt-7"} ${leadClassName}`}
+            className={`lead anim-rise anim-rise-2 !text-ink/92 ${isPage ? "mt-4" : "mt-7"} ${leadClassName}`}
             style={{
               textShadow:
-                "0 1px 12px color-mix(in oklab, var(--t-bg) 55%, transparent)",
+                "0 1px 14px color-mix(in oklab, var(--t-bg) 65%, transparent)",
             }}
           >
             {lead}
@@ -100,7 +101,7 @@ export function Hero({
             {actions}
           </div>
           {meta && (
-            <div className="anim-rise anim-rise-4 mt-8 border-t border-line pt-5 text-[0.85rem] text-ink/85">
+            <div className="anim-rise anim-rise-4 mt-8 border-t border-line pt-5 text-[0.85rem] text-ink/90">
               {meta}
             </div>
           )}

@@ -3,7 +3,6 @@ import { Hero } from "@/components/Hero";
 import { Img } from "@/components/Img";
 import { Arrow, Button } from "@/components/Button";
 import { SectionIntro, Eyebrow } from "@/components/SectionIntro";
-import { FullBleed } from "@/components/FullBleed";
 import { contact, mailto } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -66,9 +65,9 @@ export default function SabineAngebote() {
     <>
       <Hero
         size="page"
-        image="/assets/sabine/03-bowls.jpg"
-        alt="Klangschalen in warmem Licht auf einem Tuch"
-        position="50% 50%"
+        image="/assets/sabine/02-portrait.jpg"
+        alt="Sabine Ajouri — Vita Sonus"
+        position="62% 28%"
         eyebrow="Angebote · Vita Sonus"
         title={
           <>
@@ -140,13 +139,6 @@ export default function SabineAngebote() {
           </div>
         </div>
       </section>
-
-      <FullBleed
-        src="/assets/sabine/04-klangmassage.jpg"
-        alt="Klangmassage"
-        position="55% 45%"
-        height="band"
-      />
 
       <section className="section-y-tight">
         <div className="container-x grid gap-10 md:grid-cols-12 md:items-center">

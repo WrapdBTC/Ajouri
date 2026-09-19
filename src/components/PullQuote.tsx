@@ -13,7 +13,7 @@ export function PullQuote({ children, cite, className = "", variant = "aside" }:
       <blockquote className={`reveal text-center ${className}`}>
         <p className="pull-quote mx-auto max-w-[28ch] px-1 text-ink">{children}</p>
         {cite && (
-          <cite className="eyebrow mt-8 block not-italic text-muted">{cite}</cite>
+          <cite className="eyebrow mt-7 block not-italic text-muted">{cite}</cite>
         )}
       </blockquote>
     );

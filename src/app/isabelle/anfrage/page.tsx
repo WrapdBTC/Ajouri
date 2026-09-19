@@ -15,8 +15,8 @@ const c = contact.isabelle;
 export default function IsabelleAnfrage() {
   return (
     <>
-      <section className="relative isolate">
-        <div className="container-x pb-8 pt-24 md:pb-10 md:pt-28">
+      <section className="relative isolate border-b border-line">
+        <div className="container-x pb-8 pt-20 md:pb-10 md:pt-24">
           <div className="anim-rise max-w-2xl">
             <Eyebrow>Anfrage · Atelier Isabelle</Eyebrow>
             <h1 className="display-2 mt-5">
@@ -30,9 +30,9 @@ export default function IsabelleAnfrage() {
       </section>
 
       {/* Single-column form — balanced on all breakpoints */}
-      <section className="pb-14 md:pb-20">
+      <section className="section-y-tight !pt-8 md:!pt-10">
         <div className="container-x max-w-2xl">
-          <div className="reveal mb-8 flex flex-wrap gap-x-10 gap-y-4 border-y border-line py-5 text-[0.9rem]">
+          <div className="reveal mb-8 grid gap-5 border border-line bg-elev p-6 sm:grid-cols-3 sm:gap-6 md:p-7 text-[0.9rem]">
             <div>
               <p className="eyebrow text-muted">Termine</p>
               <p className="mt-1.5 font-display text-xl">Auf Anfrage</p>

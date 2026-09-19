@@ -11,7 +11,7 @@ export function PriceRow({
 }) {
   return (
     <li className="py-5 md:py-6">
-      <div className="flex items-baseline gap-1">
+      <div className="flex min-w-0 items-baseline gap-1">
         <h3 className="font-display min-w-0 text-[1.5rem] leading-tight md:text-[1.75rem]">{name}</h3>
         {time && <span className="eyebrow ml-3 hidden shrink-0 text-muted sm:inline">{time}</span>}
         <span aria-hidden className="leader" />

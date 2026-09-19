@@ -28,14 +28,14 @@ export function BookingSlot({
           backgroundPosition: "0 5rem",
         }}
       />
-      <div className="relative p-8 md:p-11 lg:p-14">
+      <div className="relative p-7 md:p-10 lg:p-12">
         <div className="flex flex-wrap items-start justify-between gap-8">
           <div className="max-w-md">
             <p className="eyebrow text-accent-text">{title}</p>
-            <p className="font-display mt-5 text-[2.15rem] leading-[1.05] md:text-[2.6rem]">
+            <p className="font-display mt-4 text-[2rem] leading-[1.05] md:text-[2.45rem]">
               {note}
             </p>
-            <p className="body-copy mt-6 !max-w-md">{detail}</p>
+            <p className="body-copy mt-5 !max-w-md">{detail}</p>
           </div>
           <div
             aria-hidden
@@ -51,7 +51,7 @@ export function BookingSlot({
             ))}
           </div>
         </div>
-        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 border-t border-line pt-6 text-[0.78rem] text-muted">
+        <div className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-t border-line pt-5 text-[0.78rem] text-muted">
           <span className="eyebrow text-muted">Vorschau</span>
           <span>Kalender · Zeitslots · Bestätigung</span>
           <span className="text-accent-text">Bald verfügbar</span>

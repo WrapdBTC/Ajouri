@@ -15,9 +15,9 @@ export default function IsabelleGalerie() {
     <>
       <Hero
         size="page"
-        image="/assets/isabelle/03-tattoo-botanical.jpg"
-        alt="Fine-Line botanisches Tattoo"
-        position="50% 45%"
+        image="/assets/isabelle/01-hero.jpg"
+        alt="Dunkles Fine-Line Atelier"
+        position="50% 40%"
         eyebrow="Galerie · Atelier Isabelle"
         title={
           <>
@@ -37,9 +37,8 @@ export default function IsabelleGalerie() {
         }
       />
 
-      {/* Alternating full-bleed / detail crop — masonry energy */}
       <section className="pt-6 md:pt-8">
-        {/* Full-bleed botanical */}
+        {/* Botanical — once */}
         <figure className="reveal">
           <div className="ken-wrap relative aspect-[16/10] w-full overflow-hidden md:aspect-[22/10]">
             <Img
@@ -55,24 +54,10 @@ export default function IsabelleGalerie() {
           </figcaption>
         </figure>
 
-        {/* Detail crop pair */}
-        <div className="container-x mt-5 grid gap-5 md:mt-7 md:grid-cols-12 md:gap-6">
-          <figure className="reveal md:col-span-5 md:pt-8 lg:pt-12">
-            <div className="ken-wrap relative aspect-square overflow-hidden bg-surface">
-              <Img
-                src="/assets/isabelle/04-tattoo-geometric.jpg"
-                alt="Geometrisches Fine-Line Detail"
-                position="35% 40%"
-                zoom={1.35}
-                className="ken-img absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-            <figcaption className="mt-4">
-              <p className="eyebrow text-accent-text">Geometric</p>
-            </figcaption>
-          </figure>
-          <figure className="reveal md:col-span-7">
-            <div className="ken-wrap relative aspect-[4/5] overflow-hidden bg-surface md:aspect-[5/6]">
+        {/* Equal sibling pair: geometric + portal */}
+        <div className="container-x mt-5 grid items-stretch gap-5 md:mt-7 md:grid-cols-2 md:gap-6">
+          <figure className="reveal flex h-full flex-col">
+            <div className="ken-wrap relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
                 src="/assets/isabelle/04-tattoo-geometric.jpg"
                 alt="Fine-Line-Tattoo mit geometrischem Motiv"
@@ -85,9 +70,23 @@ export default function IsabelleGalerie() {
               <p className="text-[0.85rem] text-ink/70">Klare Linien · ruhige Proportionen</p>
             </figcaption>
           </figure>
+          <figure className="reveal flex h-full flex-col">
+            <div className="ken-wrap relative aspect-[4/5] overflow-hidden bg-surface">
+              <Img
+                src="/assets/isabelle/06-portal.jpg"
+                alt="Atelier-Atmosphäre"
+                position="50% 50%"
+                className="ken-img absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+            <figcaption className="mt-4 flex items-baseline justify-between gap-4">
+              <p className="eyebrow text-accent-text">Atelier</p>
+              <p className="text-[0.85rem] text-ink/70">Raum · Licht · Präzision</p>
+            </figcaption>
+          </figure>
         </div>
 
-        {/* Full-bleed session */}
+        {/* Session — once */}
         <figure className="reveal mt-5 md:mt-7">
           <div className="ken-wrap relative aspect-[16/9] overflow-hidden md:aspect-[2.4/1]">
             <Img
@@ -110,34 +109,19 @@ export default function IsabelleGalerie() {
           </figcaption>
         </figure>
 
-        {/* Portrait detail as closing crop */}
-        <div className="container-x mt-5 mb-2 grid gap-5 md:mt-7 md:mb-0 md:grid-cols-12">
-          <figure className="reveal md:col-span-4 md:col-start-3">
+        {/* Portrait closing — once, centered */}
+        <div className="container-x mt-5 mb-2 md:mt-7 md:mb-0">
+          <figure className="reveal mx-auto max-w-md">
             <div className="ken-wrap relative aspect-[3/4] overflow-hidden bg-surface">
               <Img
                 src="/assets/isabelle/02-portrait.jpg"
-                alt=""
+                alt="Isabelle Ajouri"
                 position="52% 22%"
-                zoom={1.6}
                 className="ken-img absolute inset-0 h-full w-full object-cover"
               />
             </div>
-            <figcaption className="mt-4">
-              <p className="eyebrow text-accent-text">Atelier</p>
-            </figcaption>
-          </figure>
-          <figure className="reveal md:col-span-5 md:col-start-8 md:pt-10 lg:pt-14">
-            <div className="ken-wrap relative aspect-[4/5] overflow-hidden bg-surface">
-              <Img
-                src="/assets/isabelle/03-tattoo-botanical.jpg"
-                alt=""
-                position="70% 60%"
-                zoom={1.4}
-                className="ken-img absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-            <figcaption className="mt-4">
-              <p className="eyebrow text-accent-text">Detail</p>
+            <figcaption className="mt-4 text-center">
+              <p className="eyebrow text-accent-text">Isabelle Ajouri</p>
             </figcaption>
           </figure>
         </div>

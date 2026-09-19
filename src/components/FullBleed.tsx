@@ -23,7 +23,7 @@ export function FullBleed({
   priority,
   children,
 }: Props) {
-  // Never pair aspect-ratio with min-height — browsers expand width to satisfy both (horizontal scroll).
+  // Never pair aspect-ratio with min-height — browsers expand width (horizontal scroll).
   const h =
     height === "screen"
       ? "min-h-[70svh] md:min-h-[85svh]"
@@ -32,8 +32,8 @@ export function FullBleed({
         : "aspect-[16/9] w-full md:aspect-[24/10]";
 
   return (
-    <figure className={`reveal relative isolate overflow-hidden ${className}`}>
-      <div className={`ken-wrap relative w-full ${h}`}>
+    <figure className={`reveal relative isolate max-w-[100vw] overflow-hidden ${className}`}>
+      <div className={`ken-wrap relative w-full overflow-hidden ${h}`}>
         <Img
           src={src}
           alt={alt}

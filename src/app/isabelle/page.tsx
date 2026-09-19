@@ -225,7 +225,7 @@ export default function IsabelleHome() {
               Fine-Line mit <em className="!text-accent-text">editorialer Schärfe.</em>
             </h2>
           </div>
-          <ul className="mt-8 grid gap-0 border-t border-current/15 md:mt-10 md:grid-cols-3">
+          <ul className="mt-8 grid items-stretch gap-0 border-t border-current/20 md:mt-10 md:grid-cols-3">
             {[
               ["Fein & reduziert", "Wenige Linien, viel Raum. Nur das, was die Idee trägt."],
               ["Botanik & Geometrie", "Pflanzen, die atmen. Formen, die ruhen."],
@@ -233,13 +233,13 @@ export default function IsabelleHome() {
             ].map(([title, text], i) => (
               <li
                 key={title}
-                className="reveal border-b border-current/15 py-8 md:border-b-0 md:border-l md:px-7 md:py-10 md:first:border-l-0 md:first:pl-0"
+                className="reveal flex h-full flex-col border-b border-current/20 py-8 md:border-b-0 md:border-l md:px-7 md:py-10 md:first:border-l-0 md:first:pl-0"
               >
-                <span className="font-display text-5xl leading-none text-accent tabular-nums opacity-80">
+                <span className="font-display text-5xl leading-none text-accent tabular-nums opacity-90">
                   0{i + 1}
                 </span>
                 <h3 className="display-3 mt-7">{title}</h3>
-                <p className="mt-3 max-w-xs text-[0.95rem] leading-relaxed opacity-70">{text}</p>
+                <p className="mt-3 max-w-xs flex-1 text-[0.95rem] leading-relaxed text-deep-ink/75">{text}</p>
               </li>
             ))}
           </ul>

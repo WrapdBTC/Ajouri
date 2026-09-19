@@ -47,13 +47,13 @@ export default function IsabelleProzess() {
             <h2 className="display-2 mt-5 text-deep-ink">
               Klar geführt. <em className="!text-accent-text">Ohne Lärm.</em>
             </h2>
-            <p className="mt-5 max-w-sm text-[1.05rem] leading-relaxed text-deep-ink/75">
+            <p className="mt-5 max-w-sm text-[1.05rem] leading-relaxed text-deep-ink/80">
               Du weißt jederzeit, wo du stehst — von der ersten Mail bis zur Nachsorge.
             </p>
           </div>
 
           <ChapterIndex
-            className="mt-8 border-line md:mt-10 [&_.body-copy]:!text-deep-ink/70 [&_.chapter-num]:!text-accent-text [&_.display-3]:!text-deep-ink [&_li]:border-deep-ink/20"
+            className="mt-8 border-deep-ink/25 md:mt-10 [&_.body-copy]:!max-w-none [&_.body-copy]:!text-deep-ink/75 [&_.chapter-num]:!text-accent-text [&_.chapter-num]:!opacity-100 [&_.display-3]:!text-deep-ink [&_li]:border-deep-ink/25"
             chapters={[
               {
                 numeral: "I",
@@ -81,9 +81,9 @@ export default function IsabelleProzess() {
       </section>
 
       <FullBleed
-        src="/assets/isabelle/05-process.jpg"
-        alt="Arbeitsprozess im Tattoo-Atelier"
-        position="50% 35%"
+        src="/assets/isabelle/06-portal.jpg"
+        alt="Atelier-Atmosphäre"
+        position="50% 50%"
         height="band"
       />
 

@@ -12,12 +12,12 @@ type Props = {
   alt?: string;
 };
 
-/** Editorial teaser card linking into a house subpage. */
+/** Editorial teaser card — equal-height siblings via h-full / flex stretch. */
 export function TeaserCard({ href, eyebrow, title, text, image, position, alt = "" }: Props) {
   return (
     <NextLink
       href={href}
-      className="reveal group group/btn flex flex-col border-t border-line pt-8 transition-opacity duration-500 hover:opacity-95"
+      className="reveal group group/btn flex h-full flex-col border-t border-line pt-8 transition-opacity duration-500 hover:opacity-95"
     >
       {image && (
         <div className="ken-wrap relative mb-7 aspect-[16/10] overflow-hidden bg-surface">
@@ -31,7 +31,7 @@ export function TeaserCard({ href, eyebrow, title, text, image, position, alt = 
       )}
       <p className="eyebrow text-accent-text">{eyebrow}</p>
       <h3 className="display-3 mt-3">{title}</h3>
-      <p className="body-copy mt-4 flex-1">{text}</p>
+      <p className="body-copy mt-4 flex-1 !max-w-none">{text}</p>
       <span className="eyebrow mt-7 flex items-center gap-3 pb-1 text-ink">
         Weiterlesen <Arrow />
       </span>

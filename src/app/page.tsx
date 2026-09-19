@@ -24,23 +24,15 @@ const principles = [
   },
 ];
 
-/** Staggered portal — distinct aspect per house, not three equal cards. */
-function Portal({
-  m,
-  aspect,
-  offset,
-}: {
-  m: (typeof family)[number];
-  aspect: string;
-  offset?: string;
-}) {
+/** Equal portal cards — same aspect, stretch siblings. */
+function Portal({ m }: { m: (typeof family)[number] }) {
   return (
     <NextLink
       href={m.href}
       data-theme={m.slug}
-      className={`reveal group group/btn flex flex-col bg-bg text-ink ${offset ?? ""}`}
+      className="reveal group group/btn flex h-full flex-col bg-bg text-ink"
     >
-      <div className={`ken-wrap relative overflow-hidden ${aspect}`}>
+      <div className="ken-wrap relative aspect-[3/4] overflow-hidden">
         <Img
           src={m.portal}
           alt=""
@@ -49,7 +41,7 @@ function Portal({
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-bg/70 via-transparent to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-bg/75 via-transparent to-transparent"
         />
         <span className="font-display absolute top-5 left-5 text-[2rem] leading-none text-ink/90 md:top-6 md:left-6 md:text-[2.4rem]">
           {m.numeral}
@@ -129,17 +121,10 @@ export default function HubPage() {
             lead="Jede Welt steht für sich — mit eigener Atmosphäre, eigenem Handwerk und eigener Adresse. Tritt dort ein, wo es dich hinzieht."
           />
 
-          {/* Staggered: Michelle tall, Sabine offset wide, Isabelle tall */}
-          <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-12 md:gap-7 lg:gap-8">
-            <div className="md:col-span-4">
-              <Portal m={family[0]} aspect="aspect-[3/4]" />
-            </div>
-            <div className="md:col-span-4 md:pt-14 lg:pt-20">
-              <Portal m={family[1]} aspect="aspect-[4/5]" />
-            </div>
-            <div className="md:col-span-4 md:pt-6 lg:pt-8">
-              <Portal m={family[2]} aspect="aspect-[3/4.2]" />
-            </div>
+          <div className="mt-10 grid items-stretch gap-8 md:mt-14 md:grid-cols-3 md:gap-7 lg:gap-8">
+            {family.map((m) => (
+              <Portal key={m.slug} m={m} />
+            ))}
           </div>
         </div>
       </section>
@@ -196,11 +181,11 @@ export default function HubPage() {
             lead="Jedes Haus hat seine eigene Adresse und seinen eigenen Draht. Am schnellsten geht es direkt."
           />
 
-          <div className="mt-12 grid border-t border-line md:mt-16 md:grid-cols-3">
+          <div className="mt-12 grid items-stretch border-t border-line md:mt-16 md:grid-cols-3">
             {family.map((m) => (
               <div
                 key={m.slug}
-                className="reveal flex flex-col border-b border-line py-8 md:border-b-0 md:border-l md:px-8 md:py-10 md:first:border-l-0 md:first:pl-0"
+                className="reveal flex h-full flex-col border-b border-line py-8 md:border-b-0 md:border-l md:px-8 md:py-10 md:first:border-l-0 md:first:pl-0"
               >
                 <div className="flex items-center gap-3">
                   <span

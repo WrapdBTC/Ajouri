@@ -5,7 +5,6 @@ import { Arrow, Button } from "@/components/Button";
 import { Eyebrow } from "@/components/SectionIntro";
 import { PullQuote } from "@/components/PullQuote";
 import { ChapterIndex } from "@/components/ChapterIndex";
-import { FullBleed } from "@/components/FullBleed";
 import { Marquee } from "@/components/Marquee";
 import { EditorialCover } from "@/components/EditorialCover";
 import { asset } from "@/lib/asset";
@@ -144,13 +143,6 @@ export default function SabineHome() {
         </div>
       </section>
 
-      <FullBleed
-        src="/assets/sabine/03-bowls.jpg"
-        alt="Klangschalen in warmem Licht"
-        position="50% 50%"
-        height="tall"
-      />
-
       {/* Editorial covers */}
       <section className="section-y">
         <div className="container-x">
@@ -161,42 +153,36 @@ export default function SabineHome() {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-8">
-            <div className="md:col-span-5">
-              <EditorialCover
-                href="/sabine/angebote/"
-                eyebrow="Angebote"
-                title="Klangreise & mehr"
-                text="Klangreise, Klangmassage, Meditation und Regulationsabend — Formate für Auszeit."
-                image="/assets/sabine/03-bowls.jpg"
-                position="50% 50%"
-                alt="Klangschalen"
-                aspect="tall"
-              />
-            </div>
-            <div className="md:col-span-4 md:pt-10 lg:pt-14">
-              <EditorialCover
-                href="/sabine/studio/"
-                eyebrow="Studio"
-                title="Freitagabend. Tür offen."
-                text="Jeden Freitag 16:30–18:00 ohne Anmeldung — für einen ersten Eindruck."
-                image="/assets/sabine/04-klangmassage.jpg"
-                position="55% 45%"
-                alt="Klangmassage"
-                aspect="square"
-              />
-            </div>
-            <div className="md:col-span-3 md:pt-4">
-              <EditorialCover
-                href="/sabine/kontakt/"
-                eyebrow="Kontakt"
-                title="Melde dich. Ganz in Ruhe."
-                text="Adresse, Telefon und der Platz für den Buchungskalender."
-                image="/assets/sabine/05-portal.jpg"
-                position="76% 50%"
-                aspect="tall"
-              />
-            </div>
+          <div className="mt-12 grid items-stretch gap-8 md:mt-16 md:grid-cols-3 md:gap-7">
+            <EditorialCover
+              href="/sabine/angebote/"
+              eyebrow="Angebote"
+              title="Klangreise & mehr"
+              text="Klangreise, Klangmassage, Meditation und Regulationsabend — Formate für Auszeit."
+              image="/assets/sabine/03-bowls.jpg"
+              position="50% 50%"
+              alt="Klangschalen"
+              aspect="tall"
+            />
+            <EditorialCover
+              href="/sabine/studio/"
+              eyebrow="Studio"
+              title="Freitagabend. Tür offen."
+              text="Jeden Freitag 16:30–18:00 ohne Anmeldung — für einen ersten Eindruck."
+              image="/assets/sabine/04-klangmassage.jpg"
+              position="55% 45%"
+              alt="Klangmassage"
+              aspect="tall"
+            />
+            <EditorialCover
+              href="/sabine/kontakt/"
+              eyebrow="Kontakt"
+              title="Melde dich. Ganz in Ruhe."
+              text="Adresse, Telefon und der Platz für den Buchungskalender."
+              image="/assets/sabine/05-portal.jpg"
+              position="76% 50%"
+              aspect="tall"
+            />
           </div>
         </div>
       </section>

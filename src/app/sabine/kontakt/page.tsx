@@ -163,11 +163,11 @@ export default function SabineKontakt() {
 
           <div className="reveal mt-10 border-t border-line pt-8 md:mt-12 md:pt-10">
             <Eyebrow>Kurz gefragt</Eyebrow>
-            <ul className="mt-6 grid gap-6 sm:grid-cols-3 sm:gap-8">
+            <ul className="mt-6 grid items-stretch gap-6 sm:grid-cols-3 sm:gap-8">
               {faq.map((item) => (
-                <li key={item.q}>
+                <li key={item.q} className="flex h-full flex-col">
                   <p className="font-display text-xl leading-snug">{item.q}</p>
-                  <p className="body-copy mt-2 !max-w-none text-[0.9rem]">{item.a}</p>
+                  <p className="body-copy mt-2 flex-1 !max-w-none text-[0.9rem]">{item.a}</p>
                 </li>
               ))}
             </ul>

@@ -108,10 +108,10 @@ export default function MichelleLeistungen() {
           <div className="grid gap-10 md:grid-cols-12 md:items-center md:gap-12">
             <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-5 md:aspect-[3/4]">
               <Img
-                src="/assets/michelle/03-treatment.jpg"
-                alt="Treatment Detail"
-                position="70% 40%"
-                zoom={1.15}
+                src="/assets/michelle/01-hero.jpg"
+                alt="Behandlungssuite — Atmosphäre"
+                position="58% 45%"
+                zoom={1.1}
                 className="ken-img absolute inset-0 h-full w-full object-cover"
               />
             </div>

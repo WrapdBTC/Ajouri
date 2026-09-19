@@ -11,7 +11,7 @@ type Props = {
   layout?: "rail" | "row";
 };
 
-/** Numbered journey — I / II / III energy (Anam Cara–like ritual). */
+/** Numbered journey — equal-height row cells; readable on light and deep surfaces. */
 export function ChapterIndex({ chapters, className = "", layout = "rail" }: Props) {
   if (layout === "row") {
     const cols =
@@ -22,15 +22,15 @@ export function ChapterIndex({ chapters, className = "", layout = "rail" }: Prop
           : "sm:grid-cols-2";
 
     return (
-      <ol className={`grid gap-0 border-t border-line ${cols} ${className}`}>
+      <ol className={`grid items-stretch gap-0 border-t border-line ${cols} ${className}`}>
         {chapters.map((ch) => (
           <li
             key={ch.numeral}
-            className="reveal border-b border-line py-6 last:border-b-0 sm:border-b-0 sm:border-l sm:px-5 sm:py-7 lg:px-6 sm:first:border-l-0 sm:first:pl-0"
+            className="reveal flex h-full flex-col border-b border-line py-6 last:border-b-0 sm:border-b-0 sm:border-l sm:px-5 sm:py-7 lg:px-6 sm:first:border-l-0 sm:first:pl-0"
           >
             <span className="chapter-num !text-[2.5rem] md:!text-[3.15rem]">{ch.numeral}</span>
             <h3 className="display-3 mt-4">{ch.title}</h3>
-            {ch.line && <p className="body-copy mt-2.5">{ch.line}</p>}
+            {ch.line && <p className="body-copy mt-2.5 flex-1">{ch.line}</p>}
           </li>
         ))}
       </ol>
