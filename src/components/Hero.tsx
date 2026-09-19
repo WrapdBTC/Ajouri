@@ -65,7 +65,7 @@ export function Hero({
         className={`container-x flex items-end ${
           isPage
             ? "min-h-[36svh] pt-24 pb-10 md:min-h-[42svh] md:pt-28 md:pb-12"
-            : "min-h-[calc(100svh-5.25rem)] pt-40 pb-16 md:pt-44 md:pb-20"
+            : "min-h-[min(100svh-5.25rem,42rem)] pt-32 pb-12 md:min-h-[calc(100svh-5.25rem)] md:pt-44 md:pb-20"
         }`}
       >
         <div className={`relative rounded-sm ${isPage ? "max-w-xl" : "max-w-3xl"}`}>

@@ -58,8 +58,9 @@ function Portal({ m }: { m: (typeof family)[number] }) {
       </div>
       <div className="flex flex-1 flex-col border-t border-line pt-6 pb-1">
         <p className="body-copy !max-w-none flex-1 text-[0.95rem]">{m.line}</p>
-        <span className="eyebrow mt-6 flex items-center gap-3 text-ink">
-          Eintreten <Arrow />
+        <span className="eyebrow mt-6 inline-flex items-center gap-3 text-ink">
+          <span className="sr-only">Zur Welt von {m.first}</span>
+          Zur Welt <Arrow />
         </span>
       </div>
     </NextLink>
@@ -82,9 +83,9 @@ export default function HubPage() {
 
         <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-12 md:items-end">
           <p className="display-2 anim-rise anim-rise-2 md:col-span-7">
-            <span className="whitespace-nowrap">Drei Frauen.</span>{" "}
-            <span className="whitespace-nowrap">Drei Handwerke.</span>{" "}
-            <em className="whitespace-nowrap">Ein Name.</em>
+            <span className="sm:whitespace-nowrap">Drei Frauen.</span>{" "}
+            <span className="sm:whitespace-nowrap">Drei Handwerke.</span>{" "}
+            <em className="sm:whitespace-nowrap">Ein Name.</em>
           </p>
           <p className="lead anim-rise anim-rise-3 !max-w-none md:col-span-4 md:col-start-9">
             Michelle, Sabine und Isabelle Ajouri führen drei eigenständige Häuser — für die Haut,
@@ -118,7 +119,7 @@ export default function HubPage() {
                 Drei Häuser, <em>eine Familie.</em>
               </>
             }
-            lead="Jede Welt steht für sich — mit eigener Atmosphäre, eigenem Handwerk und eigener Adresse. Tritt dort ein, wo es dich hinzieht."
+            lead="Jede Welt steht für sich — mit eigener Atmosphäre, eigenem Handwerk und eigener Adresse."
           />
 
           <div className="mt-10 grid items-stretch gap-8 md:mt-14 md:grid-cols-3 md:gap-7 lg:gap-8">

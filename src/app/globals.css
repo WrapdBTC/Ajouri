@@ -431,3 +431,35 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
   html { scroll-behavior: auto; }
   .marquee-track { animation: none !important; }
 }
+
+
+/* === MOBILE HARDENING === */
+@media (max-width: 767px) {
+  .wordmark {
+    font-size: clamp(2.75rem, 18vw, 5.5rem) !important;
+    letter-spacing: 0.08em !important;
+  }
+  .display-0 {
+    font-size: clamp(2.75rem, 14vw, 4.5rem);
+  }
+  .display-1 {
+    font-size: clamp(2.35rem, 11vw, 3.5rem);
+  }
+  .display-2 {
+    font-size: clamp(1.85rem, 8vw, 2.75rem);
+  }
+  .container-x {
+    padding-inline: 1.15rem;
+  }
+  .section-y {
+    padding-block: 3.25rem;
+  }
+  .section-y-tight {
+    padding-block: 2.25rem;
+  }
+  /* Prevent accidental horizontal scroll from wide grids/media */
+  .ken-wrap,
+  .marquee-track {
+    max-width: 100%;
+  }
+}
