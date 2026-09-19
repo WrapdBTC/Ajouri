@@ -43,7 +43,7 @@ export default function SabineStudio() {
         }
       />
 
-      <section className="pt-10 md:pt-14">
+      <section className="pt-6 md:pt-8">
         <div className="container-x">
           <MetaRow
             items={[
@@ -56,7 +56,7 @@ export default function SabineStudio() {
         </div>
       </section>
 
-      <section className="section-y !pt-10 md:!pt-14">
+      <section className="section-y-tight !pt-6 md:!pt-8">
         <div className="container-x grid gap-12 md:grid-cols-12 md:gap-14">
           <div className="reveal md:col-span-5">
             <Eyebrow index="I">Offenes Studio</Eyebrow>
@@ -93,7 +93,7 @@ export default function SabineStudio() {
       </section>
 
       {/* Numbered Friday ritual */}
-      <section className="section-y bg-surface">
+      <section className="section-y-tight bg-surface">
         <div className="container-x">
           <div className="reveal max-w-xl">
             <Eyebrow>So läuft dein Freitag</Eyebrow>
@@ -102,7 +102,7 @@ export default function SabineStudio() {
             </h2>
           </div>
           <ChapterIndex
-            className="mt-12 md:mt-14"
+            className="mt-8 md:mt-10"
             layout="row"
             chapters={[
               {
@@ -130,8 +130,8 @@ export default function SabineStudio() {
         </div>
       </section>
 
-      <section className="section-y">
-        <div className="container-x grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
+      <section className="section-y-tight">
+        <div className="container-x grid gap-8 md:grid-cols-12 md:items-center md:gap-10">
           <div className="reveal ken-wrap relative aspect-[4/3] overflow-hidden md:col-span-7">
             <Img
               src="/assets/sabine/03-bowls.jpg"

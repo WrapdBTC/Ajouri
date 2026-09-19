@@ -101,7 +101,7 @@ export default function IsabelleHome() {
               href="/isabelle/galerie/"
               className="reveal ken-wrap group relative col-span-1 overflow-hidden bg-surface md:col-span-7"
             >
-              <div className={`relative ${works[0].aspect} md:aspect-[4/5] md:min-h-[32rem]`}>
+              <div className={`relative ${works[0].aspect} md:aspect-[4/5] md:min-h-[24rem]`}>
                 <Img
                   src={works[0].src}
                   alt={works[0].alt}
@@ -123,7 +123,7 @@ export default function IsabelleHome() {
                 href="/isabelle/galerie/"
                 className="reveal ken-wrap group relative flex-1 overflow-hidden bg-surface"
               >
-                <div className="relative aspect-[4/5] md:aspect-auto md:h-full md:min-h-[14rem]">
+                <div className="relative aspect-[4/5] md:aspect-auto md:h-full md:min-h-[11rem]">
                   <Img
                     src={works[1].src}
                     alt={works[1].alt}
@@ -177,8 +177,8 @@ export default function IsabelleHome() {
       />
 
       {/* Sparse atelier intro */}
-      <section className="section-y">
-        <div className="container-x grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
+      <section className="section-y-tight">
+        <div className="container-x grid gap-10 md:grid-cols-12 md:items-center md:gap-12">
           <figure className="reveal ken-wrap md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
@@ -217,7 +217,7 @@ export default function IsabelleHome() {
       </section>
 
       {/* Style points — sparse, black-heavy */}
-      <section className="section-y bg-deep text-deep-ink">
+      <section className="section-y-tight bg-deep text-deep-ink">
         <div className="container-x">
           <div className="reveal max-w-xl">
             <p className="eyebrow opacity-60">Stil</p>
@@ -225,7 +225,7 @@ export default function IsabelleHome() {
               Fine-Line mit <em className="!text-accent-text">editorialer Schärfe.</em>
             </h2>
           </div>
-          <ul className="mt-12 grid gap-0 border-t border-current/15 md:mt-16 md:grid-cols-3">
+          <ul className="mt-8 grid gap-0 border-t border-current/15 md:mt-10 md:grid-cols-3">
             {[
               ["Fein & reduziert", "Wenige Linien, viel Raum. Nur das, was die Idee trägt."],
               ["Botanik & Geometrie", "Pflanzen, die atmen. Formen, die ruhen."],
@@ -233,7 +233,7 @@ export default function IsabelleHome() {
             ].map(([title, text], i) => (
               <li
                 key={title}
-                className="reveal border-b border-current/15 py-12 md:border-b-0 md:border-l md:px-8 md:py-14 md:first:border-l-0 md:first:pl-0"
+                className="reveal border-b border-current/15 py-8 md:border-b-0 md:border-l md:px-7 md:py-10 md:first:border-l-0 md:first:pl-0"
               >
                 <span className="font-display text-5xl leading-none text-accent tabular-nums opacity-80">
                   0{i + 1}
@@ -253,8 +253,8 @@ export default function IsabelleHome() {
         height="band"
       />
 
-      <section className="section-y">
-        <div className="container-x grid gap-10 md:grid-cols-12 md:items-end">
+      <section className="section-y-tight">
+        <div className="container-x grid gap-8 md:grid-cols-12 md:items-end">
           <div className="reveal md:col-span-7">
             <Eyebrow>Nächster Schritt</Eyebrow>
             <h2 className="display-2 mt-6">

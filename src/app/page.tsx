@@ -116,7 +116,7 @@ export default function HubPage() {
       </section>
 
       {/* ---------- Die drei Welten — staggered portals ---------- */}
-      <section id="welten" className="section-y">
+      <section id="welten" className="section-y-tight">
         <div className="container-x">
           <SectionIntro
             layout="split"
@@ -130,7 +130,7 @@ export default function HubPage() {
           />
 
           {/* Staggered: Michelle tall, Sabine offset wide, Isabelle tall */}
-          <div className="mt-12 grid gap-10 md:mt-20 md:grid-cols-12 md:gap-8 lg:gap-10">
+          <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-12 md:gap-7 lg:gap-8">
             <div className="md:col-span-4">
               <Portal m={family[0]} aspect="aspect-[3/4]" />
             </div>
@@ -145,7 +145,7 @@ export default function HubPage() {
       </section>
 
       {/* ---------- Haltung with pull-quote ---------- */}
-      <section id="haltung" className="section-y bg-surface">
+      <section id="haltung" className="section-y-tight bg-surface">
         <div className="container-x">
           <div className="mx-auto max-w-3xl">
             <PullQuote variant="statement" cite="— Die Haltung der Familie Ajouri">
@@ -153,7 +153,7 @@ export default function HubPage() {
             </PullQuote>
           </div>
 
-          <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12">
+          <div className="mt-10 grid gap-10 md:mt-14 md:grid-cols-12">
             <div className="reveal md:col-span-4">
               <Eyebrow>Die Haltung</Eyebrow>
               <h2 className="display-2 mt-6">
@@ -168,7 +168,7 @@ export default function HubPage() {
               {principles.map((p) => (
                 <li
                   key={p.title}
-                  className="reveal grid grid-cols-[4rem_1fr] gap-5 border-t border-line py-10 last:border-b md:grid-cols-[5.5rem_1fr] md:gap-8"
+                  className="reveal grid grid-cols-[4rem_1fr] gap-5 border-t border-line py-7 last:border-b md:grid-cols-[5.5rem_1fr] md:gap-8"
                 >
                   <span className="chapter-num !text-[2.5rem] md:!text-[3.25rem]">{p.numeral}</span>
                   <div className="pt-1">
@@ -183,7 +183,7 @@ export default function HubPage() {
       </section>
 
       {/* ---------- Adressen ---------- */}
-      <section id="adressen" className="section-y">
+      <section id="adressen" className="section-y-tight">
         <div className="container-x">
           <SectionIntro
             layout="split"
@@ -200,7 +200,7 @@ export default function HubPage() {
             {family.map((m) => (
               <div
                 key={m.slug}
-                className="reveal flex flex-col border-b border-line py-12 md:border-b-0 md:border-l md:px-8 md:py-14 md:first:border-l-0 md:first:pl-0"
+                className="reveal flex flex-col border-b border-line py-8 md:border-b-0 md:border-l md:px-8 md:py-10 md:first:border-l-0 md:first:pl-0"
               >
                 <div className="flex items-center gap-3">
                   <span

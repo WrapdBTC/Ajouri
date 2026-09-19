@@ -88,7 +88,7 @@ export default function SabineAngebote() {
         }
       />
 
-      <section className="section-y">
+      <section className="section-y-tight">
         <div className="container-x">
           <SectionIntro
             layout="split"
@@ -102,11 +102,11 @@ export default function SabineAngebote() {
             lead="Keine Bullet-Menüs — jedes Angebot mit Stimmung und für wen es gedacht ist."
           />
 
-          <div className="mt-12 space-y-0 md:mt-16">
+          <div className="mt-8 space-y-0 md:mt-10">
             {offerings.map((o, i) => (
               <article
                 key={o.name}
-                className={`reveal grid gap-8 border-t border-line py-12 md:grid-cols-12 md:gap-12 md:py-16 ${
+                className={`reveal grid gap-6 border-t border-line py-7 md:grid-cols-12 md:gap-8 md:py-9 ${
                   i === offerings.length - 1 ? "border-b" : ""
                 }`}
               >
@@ -148,7 +148,7 @@ export default function SabineAngebote() {
         height="band"
       />
 
-      <section className="section-y">
+      <section className="section-y-tight">
         <div className="container-x grid gap-10 md:grid-cols-12 md:items-center">
           <div className="reveal md:col-span-6">
             <Eyebrow>Im Fokus</Eyebrow>

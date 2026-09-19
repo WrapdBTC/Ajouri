@@ -38,7 +38,7 @@ export default function IsabelleGalerie() {
       />
 
       {/* Alternating full-bleed / detail crop — masonry energy */}
-      <section className="pt-8 md:pt-12">
+      <section className="pt-6 md:pt-8">
         {/* Full-bleed botanical */}
         <figure className="reveal">
           <div className="ken-wrap relative aspect-[16/10] w-full overflow-hidden md:aspect-[22/10]">
@@ -49,15 +49,15 @@ export default function IsabelleGalerie() {
               className="ken-img absolute inset-0 h-full w-full object-cover"
             />
           </div>
-          <figcaption className="container-x mt-5 flex items-baseline justify-between gap-4">
+          <figcaption className="container-x mt-3 flex items-baseline justify-between gap-4">
             <p className="eyebrow text-accent-text">Botanical</p>
-            <p className="text-[0.85rem] text-muted">Ranken · Blätter · Blüten</p>
+            <p className="text-[0.85rem] text-ink/70">Ranken · Blätter · Blüten</p>
           </figcaption>
         </figure>
 
         {/* Detail crop pair */}
-        <div className="container-x mt-8 grid gap-6 md:mt-12 md:grid-cols-12 md:gap-8">
-          <figure className="reveal md:col-span-5 md:pt-14 lg:pt-20">
+        <div className="container-x mt-5 grid gap-5 md:mt-7 md:grid-cols-12 md:gap-6">
+          <figure className="reveal md:col-span-5 md:pt-8 lg:pt-12">
             <div className="ken-wrap relative aspect-square overflow-hidden bg-surface">
               <Img
                 src="/assets/isabelle/04-tattoo-geometric.jpg"
@@ -82,13 +82,13 @@ export default function IsabelleGalerie() {
             </div>
             <figcaption className="mt-4 flex items-baseline justify-between gap-4">
               <p className="eyebrow text-accent-text">Geometric</p>
-              <p className="text-[0.85rem] text-muted">Klare Linien · ruhige Proportionen</p>
+              <p className="text-[0.85rem] text-ink/70">Klare Linien · ruhige Proportionen</p>
             </figcaption>
           </figure>
         </div>
 
         {/* Full-bleed session */}
-        <figure className="reveal mt-8 md:mt-12">
+        <figure className="reveal mt-5 md:mt-7">
           <div className="ken-wrap relative aspect-[16/9] overflow-hidden md:aspect-[2.4/1]">
             <Img
               src="/assets/isabelle/05-process.jpg"
@@ -97,10 +97,10 @@ export default function IsabelleGalerie() {
               className="ken-img absolute inset-0 h-full w-full object-cover"
             />
           </div>
-          <figcaption className="container-x mt-5 flex flex-wrap items-baseline justify-between gap-4">
+          <figcaption className="container-x mt-3 flex flex-wrap items-baseline justify-between gap-4">
             <div>
               <p className="eyebrow text-accent-text">Session</p>
-              <p className="mt-1 text-[0.85rem] text-muted">
+              <p className="mt-1 text-[0.85rem] text-ink/70">
                 Vom Entwurf zur Session — die Linie entsteht in Ruhe.
               </p>
             </div>
@@ -111,7 +111,7 @@ export default function IsabelleGalerie() {
         </figure>
 
         {/* Portrait detail as closing crop */}
-        <div className="container-x mt-8 mb-4 grid gap-6 md:mt-12 md:mb-0 md:grid-cols-12">
+        <div className="container-x mt-5 mb-2 grid gap-5 md:mt-7 md:mb-0 md:grid-cols-12">
           <figure className="reveal md:col-span-4 md:col-start-3">
             <div className="ken-wrap relative aspect-[3/4] overflow-hidden bg-surface">
               <Img
@@ -126,7 +126,7 @@ export default function IsabelleGalerie() {
               <p className="eyebrow text-accent-text">Atelier</p>
             </figcaption>
           </figure>
-          <figure className="reveal md:col-span-5 md:col-start-8 md:pt-16 lg:pt-24">
+          <figure className="reveal md:col-span-5 md:col-start-8 md:pt-10 lg:pt-14">
             <div className="ken-wrap relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
                 src="/assets/isabelle/03-tattoo-botanical.jpg"
@@ -143,7 +143,7 @@ export default function IsabelleGalerie() {
         </div>
       </section>
 
-      <section className="section-y bg-surface">
+      <section className="section-y-tight bg-surface">
         <div className="container-x">
           <div className="reveal mx-auto max-w-lg text-center">
             <Eyebrow>Richtung</Eyebrow>

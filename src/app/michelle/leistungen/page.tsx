@@ -103,9 +103,9 @@ export default function MichelleLeistungen() {
       />
 
       {/* Featured treatment — magazine row */}
-      <section className="section-y">
+      <section className="section-y-tight">
         <div className="container-x">
-          <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
+          <div className="grid gap-10 md:grid-cols-12 md:items-center md:gap-12">
             <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-5 md:aspect-[3/4]">
               <Img
                 src="/assets/michelle/03-treatment.jpg"
@@ -139,7 +139,7 @@ export default function MichelleLeistungen() {
         </div>
       </section>
 
-      <section className="section-y bg-surface">
+      <section className="section-y-tight bg-surface">
         <div className="container-x">
           <SectionIntro
             layout="split"
@@ -153,7 +153,7 @@ export default function MichelleLeistungen() {
             lead="Auf dem Ersttermin baut jede weitere Behandlung auf — mit Analyse und einem Facial, das zu deinem Hautbild passt."
           />
 
-          <div className="mt-12 grid gap-12 md:mt-16 md:grid-cols-12">
+          <div className="mt-8 grid gap-10 md:mt-10 md:grid-cols-12">
             <div className="md:col-span-8">
               <div className="reveal">
                 <p className="eyebrow text-muted">Der Einstieg</p>
@@ -197,8 +197,8 @@ export default function MichelleLeistungen() {
         height="band"
       />
 
-      <section className="section-y">
-        <div className="container-x grid gap-12 md:grid-cols-12 md:items-start md:gap-14">
+      <section className="section-y-tight">
+        <div className="container-x grid gap-10 md:grid-cols-12 md:items-start md:gap-12">
           <div className="reveal sticky-caption md:col-span-4">
             <Eyebrow index="III">Lash &amp; Brow</Eyebrow>
             <h2 className="display-2 mt-6">
@@ -216,7 +216,7 @@ export default function MichelleLeistungen() {
             {lashBrow.map(([name, text], i) => (
               <li
                 key={name}
-                className="reveal grid grid-cols-[3.5rem_1fr] gap-4 border-t border-line py-10 last:border-b"
+                className="reveal grid grid-cols-[3.5rem_1fr] gap-4 border-t border-line py-7 last:border-b"
               >
                 <span className="chapter-num !text-[2rem]">
                   {["I", "II", "III"][i]}

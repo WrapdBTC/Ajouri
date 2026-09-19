@@ -39,21 +39,21 @@ export default function IsabelleProzess() {
         }
       />
 
-      {/* Sparse numbered steps on black */}
-      <section className="section-y bg-deep text-deep-ink">
+      {/* Dense numbered steps — high contrast on deep */}
+      <section className="section-y-tight bg-deep text-deep-ink">
         <div className="container-x">
           <div className="reveal max-w-md">
             <Eyebrow>Ablauf</Eyebrow>
-            <h2 className="display-2 mt-6">
+            <h2 className="display-2 mt-5 text-deep-ink">
               Klar geführt. <em className="!text-accent-text">Ohne Lärm.</em>
             </h2>
-            <p className="mt-6 max-w-sm text-[1.05rem] leading-relaxed opacity-70">
+            <p className="mt-5 max-w-sm text-[1.05rem] leading-relaxed text-deep-ink/75">
               Du weißt jederzeit, wo du stehst — von der ersten Mail bis zur Nachsorge.
             </p>
           </div>
 
           <ChapterIndex
-            className="mt-12 md:mt-16 [&_.chapter-num]:!text-accent-text [&_.body-copy]:!text-deep-ink/65 [&_.display-3]:!text-deep-ink [&_li]:!border-current/15"
+            className="mt-8 border-line md:mt-10 [&_.body-copy]:!text-deep-ink/70 [&_.chapter-num]:!text-accent-text [&_.display-3]:!text-deep-ink [&_li]:border-deep-ink/20"
             chapters={[
               {
                 numeral: "I",
@@ -80,17 +80,16 @@ export default function IsabelleProzess() {
         </div>
       </section>
 
-      {/* One process image interrupting */}
       <FullBleed
         src="/assets/isabelle/05-process.jpg"
         alt="Arbeitsprozess im Tattoo-Atelier"
         position="50% 35%"
-        height="tall"
+        height="band"
       />
 
-      <section className="section-y">
-        <div className="container-x grid gap-10 md:grid-cols-12 md:items-center md:gap-12">
-          <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-4">
+      <section className="section-y-tight">
+        <div className="container-x grid gap-8 md:grid-cols-12 md:items-center md:gap-10">
+          <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-4 md:aspect-[3/4]">
             <Img
               src="/assets/isabelle/02-portrait.jpg"
               alt=""
@@ -103,10 +102,10 @@ export default function IsabelleProzess() {
             <h2 className="display-2 mt-4">
               Starte mit der <em>Anfrage.</em>
             </h2>
-            <p className="lead mt-6">
+            <p className="lead mt-5">
               Motiv, Stelle, ungefähre Größe — mehr brauche ich für den ersten Schritt nicht.
             </p>
-            <Button href="/isabelle/anfrage/" className="mt-10">
+            <Button href="/isabelle/anfrage/" className="mt-8">
               Anfrage senden <Arrow />
             </Button>
           </div>

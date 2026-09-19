@@ -151,17 +151,17 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
   }
 
   .section-y {
-    padding-block: 6.5rem;
+    padding-block: 4.5rem;
   }
   @media (min-width: 768px) {
-    .section-y { padding-block: 10rem; }
+    .section-y { padding-block: 6.5rem; }
   }
 
   .section-y-tight {
-    padding-block: 4rem;
+    padding-block: 3rem;
   }
   @media (min-width: 768px) {
-    .section-y-tight { padding-block: 6rem; }
+    .section-y-tight { padding-block: 4.25rem; }
   }
 
   .eyebrow {
@@ -380,8 +380,9 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
 }
 
 @keyframes reveal {
-  from { opacity: 0; transform: translateY(32px); }
-  to { opacity: 1; transform: translateY(0); }
+  /* Transform only — opacity stays 1 so full-page capture / stalled view timelines never blank content */
+  from { transform: translateY(22px); }
+  to { transform: translateY(0); }
 }
 
 @keyframes marquee {
@@ -416,12 +417,12 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
     .reveal {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 42%;
+      animation-range: entry 0% entry 28%;
     }
     .reveal-late {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 12% entry 55%;
+      animation-range: entry 8% entry 36%;
     }
   }
 }

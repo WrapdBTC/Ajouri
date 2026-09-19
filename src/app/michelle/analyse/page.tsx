@@ -40,7 +40,7 @@ export default function MichelleAnalyse() {
       />
 
       {/* Storytelling split: technology + human — not two equal articles */}
-      <section className="section-y">
+      <section className="section-y-tight">
         <div className="container-x">
           <SectionIntro
             layout="split"
@@ -54,7 +54,7 @@ export default function MichelleAnalyse() {
             lead="Hautpflege ohne Analyse ist Raten. Hier entsteht die Grundlage für jede Empfehlung — sichtbar und nachvollziehbar."
           />
 
-          <div className="mt-12 grid gap-0 md:mt-16 md:grid-cols-12">
+          <div className="mt-8 grid gap-0 md:mt-10 md:grid-cols-12">
             {/* Large tech panel */}
             <article className="reveal relative border-t border-line pt-10 md:col-span-7 md:border-t-0 md:border-r md:pr-12 md:pt-0">
               <div className="ken-wrap relative aspect-[16/10] overflow-hidden bg-surface md:aspect-[4/3]">
@@ -105,7 +105,7 @@ export default function MichelleAnalyse() {
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="section-y-tight">
         <div className="container-x">
           <div className="reveal max-w-xl">
             <Eyebrow index="II">Ablauf</Eyebrow>
@@ -115,7 +115,7 @@ export default function MichelleAnalyse() {
             <p className="lead mt-6">Klar, ruhig und professionell geführt — damit du weißt, was dich erwartet.</p>
           </div>
           <ChapterIndex
-            className="mt-12 md:mt-14"
+            className="mt-8 md:mt-10"
             layout="row"
             chapters={[
               {
@@ -143,8 +143,8 @@ export default function MichelleAnalyse() {
         </div>
       </section>
 
-      <section className="section-y bg-surface">
-        <div className="container-x grid gap-10 md:grid-cols-12 md:items-center">
+      <section className="section-y-tight bg-surface">
+        <div className="container-x grid gap-8 md:grid-cols-12 md:items-center">
           <div className="reveal md:col-span-7">
             <Eyebrow>Weiter</Eyebrow>
             <h2 className="display-2 mt-6">
