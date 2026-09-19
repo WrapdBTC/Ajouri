@@ -6,20 +6,20 @@ type Tone = "hub" | "michelle" | "sabine" | "isabelle";
 
 const tones: Record<Tone, Record<Variant, string>> = {
   hub: {
-    solid: "bg-ink text-paper hover:bg-ink/90",
+    solid: "bg-ink text-paper hover:bg-ink/90 shadow-lg shadow-ink/10",
     outline: "border border-ink/25 text-ink hover:border-ink/60",
     ghost: "text-ink hover:bg-ink/5",
   },
   michelle: {
     solid:
-      "bg-[color:var(--color-m-ink)] text-[color:var(--color-m-surface)] hover:opacity-90",
+      "bg-[color:var(--color-m-accent-deep)] text-white hover:opacity-90 shadow-lg shadow-[color:var(--color-m-accent-deep)]/25",
     outline:
       "border border-[color:var(--color-m-accent-deep)]/40 text-[color:var(--color-m-ink)] hover:border-[color:var(--color-m-accent-deep)]",
     ghost: "text-[color:var(--color-m-accent-deep)] hover:bg-black/5",
   },
   sabine: {
     solid:
-      "bg-[color:var(--color-s-accent)] text-[color:var(--color-s-bg)] hover:bg-[color:var(--color-s-accent-soft)]",
+      "bg-[color:var(--color-s-accent)] text-[color:var(--color-s-bg)] hover:bg-[color:var(--color-s-accent-soft)] shadow-lg shadow-[color:var(--color-s-accent)]/20",
     outline:
       "border border-[color:var(--color-s-accent)]/50 text-[color:var(--color-s-accent-soft)] hover:border-[color:var(--color-s-accent)]",
     ghost: "text-[color:var(--color-s-accent-soft)] hover:bg-white/5",
@@ -51,17 +51,18 @@ export function Button({
   external,
   className = "",
 }: Props) {
-  const classes = `inline-flex items-center justify-center gap-2 px-6 py-3 text-xs tracking-[0.14em] uppercase transition-all duration-300 ${tones[tone][variant]} ${className}`;
-  if (external) {
+  const classes = `inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase transition-all duration-300 ${tones[tone][variant]} ${className}`;
+  if (external || href.startsWith("mailto:") || href.startsWith("tel:")) {
     return (
       <a
         href={href}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...(external
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
         className={classes}
       >
         {children}
-        <span aria-hidden>↗</span>
+        {external ? <span aria-hidden>↗</span> : null}
       </a>
     );
   }

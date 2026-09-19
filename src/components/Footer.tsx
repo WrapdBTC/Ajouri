@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site } from "@/lib/members";
+import { site, members } from "@/lib/members";
 
 type FooterProps = {
   theme?: "hub" | "michelle" | "sabine" | "isabelle";
@@ -7,6 +7,8 @@ type FooterProps = {
 
 export function Footer({ theme = "hub" }: FooterProps) {
   const dark = theme === "sabine" || theme === "isabelle";
+  const member = members.find((m) => m.slug === theme);
+
   return (
     <footer
       className={`border-t ${
@@ -26,6 +28,19 @@ export function Footer({ theme = "hub" }: FooterProps) {
             {site.name}
           </Link>
           <p className="mt-2 text-sm">{site.location}</p>
+          {member?.external && member.externalLabel ? (
+            <p className="mt-3 text-[0.7rem] tracking-wide opacity-70">
+              Mehr unter{" "}
+              <a
+                href={member.external}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-2 hover:underline"
+              >
+                {member.externalLabel}
+              </a>
+            </p>
+          ) : null}
         </div>
         <p className="text-xs tracking-wide">
           © {new Date().getFullYear()} Ajouri · Drei Expertinnen, eine Familie

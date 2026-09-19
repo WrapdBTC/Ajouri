@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
+import { SmartImg } from "@/components/SmartImg";
 
 export const metadata: Metadata = {
   title: "Michelle Ajouri — Hautexpertin",
@@ -15,18 +15,8 @@ export const metadata: Metadata = {
 };
 
 const treatments = [
-  {
-    title: "Ersttermin",
-    detail: "Hautanalyse + Facial",
-    time: "90 Min.",
-    price: "210 €",
-  },
-  {
-    title: "Ersttermin Deluxe",
-    detail: "Hautanalyse + Blutanalyse + Facial",
-    time: "120 Min.",
-    price: "270 €",
-  },
+  { title: "Ersttermin", detail: "Hautanalyse + Facial", time: "90 Min.", price: "210 €" },
+  { title: "Ersttermin Deluxe", detail: "Hautanalyse + Blutanalyse + Facial", time: "120 Min.", price: "270 €" },
   { title: "Aquafacial", detail: "Tief reinigen, intensiv versorgen", time: "75 Min.", price: "140 €" },
   { title: "Microneedling", detail: "Impulse für Regeneration", time: "75 Min.", price: "200 €" },
   { title: "Power Duo", detail: "Aquafacial + Microneedling", time: "100 Min.", price: "300 €" },
@@ -56,60 +46,131 @@ const pillars = [
   },
 ];
 
+const services = [
+  {
+    tag: "Kosmetik",
+    title: "Hautbehandlungen",
+    text: "Aquafacial, Microneedling, Dermaplaning — für frische, verfeinerte Haut.",
+    image: "/michelle/kosmetik.jpg",
+  },
+  {
+    tag: "Analyse",
+    title: "Verstehen zuerst",
+    text: "OBSERV 320x und BalanceTest: sehen, was unter der Oberfläche liegt.",
+    image: "/michelle/studio.jpg",
+  },
+  {
+    tag: "Lash & Brow",
+    title: "Wimpern & Brauen",
+    text: "Präzise Liftings für Ausdruck — natürlich und definiert.",
+    image: "/michelle/lash-mood.jpg",
+  },
+];
+
 export default function MichellePage() {
   return (
     <div className="flex min-h-full flex-col bg-[color:var(--color-m-bg)] text-[color:var(--color-m-ink)]">
       <Nav theme="michelle" />
       <main className="flex-1">
-        {/* Hero */}
-        <section className="relative min-h-[78vh] overflow-hidden">
-          <Image
+        <section className="relative min-h-[82vh] overflow-hidden">
+          <SmartImg
             src="/michelle/hero-atmosphere.jpg"
-            alt="Sanfte Champagner-Atmosphäre"
+            alt="Glamour Treatments Studioatmosphäre"
             fill
             priority
             className="object-cover"
-            sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-m-bg)]/95 via-[color:var(--color-m-bg)]/70 to-transparent" />
-          <div className="relative mx-auto flex min-h-[78vh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-24">
-            <p className="text-[0.7rem] uppercase tracking-[0.28em] text-[color:var(--color-m-accent-deep)]">
-              Hautexpertin · Neuburg an der Donau
-            </p>
-            <h1 className="font-display mt-4 max-w-3xl text-5xl leading-[1.05] md:text-7xl">
-              Deine Haut von innen nach außen verstehen
-            </h1>
-            <p className="mt-6 max-w-lg text-base text-[color:var(--color-m-ink)]/75 md:text-lg">
-              Ein Raum, in dem deine Haut zuerst verstanden wird — mit präziser
-              Analyse, ehrlicher Beratung und einem Konzept, das wirklich zu dir
-              passt.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button href="https://michelleajouri.de/" tone="michelle" external>
-                Zur Website
-              </Button>
-              <Button
-                href="https://michelleajouri.de/"
-                tone="michelle"
-                variant="outline"
-                external
+          <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-m-bg)]/88 via-[color:var(--color-m-bg)]/45 to-transparent" />
+          <div className="relative mx-auto grid min-h-[82vh] max-w-7xl items-end gap-10 px-5 pb-16 pt-28 md:grid-cols-2 md:px-8 md:pb-24">
+            <div>
+              <p className="text-[0.7rem] uppercase tracking-[0.28em] text-[color:var(--color-m-accent-deep)]">
+                Hautexpertin · Neuburg an der Donau
+              </p>
+              <h1 className="font-display mt-4 max-w-xl text-5xl leading-[1.05] md:text-7xl">
+                Deine Haut von innen nach außen verstehen
+              </h1>
+              <p className="mt-6 max-w-lg text-base text-[color:var(--color-m-ink)]/75 md:text-lg leading-relaxed">
+                Ein Raum, in dem deine Haut zuerst verstanden wird — mit präziser
+                Analyse, ehrlicher Beratung und einem Konzept, das wirklich zu dir
+                passt.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Button href="mailto:info@michelleajouri.de" tone="michelle">
+                  Termin anfragen
+                </Button>
+                <Button href="#angebote" tone="michelle" variant="outline">
+                  Angebote
+                </Button>
+              </div>
+              <a
+                href="tel:+4915775056789"
+                className="mt-5 inline-block text-sm text-[color:var(--color-m-accent-deep)] hover:underline"
               >
-                Termin anfragen
-              </Button>
+                oder anrufen: +49 1577 5056789
+              </a>
+            </div>
+            <div className="relative hidden aspect-[4/5] overflow-hidden shadow-2xl shadow-[color:var(--color-m-ink)]/15 md:block">
+              <SmartImg
+                src="/michelle/portrait-mood.jpg"
+                alt="Michelle Ajouri"
+                fill
+                priority
+                className="object-cover"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[color:var(--color-m-ink)]/70 to-transparent p-6 text-white">
+                <strong className="font-display text-lg">
+                  Jede Haut erzählt ihre eigene Geschichte.
+                </strong>
+                <p className="mt-1 text-sm text-white/80">
+                  Zuhören. Analysieren. Individuell behandeln.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Intro */}
+        <div
+          className="overflow-hidden border-y border-[color:var(--color-m-accent)]/20 bg-[color:var(--color-m-surface)] py-3.5"
+          aria-hidden
+        >
+          <div className="flex animate-[marquee_32s_linear_infinite] gap-8 whitespace-nowrap text-[0.68rem] uppercase tracking-[0.2em] text-[color:var(--color-m-accent-deep)]">
+            {Array.from({ length: 2 }).map((_, k) => (
+              <span key={k} className="flex gap-8 px-4">
+                <span>Aquafacial</span>
+                <span>·</span>
+                <span>Microneedling</span>
+                <span>·</span>
+                <span>OBSERV 320x</span>
+                <span>·</span>
+                <span>Zinzino BalanceTest</span>
+                <span>·</span>
+                <span>Lash Lift</span>
+                <span>·</span>
+                <span>Brow Lift</span>
+                <span>·</span>
+                <span>Dermaplaning</span>
+                <span>·</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
         <section className="px-5 py-20 md:px-8 md:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2 md:gap-16">
-            <div className="relative aspect-[3/4] overflow-hidden">
-              <Image
+            <div className="relative aspect-[3/4] overflow-hidden md:hidden">
+              <SmartImg
                 src="/michelle/portrait-mood.jpg"
-                alt="Ruhige, warme Portrait-Atmosphäre"
+                alt="Michelle Ajouri"
                 fill
                 className="object-cover"
-                sizes="(max-width:768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative hidden aspect-[4/5] overflow-hidden md:block">
+              <SmartImg
+                src="/michelle/studio.jpg"
+                alt="Studio Glamour Treatments"
+                fill
+                className="object-cover"
               />
             </div>
             <div>
@@ -120,10 +181,10 @@ export default function MichellePage() {
                 Schönheit beginnt mit Verstehen — nicht mit Raten.
               </h2>
               <p className="mt-6 text-[color:var(--color-m-ink)]/75 leading-relaxed">
-                Deshalb beginnt der Ansatz nicht mit einem Standard-Treatment,
-                sondern mit genauem Hinschauen, ehrlicher Beratung und einem
-                Konzept, das zu deinem aktuellen Hautbild und deinem Alltag
-                passt.
+                Beauty ist für Michelle immer auch Gesundheit. Deshalb beginnt der
+                Ansatz nicht mit einem Standard-Treatment, sondern mit genauem
+                Hinschauen, ehrlicher Beratung und einem Konzept, das zu deinem
+                aktuellen Hautbild und deinem Alltag passt.
               </p>
               <p className="mt-4 font-display text-xl italic text-[color:var(--color-m-accent-deep)]">
                 „Deine Haut zeigt, was dein Blut erzählt — ich helfe dir, beides
@@ -133,8 +194,47 @@ export default function MichellePage() {
           </div>
         </section>
 
-        {/* Pillars */}
         <section className="bg-[color:var(--color-m-surface)] px-5 py-20 md:px-8 md:py-28">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+              <div>
+                <p className="text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-m-accent-deep)]">
+                  Signature
+                </p>
+                <h2 className="font-display mt-3 text-3xl md:text-5xl">
+                  Alles für deinen Glamour
+                </h2>
+              </div>
+              <p className="max-w-sm text-sm text-[color:var(--color-m-ink)]/65">
+                Haut, Analyse und Lash &amp; Brow — drei Bereiche, ein durchdachtes
+                Konzept.
+              </p>
+            </div>
+            <div className="mt-14 grid gap-6 md:grid-cols-3">
+              {services.map((s) => (
+                <article key={s.title} className="group overflow-hidden bg-[color:var(--color-m-bg)]">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <SmartImg
+                      src={s.image}
+                      alt={s.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <span className="text-[0.65rem] uppercase tracking-[0.18em] text-[color:var(--color-m-accent-deep)]">
+                      {s.tag}
+                    </span>
+                    <h3 className="font-display mt-2 text-2xl">{s.title}</h3>
+                    <p className="mt-2 text-sm text-[color:var(--color-m-ink)]/65">{s.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-5 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-7xl">
             <h2 className="font-display text-3xl md:text-5xl">
               Außen sehen. Innen mitdenken. Gezielt behandeln.
@@ -143,12 +243,11 @@ export default function MichellePage() {
               {pillars.map((p) => (
                 <article key={p.step} className="group">
                   <div className="relative mb-6 aspect-[4/3] overflow-hidden">
-                    <Image
+                    <SmartImg
                       src={p.image}
                       alt={p.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      sizes="(max-width:768px) 100vw, 33vw"
                     />
                   </div>
                   <p className="text-[0.65rem] tracking-[0.2em] text-[color:var(--color-m-accent-deep)]">
@@ -164,16 +263,15 @@ export default function MichellePage() {
           </div>
         </section>
 
-        {/* Treatments */}
-        <section className="px-5 py-20 md:px-8 md:py-28">
+        <section id="angebote" className="bg-[color:var(--color-m-surface)] px-5 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <h2 className="font-display text-3xl md:text-5xl">
                 Ausgewählte Hautbehandlungen
               </h2>
               <p className="max-w-sm text-sm text-[color:var(--color-m-ink)]/65">
-                Preise und Zeiten entsprechend michelleajouri.de — Buchung über
-                die bestehende Website.
+                Orientierungspreise — der genaue Plan entsteht nach Analyse und
+                Gespräch.
               </p>
             </div>
             <ul className="mt-12 divide-y divide-[color:var(--color-m-accent)]/25 border-y border-[color:var(--color-m-accent)]/25">
@@ -184,9 +282,7 @@ export default function MichellePage() {
                 >
                   <div>
                     <h3 className="font-medium tracking-wide">{t.title}</h3>
-                    <p className="text-sm text-[color:var(--color-m-ink)]/60">
-                      {t.detail}
-                    </p>
+                    <p className="text-sm text-[color:var(--color-m-ink)]/60">{t.detail}</p>
                   </div>
                   <div className="flex gap-6 text-sm tabular-nums text-[color:var(--color-m-accent-deep)]">
                     <span>{t.time}</span>
@@ -198,8 +294,7 @@ export default function MichellePage() {
           </div>
         </section>
 
-        {/* Journey */}
-        <section className="bg-[color:var(--color-m-surface)] px-5 py-20 md:px-8">
+        <section className="px-5 py-20 md:px-8">
           <div className="mx-auto max-w-7xl">
             <h2 className="font-display text-3xl md:text-4xl">
               So beginnt deine Hautreise
@@ -216,18 +311,15 @@ export default function MichellePage() {
                     0{i + 1}
                   </span>
                   <h3 className="mt-3 font-medium">{title}</h3>
-                  <p className="mt-2 text-sm text-[color:var(--color-m-ink)]/65">
-                    {text}
-                  </p>
+                  <p className="mt-2 text-sm text-[color:var(--color-m-ink)]/65">{text}</p>
                 </li>
               ))}
             </ol>
           </div>
         </section>
 
-        {/* Contact */}
-        <section className="px-5 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-7xl grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-center">
+        <section id="kontakt" className="bg-[color:var(--color-m-surface)] px-5 py-20 md:px-8 md:py-28">
+          <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.2fr_1fr] md:items-center">
             <div>
               <h2 className="font-display text-3xl md:text-5xl">
                 Bereit, deine Haut neu kennenzulernen?
@@ -241,33 +333,29 @@ export default function MichellePage() {
                 <br />
                 86633 Neuburg an der Donau
                 <br />
-                <a
-                  className="mt-3 inline-block hover:underline"
-                  href="tel:+4915775056789"
-                >
+                <a className="mt-3 inline-block hover:underline" href="tel:+4915775056789">
                   +49 1577 5056789
                 </a>
                 <br />
-                <a
-                  className="hover:underline"
-                  href="mailto:info@michelleajouri.de"
-                >
+                <a className="hover:underline" href="mailto:info@michelleajouri.de">
                   info@michelleajouri.de
                 </a>
               </address>
-              <div className="mt-8">
-                <Button href="https://michelleajouri.de/" tone="michelle" external>
-                  michelleajouri.de
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button href="mailto:info@michelleajouri.de" tone="michelle">
+                  Termin anfragen
+                </Button>
+                <Button href="tel:+4915775056789" tone="michelle" variant="outline">
+                  Anrufen
                 </Button>
               </div>
             </div>
             <div className="relative aspect-square overflow-hidden">
-              <Image
+              <SmartImg
                 src="/michelle/treatment-detail.jpg"
                 alt="Treatment-Detail"
                 fill
                 className="object-cover"
-                sizes="(max-width:768px) 100vw, 40vw"
               />
             </div>
           </div>

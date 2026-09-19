@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
+import { SmartImg } from "@/components/SmartImg";
 
 export const metadata: Metadata = {
   title: "Isabelle Ajouri — Atelier Isabelle",
@@ -15,26 +15,10 @@ export const metadata: Metadata = {
 };
 
 const gallery = [
-  {
-    src: "/isabelle/tattoo-botanical.jpg",
-    alt: "Fine-Line Botanical Motiv",
-    label: "Botanical",
-  },
-  {
-    src: "/isabelle/tattoo-geometric.jpg",
-    alt: "Geometrische Linework",
-    label: "Geometry",
-  },
-  {
-    src: "/isabelle/tattoo-script.jpg",
-    alt: "Script und Flourish",
-    label: "Script",
-  },
-  {
-    src: "/isabelle/detail-linework.jpg",
-    alt: "Detail Linework",
-    label: "Detail",
-  },
+  { src: "/isabelle/tattoo-botanical.jpg", alt: "Fine-Line Botanical Motiv", label: "Botanical" },
+  { src: "/isabelle/tattoo-geometric.jpg", alt: "Geometrische Linework", label: "Geometry" },
+  { src: "/isabelle/tattoo-script.jpg", alt: "Script und Flourish", label: "Script" },
+  { src: "/isabelle/detail-linework.jpg", alt: "Detail Linework", label: "Detail" },
 ];
 
 const process = [
@@ -65,31 +49,29 @@ export default function IsabellePage() {
     <div className="flex min-h-full flex-col bg-[color:var(--color-i-bg)] text-[color:var(--color-i-ink)]">
       <Nav theme="isabelle" />
       <main className="flex-1">
-        {/* Hero */}
-        <section className="relative min-h-[85vh] overflow-hidden">
-          <Image
+        <section className="relative min-h-[90vh] overflow-hidden">
+          <SmartImg
             src="/isabelle/hero.jpg"
             alt="Atelier Isabelle — Fine-Line Atmosphäre"
             fill
             priority
-            className="object-cover opacity-80"
-            sizes="100vw"
+            className="object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-i-bg)] via-[color:var(--color-i-bg)]/40 to-transparent" />
-          <div className="relative mx-auto flex min-h-[85vh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-24">
+          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-i-bg)] via-[color:var(--color-i-bg)]/35 to-transparent" />
+          <div className="relative mx-auto flex min-h-[90vh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-24">
             <p className="text-[0.7rem] uppercase tracking-[0.28em] text-[color:var(--color-i-steel)]">
               Atelier Isabelle · Fine-Line Tattoo
             </p>
             <h1 className="font-display mt-4 max-w-3xl text-5xl leading-[1.05] md:text-7xl">
               Linien mit Haltung
             </h1>
-            <p className="mt-6 max-w-md text-base text-[color:var(--color-i-ink)]/70 md:text-lg">
+            <p className="mt-6 max-w-md text-base text-[color:var(--color-i-ink)]/75 md:text-lg leading-relaxed">
               Editorial Tattoos. Präzise, persönlich, reduziert. Ein Studio für
               Motive, die leise sprechen — und lange tragen.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Button href="#kontakt" tone="isabelle">
-                Termin anfragen
+                Anfrage
               </Button>
               <Button href="#galerie" tone="isabelle" variant="outline">
                 Stil ansehen
@@ -98,7 +80,28 @@ export default function IsabellePage() {
           </div>
         </section>
 
-        {/* About */}
+        <div
+          className="overflow-hidden border-y border-white/10 bg-[color:var(--color-i-surface)] py-3.5"
+          aria-hidden
+        >
+          <div className="flex animate-[marquee_28s_linear_infinite] gap-8 whitespace-nowrap text-[0.68rem] uppercase tracking-[0.2em] text-[color:var(--color-i-steel)]">
+            {Array.from({ length: 2 }).map((_, k) => (
+              <span key={k} className="flex gap-8 px-4">
+                <span>Fine-Line</span>
+                <span>·</span>
+                <span>Botanical</span>
+                <span>·</span>
+                <span>Geometry</span>
+                <span>·</span>
+                <span>Script</span>
+                <span>·</span>
+                <span>Editorial</span>
+                <span>·</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
         <section className="px-5 py-20 md:px-8 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-14 md:grid-cols-[1fr_1.1fr] md:items-center">
             <div>
@@ -120,39 +123,45 @@ export default function IsabellePage() {
               </p>
             </div>
             <div className="relative aspect-[5/4] overflow-hidden bg-[color:var(--color-i-surface)]">
-              <Image
+              <SmartImg
                 src="/isabelle/studio-mood.jpg"
                 alt="Studio-Atmosphäre"
                 fill
                 className="object-cover"
-                sizes="(max-width:768px) 100vw, 50vw"
               />
             </div>
           </div>
         </section>
 
-        {/* Gallery */}
         <section
           id="galerie"
           className="border-y border-white/10 bg-[color:var(--color-i-surface)] px-5 py-20 md:px-8 md:py-28"
         >
           <div className="mx-auto max-w-7xl">
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-              <h2 className="font-display text-3xl md:text-5xl">Stil & Galerie</h2>
+              <div>
+                <p className="text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-i-accent)]">
+                  Portfolio
+                </p>
+                <h2 className="font-display mt-3 text-3xl md:text-5xl">
+                  Stil & Galerie
+                </h2>
+              </div>
               <p className="max-w-sm text-sm text-[color:var(--color-i-steel)]">
-                Moodboards und Linework-Studien — beispielhafte Visuals für den
-                Atelier-Charakter.
+                Linework-Studien und Moodboards — die Sprache des Ateliers.
               </p>
             </div>
             <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {gallery.map((g) => (
-                <figure key={g.src} className="group relative aspect-[3/4] overflow-hidden">
-                  <Image
+                <figure
+                  key={g.src}
+                  className="group relative aspect-[3/4] overflow-hidden"
+                >
+                  <SmartImg
                     src={g.src}
                     alt={g.alt}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width:768px) 50vw, 25vw"
                   />
                   <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-[0.65rem] uppercase tracking-[0.18em] text-white/80">
                     {g.label}
@@ -163,7 +172,6 @@ export default function IsabellePage() {
           </div>
         </section>
 
-        {/* Process */}
         <section className="px-5 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-7xl">
             <h2 className="font-display text-3xl md:text-5xl">Der Prozess</h2>
@@ -183,7 +191,6 @@ export default function IsabellePage() {
           </div>
         </section>
 
-        {/* Contact — no invented phones */}
         <section
           id="kontakt"
           className="bg-[color:var(--color-i-surface)] px-5 py-20 md:px-8 md:py-28"
@@ -193,17 +200,18 @@ export default function IsabellePage() {
               Kontakt
             </p>
             <h2 className="font-display mt-4 text-3xl md:text-5xl">
-              Termine auf Anfrage
+              Anfrage für dein Motiv
             </h2>
-            <p className="mx-auto mt-6 max-w-md text-[color:var(--color-i-steel)]">
-              Schreibe kurz zu Motividee und gewünschtem Zeitraum. Isabelle
-              meldet sich mit den nächsten freien Möglichkeiten.
+            <p className="mx-auto mt-6 max-w-md text-[color:var(--color-i-steel)] leading-relaxed">
+              Schreib kurz zu Motividee, Platzierung und gewünschtem Zeitraum.
+              Isabelle meldet sich mit den nächsten freien Möglichkeiten —
+              persönlich und ohne Druck.
             </p>
             <p className="mt-8 text-sm text-[color:var(--color-i-steel)]/70">
               Isabelle Ajouri · Atelier Isabelle
               <br />
               <span className="text-[0.65rem] uppercase tracking-wider">
-                Keine Telefonnummer hinterlegt — Anfrage über Formular
+                Termine ausschließlich auf Anfrage
               </span>
             </p>
             <div className="mx-auto mt-10 max-w-md space-y-4 text-left">
@@ -235,14 +243,11 @@ export default function IsabellePage() {
                 />
               </label>
               <p className="text-[0.65rem] text-[color:var(--color-i-steel)]/60">
-                Platzhalter-Formular — Versand folgt mit der finalen
-                Studio-Adresse.
+                Formular-Versand folgt mit der finalen Studio-Adresse. Bis dahin
+                gern über die Familie Ajouri melden.
               </p>
               <div className="flex flex-wrap justify-center gap-4 pt-2">
-                <span className="inline-flex cursor-not-allowed items-center justify-center gap-2 bg-[color:var(--color-i-ink)]/15 px-6 py-3 text-xs uppercase tracking-[0.14em] text-[color:var(--color-i-steel)]">
-                  Bald verfügbar
-                </span>
-                <Button href="/" tone="isabelle" variant="ghost">
+                <Button href="/" tone="isabelle">
                   Zurück zum Hub
                 </Button>
               </div>

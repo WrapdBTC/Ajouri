@@ -104,3 +104,8 @@
 .animate-delay-2 { animation-delay: 0.2s; }
 .animate-delay-3 { animation-delay: 0.35s; }
 .animate-delay-4 { animation-delay: 0.5s; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

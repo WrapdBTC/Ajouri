@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/Button";
+import { SmartImg } from "@/components/SmartImg";
 
 export const metadata: Metadata = {
   title: "Sabine Ajouri — Vita Sonus",
@@ -42,53 +42,90 @@ export default function SabinePage() {
     <div className="grain grain-dark flex min-h-full flex-col bg-[color:var(--color-s-bg)] text-[color:var(--color-s-ink)]">
       <Nav theme="sabine" />
       <main className="relative flex-1">
-        {/* Hero */}
-        <section className="relative min-h-[82vh] overflow-hidden">
-          <Image
+        <section className="relative min-h-[88vh] overflow-hidden">
+          <SmartImg
             src="/sabine/startseite.jpg"
-            alt="Vita Sonus Atmosphäre"
+            alt="Klangschalen im Vita Sonus Studio"
             fill
             priority
-            className="object-cover opacity-70"
-            sizes="100vw"
+            className="object-cover opacity-85"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-s-bg)] via-[color:var(--color-s-bg)]/55 to-[color:var(--color-s-bg)]/30" />
-          <div className="relative mx-auto flex min-h-[82vh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-24">
+          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-s-bg)] via-[color:var(--color-s-bg)]/40 to-[color:var(--color-s-bg)]/20" />
+          <div className="relative mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 md:px-8 md:pb-24">
             <p className="text-[0.7rem] uppercase tracking-[0.28em] text-[color:var(--color-s-accent)]">
               Vita Sonus · Klang & Meditation
             </p>
             <h1 className="font-display mt-4 max-w-3xl text-5xl leading-[1.05] md:text-7xl">
-              Ruhe gegen den lauten Alltag
+              Finde deine{" "}
+              <span className="italic text-[color:var(--color-s-accent-soft)]">
+                innere Ruhe
+              </span>{" "}
+              zwischen Klang und Stille
             </h1>
-            <p className="mt-6 max-w-lg text-base text-[color:var(--color-s-ink)]/80 md:text-lg">
-              Meditation, Klangreise und Klangmassage — ein Ort, an dem du
-              ankommen darfst. Ohne Spektakel. Mit Tiefe.
+            <p className="mt-6 max-w-lg text-base text-[color:var(--color-s-ink)]/85 md:text-lg leading-relaxed">
+              Meditation, Klangreise und Klangmassage — ein geschützter Raum, um
+              durchzuatmen und bei dir anzukommen. Ohne Spektakel. Mit Tiefe.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button href="https://vitasonus.de/" tone="sabine" external>
-                vitasonus.de
+              <Button href="mailto:info@vitasonus.de" tone="sabine">
+                Termin anfragen
               </Button>
-              <Button
-                href="mailto:info@vitasonus.de"
-                tone="sabine"
-                variant="outline"
-              >
-                Kontakt
+              <Button href="#angebote" tone="sabine" variant="outline">
+                Angebote
               </Button>
             </div>
+            <p className="mt-6 flex items-center gap-2 text-sm text-[color:var(--color-s-accent-soft)]/90">
+              <span className="inline-block h-2 w-2 rounded-full bg-[color:var(--color-s-accent)]" />
+              Freitag 16:30–18:00 · Offenes Studio — kein Termin nötig
+            </p>
           </div>
         </section>
 
-        {/* About */}
+        <div
+          className="overflow-hidden border-y border-white/10 bg-[color:var(--color-s-surface)] py-3.5"
+          aria-hidden
+        >
+          <div className="flex animate-[marquee_30s_linear_infinite] gap-8 whitespace-nowrap text-[0.68rem] uppercase tracking-[0.2em] text-[color:var(--color-s-accent-soft)]/80">
+            {Array.from({ length: 2 }).map((_, k) => (
+              <span key={k} className="flex gap-8 px-4">
+                <span>Meditation</span>
+                <span>·</span>
+                <span>Klangreise</span>
+                <span>·</span>
+                <span>Klangmassage</span>
+                <span>·</span>
+                <span>Achtsamkeit</span>
+                <span>·</span>
+                <span>Innere Ruhe</span>
+                <span>·</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <section className="px-5 py-16 md:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-display text-4xl text-[color:var(--color-s-accent)] leading-none">
+              ”
+            </p>
+            <blockquote className="font-display mt-2 text-2xl text-[color:var(--color-s-accent-soft)] md:text-3xl text-balance leading-snug">
+              Achte einfach auf den jetzigen Moment, ohne zu versuchen, ihn zu
+              verändern.
+            </blockquote>
+            <cite className="mt-5 block text-sm not-italic text-[color:var(--color-s-ink)]/50">
+              Jon Kabat-Zinn
+            </cite>
+          </div>
+        </section>
+
         <section className="px-5 py-20 md:px-8 md:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2 md:gap-20">
             <div className="relative aspect-[4/5] overflow-hidden">
-              <Image
+              <SmartImg
                 src="/sabine/sabine-portrait.jpg"
                 alt="Sabine Ajouri"
                 fill
                 className="object-cover"
-                sizes="(max-width:768px) 100vw, 45vw"
               />
             </div>
             <div>
@@ -118,15 +155,20 @@ export default function SabinePage() {
           </div>
         </section>
 
-        {/* Offerings */}
-        <section className="bg-[color:var(--color-s-surface)] px-5 py-20 md:px-8 md:py-28">
+        <section
+          id="angebote"
+          className="bg-[color:var(--color-s-surface)] px-5 py-20 md:px-8 md:py-28"
+        >
           <div className="mx-auto max-w-7xl">
-            <h2 className="font-display text-3xl md:text-5xl">
-              Angebote mit Resonanz
+            <p className="text-[0.7rem] uppercase tracking-[0.22em] text-[color:var(--color-s-accent)]">
+              Angebote
+            </p>
+            <h2 className="font-display mt-3 text-3xl md:text-5xl">
+              Wege zur inneren Mitte
             </h2>
             <p className="mt-4 max-w-2xl text-[color:var(--color-s-ink)]/65">
               Kurse und Einheiten für Einsteiger und Vertiefung — im Studio und
-              in der Natur.
+              in der Natur. Vorerfahrung brauchst du nicht.
             </p>
             <div className="mt-14 grid gap-6 sm:grid-cols-2">
               {offerings.map((o) => (
@@ -135,17 +177,16 @@ export default function SabinePage() {
                   className="group overflow-hidden bg-[color:var(--color-s-bg)]/60"
                 >
                   <div className="relative aspect-[16/10]">
-                    <Image
+                    <SmartImg
                       src={o.image}
                       alt={o.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                      sizes="(max-width:768px) 100vw, 50vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-s-bg)]/90 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--color-s-bg)]/85 via-[color:var(--color-s-bg)]/20 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-6">
                       <h3 className="font-display text-2xl">{o.title}</h3>
-                      <p className="mt-2 text-sm text-[color:var(--color-s-ink)]/75">
+                      <p className="mt-2 text-sm text-[color:var(--color-s-ink)]/80">
                         {o.text}
                       </p>
                     </div>
@@ -156,7 +197,6 @@ export default function SabinePage() {
           </div>
         </section>
 
-        {/* Open studio + atmosphere */}
         <section className="px-5 py-20 md:px-8 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2 md:items-center">
             <div>
@@ -172,33 +212,33 @@ export default function SabinePage() {
                 unverbindlich, herzlich, in deinem Tempo.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button href="https://vitasonus.de/" tone="sabine" external>
-                  Termin buchen
+                <Button href="tel:+4916099300610" tone="sabine">
+                  Anrufen
+                </Button>
+                <Button href="mailto:info@vitasonus.de" tone="sabine" variant="outline">
+                  Schreiben
                 </Button>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
+              <SmartImg
                 src="/sabine/startseite-ladenansicht.jpg"
                 alt="Studio Vita Sonus"
                 fill
                 className="object-cover"
-                sizes="(max-width:768px) 100vw, 50vw"
               />
             </div>
           </div>
         </section>
 
-        {/* Gold accent band */}
         <section className="relative overflow-hidden px-5 py-24 md:px-8">
-          <Image
+          <SmartImg
             src="/sabine/klang-atmosphere.jpg"
             alt=""
             fill
-            className="object-cover opacity-50"
-            sizes="100vw"
+            className="object-cover opacity-55"
           />
-          <div className="absolute inset-0 bg-[color:var(--color-s-bg)]/70" />
+          <div className="absolute inset-0 bg-[color:var(--color-s-bg)]/55" />
           <div className="relative mx-auto max-w-3xl text-center">
             <p className="font-display text-3xl text-[color:var(--color-s-accent-soft)] md:text-4xl text-balance">
               Wenn der Alltag zu laut wird, reicht manchmal ein Ton.
@@ -206,8 +246,7 @@ export default function SabinePage() {
           </div>
         </section>
 
-        {/* Contact */}
-        <section className="px-5 py-20 md:px-8 md:py-28">
+        <section id="kontakt" className="px-5 py-20 md:px-8 md:py-28">
           <div className="mx-auto max-w-7xl">
             <h2 className="font-display text-3xl md:text-5xl">Kontakt</h2>
             <div className="mt-10 grid gap-10 md:grid-cols-2">
@@ -221,7 +260,10 @@ export default function SabinePage() {
                 86633 Neuburg an der Donau
                 <br />
                 <br />
-                <a className="hover:text-[color:var(--color-s-accent)]" href="tel:+4916099300610">
+                <a
+                  className="hover:text-[color:var(--color-s-accent)]"
+                  href="tel:+4916099300610"
+                >
                   0160 99 300 610
                 </a>
                 <br />
@@ -233,8 +275,8 @@ export default function SabinePage() {
                 </a>
               </address>
               <div className="flex flex-col justify-center gap-4">
-                <Button href="https://vitasonus.de/" tone="sabine" external>
-                  Zur Vita-Sonus-Website
+                <Button href="mailto:info@vitasonus.de" tone="sabine">
+                  Termin anfragen
                 </Button>
                 <p className="text-sm text-[color:var(--color-s-ink)]/50">
                   Mitglied im Internationalen Fachverband Klang-Massage-Therapie
