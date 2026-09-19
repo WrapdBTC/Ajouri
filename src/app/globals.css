@@ -1,111 +1,276 @@
 @import "tailwindcss";
 
+/*
+ * AJOURI design system
+ * One set of components, four palettes. Every surface reads its colours
+ * from theme tokens set by the nearest [data-theme] ancestor, so the same
+ * markup renders as Hub, Michelle, Sabine or Isabelle.
+ */
+
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
 
-  --color-ink: #1a1614;
-  --color-paper: #faf8f5;
-  --color-muted: #6b635c;
-
-  /* Michelle — champagne / nude */
-  --color-m-bg: #f7f0e8;
-  --color-m-surface: #fffaf5;
-  --color-m-accent: #c4a484;
-  --color-m-accent-deep: #8b6b4f;
-  --color-m-ink: #2c241c;
-  --color-m-rose: #d4b5a0;
-
-  /* Sabine — indigo / gold */
-  --color-s-bg: #0c1220;
-  --color-s-surface: #141c2e;
-  --color-s-accent: #c9a227;
-  --color-s-accent-soft: #e8d5a3;
-  --color-s-ink: #e8e4dc;
-  --color-s-indigo: #3d4f7c;
-
-  /* Isabelle — black / graphite / oxblood */
-  --color-i-bg: #0a0a0b;
-  --color-i-surface: #141416;
-  --color-i-accent: #8b1e2d;
-  --color-i-steel: #8a8a92;
-  --color-i-ink: #f2f2f0;
-  --color-i-graphite: #2a2a2e;
+  --color-bg: var(--t-bg);
+  --color-surface: var(--t-surface);
+  --color-elev: var(--t-elev);
+  --color-ink: var(--t-ink);
+  --color-muted: var(--t-muted);
+  --color-line: var(--t-line);
+  --color-accent: var(--t-accent);
+  --color-accent-text: var(--t-accent-text);
+  --color-deep: var(--t-deep);
+  --color-deep-ink: var(--t-deep-ink);
+  --color-btn: var(--t-btn);
+  --color-btn-ink: var(--t-btn-ink);
+  --color-header: var(--t-header);
 }
+
+/* ---------- Palettes ---------- */
+
+:root,
+[data-theme="hub"] {
+  --t-bg: #faf8f5;
+  --t-surface: #f1ece5;
+  --t-elev: #ffffff;
+  --t-ink: #1a1614;
+  --t-muted: #6b625a;
+  --t-line: rgb(26 22 20 / 0.13);
+  --t-accent: #8a6b4e;
+  --t-accent-text: #7a5c41;
+  --t-deep: #1a1614;
+  --t-deep-ink: #f3eee7;
+  --t-btn: #1a1614;
+  --t-btn-ink: #faf8f5;
+  --t-header: #faf8f5;
+  color-scheme: light;
+}
+
+/* Michelle — champagne, ivory, nude, espresso */
+[data-theme="michelle"] {
+  --t-bg: #f8f1e9;
+  --t-surface: #efe3d5;
+  --t-elev: #fdf9f4;
+  --t-ink: #2b1f18;
+  --t-muted: #6f5b4b;
+  --t-line: rgb(122 90 60 / 0.2);
+  --t-accent: #b08a62;
+  --t-accent-text: #80603f;
+  --t-deep: #2b1f18;
+  --t-deep-ink: #f3e7da;
+  --t-btn: #2b1f18;
+  --t-btn-ink: #fbf5ee;
+  --t-header: #f4e9dd;
+  color-scheme: light;
+}
+
+/* Sabine — midnight indigo, gold, soft sand */
+[data-theme="sabine"] {
+  --t-bg: #0e1430;
+  --t-surface: #131a3b;
+  --t-elev: #19214a;
+  --t-ink: #efe6d6;
+  --t-muted: #b4ac9e;
+  --t-line: rgb(239 230 214 / 0.14);
+  --t-accent: #c9a45c;
+  --t-accent-text: #d6b774;
+  --t-deep: #080c1f;
+  --t-deep-ink: #e9dfcc;
+  --t-btn: #c9a45c;
+  --t-btn-ink: #0e1430;
+  --t-header: #0e1430;
+  color-scheme: dark;
+}
+
+/* Isabelle — matte black, graphite, off-white, oxblood */
+[data-theme="isabelle"] {
+  --t-bg: #0b0b0c;
+  --t-surface: #131315;
+  --t-elev: #1b1b1e;
+  --t-ink: #eeebe6;
+  --t-muted: #928d87;
+  --t-line: rgb(238 235 230 / 0.12);
+  --t-accent: #7c1f29;
+  --t-accent-text: #c2505b;
+  --t-deep: #000000;
+  --t-deep-ink: #d9d5cf;
+  --t-btn: #7c1f29;
+  --t-btn-ink: #f4f1ec;
+  --t-header: #0b0b0c;
+  color-scheme: dark;
+}
+
+/* Overscroll / rubber-band colour follows the page theme. */
+body:has(> [data-theme="michelle"]) { background-color: #f8f1e9; }
+body:has(> [data-theme="sabine"]) { background-color: #0e1430; }
+body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
+
+/* ---------- Base ---------- */
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
-    background: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-sans), system-ui, sans-serif;
+    background-color: var(--t-bg);
+    color: var(--t-ink);
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background: color-mix(in oklab, var(--color-m-accent) 40%, transparent);
+    background: color-mix(in oklab, var(--t-accent) 35%, transparent);
+    color: var(--t-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ink);
+    outline: 1.5px solid var(--t-accent);
     outline-offset: 3px;
   }
 }
 
-@layer utilities {
-  .font-display {
-    font-family: var(--font-serif), Georgia, serif;
-    font-weight: 400;
-    letter-spacing: -0.02em;
+/* ---------- Shared typography & rhythm ---------- */
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 82rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-x { padding-inline: 2.5rem; }
   }
 
-  .text-balance {
+  .section-y {
+    padding-block: 5.5rem;
+  }
+  @media (min-width: 768px) {
+    .section-y { padding-block: 8.5rem; }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  .display-1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.85rem, 6.2vw, 5.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.018em;
     text-wrap: balance;
   }
 
-  .grain {
-    position: relative;
-  }
-  .grain::after {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    inset: 0;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    mix-blend-mode: multiply;
+  .display-2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.2rem, 4.2vw, 3.9rem);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
   }
 
-  .grain-dark::after {
-    opacity: 0.07;
-    mix-blend-mode: soft-light;
+  .display-3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.55rem, 2.3vw, 2.1rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .display-1 em,
+  .display-2 em,
+  .display-3 em {
+    font-style: italic;
+    color: var(--t-accent-text);
+  }
+
+  .lead {
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--t-muted);
+    text-wrap: pretty;
+  }
+  @media (min-width: 768px) {
+    .lead { font-size: 1.125rem; }
+  }
+
+  .body-copy {
+    font-size: 0.975rem;
+    line-height: 1.8;
+    color: var(--t-muted);
+    text-wrap: pretty;
+  }
+
+  /* Dotted leader for price lists */
+  .leader {
+    flex: 1 1 auto;
+    min-width: 1.5rem;
+    margin-inline: 0.75rem;
+    border-bottom: 1px dotted color-mix(in oklab, var(--t-ink) 30%, transparent);
+    transform: translateY(-0.35em);
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
   }
 }
 
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+/* ---------- Motion ---------- */
+
+@keyframes settle {
+  from { transform: scale(1.06); }
+  to { transform: scale(1); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .anim-settle {
+    animation: settle 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .anim-rise {
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .anim-rise-1 { animation-delay: 0.08s; }
+  .anim-rise-2 { animation-delay: 0.18s; }
+  .anim-rise-3 { animation-delay: 0.3s; }
+  .anim-rise-4 { animation-delay: 0.42s; }
+
+  /* Scroll reveal — progressive enhancement; content stays visible without support. */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 38%;
+    }
   }
 }
 
-.animate-fade-up {
-  animation: fade-up 0.7s ease-out both;
-}
-
-.animate-delay-1 { animation-delay: 0.1s; }
-.animate-delay-2 { animation-delay: 0.2s; }
-.animate-delay-3 { animation-delay: 0.35s; }
-.animate-delay-4 { animation-delay: 0.5s; }
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

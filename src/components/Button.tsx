@@ -1,74 +1,59 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
-
-type Variant = "solid" | "outline" | "ghost";
-type Tone = "hub" | "michelle" | "sabine" | "isabelle";
-
-const tones: Record<Tone, Record<Variant, string>> = {
-  hub: {
-    solid: "bg-ink text-paper hover:bg-ink/90 shadow-lg shadow-ink/10",
-    outline: "border border-ink/25 text-ink hover:border-ink/60",
-    ghost: "text-ink hover:bg-ink/5",
-  },
-  michelle: {
-    solid:
-      "bg-[color:var(--color-m-accent-deep)] text-white hover:opacity-90 shadow-lg shadow-[color:var(--color-m-accent-deep)]/25",
-    outline:
-      "border border-[color:var(--color-m-accent-deep)]/40 text-[color:var(--color-m-ink)] hover:border-[color:var(--color-m-accent-deep)]",
-    ghost: "text-[color:var(--color-m-accent-deep)] hover:bg-black/5",
-  },
-  sabine: {
-    solid:
-      "bg-[color:var(--color-s-accent)] text-[color:var(--color-s-bg)] hover:bg-[color:var(--color-s-accent-soft)] shadow-lg shadow-[color:var(--color-s-accent)]/20",
-    outline:
-      "border border-[color:var(--color-s-accent)]/50 text-[color:var(--color-s-accent-soft)] hover:border-[color:var(--color-s-accent)]",
-    ghost: "text-[color:var(--color-s-accent-soft)] hover:bg-white/5",
-  },
-  isabelle: {
-    solid:
-      "bg-[color:var(--color-i-ink)] text-[color:var(--color-i-bg)] hover:bg-white",
-    outline:
-      "border border-[color:var(--color-i-steel)]/50 text-[color:var(--color-i-ink)] hover:border-[color:var(--color-i-ink)]",
-    ghost:
-      "text-[color:var(--color-i-steel)] hover:text-[color:var(--color-i-ink)]",
-  },
-};
+import NextLink from "next/link";
 
 type Props = {
   href: string;
-  children: ReactNode;
-  variant?: Variant;
-  tone?: Tone;
-  external?: boolean;
+  children: React.ReactNode;
+  variant?: "solid" | "outline" | "text";
+  size?: "md" | "sm";
   className?: string;
 };
 
-export function Button({
-  href,
-  children,
-  variant = "solid",
-  tone = "hub",
-  external,
-  className = "",
-}: Props) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-xs font-medium tracking-[0.12em] uppercase transition-all duration-300 ${tones[tone][variant]} ${className}`;
-  if (external || href.startsWith("mailto:") || href.startsWith("tel:")) {
+const base =
+  "group/btn inline-flex items-center justify-center gap-3 rounded-[2px] font-medium uppercase transition-[background-color,color,border-color,opacity] duration-500 ease-out";
+
+const sizes = {
+  md: "h-12 px-7 text-[0.7rem] tracking-[0.22em]",
+  sm: "h-10 px-5 text-[0.65rem] tracking-[0.2em]",
+};
+
+const variants = {
+  solid: "bg-btn text-btn-ink hover:opacity-85",
+  outline: "border border-ink/30 text-ink hover:border-ink hover:bg-ink hover:text-bg",
+  text: "h-auto! px-0! text-ink underline decoration-accent/60 decoration-1 underline-offset-[6px] hover:decoration-ink",
+};
+
+export function Arrow({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 20 10"
+      className={`h-2.5 w-5 transition-transform duration-500 group-hover/btn:translate-x-1 ${className}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+    >
+      <path d="M0 5h19M14.5 0.5 19 5l-4.5 4.5" />
+    </svg>
+  );
+}
+
+export function Button({ href, children, variant = "solid", size = "md", className = "" }: Props) {
+  const cls = `${base} ${sizes[size]} ${variants[variant]} ${className}`;
+  if (href.startsWith("/")) {
     return (
-      <a
-        href={href}
-        {...(external
-          ? { target: "_blank", rel: "noopener noreferrer" }
-          : {})}
-        className={classes}
-      >
+      <NextLink href={href} className={cls}>
         {children}
-        {external ? <span aria-hidden>↗</span> : null}
-      </a>
+      </NextLink>
     );
   }
+  const external = href.startsWith("http");
   return (
-    <Link href={href} className={classes}>
+    <a
+      href={href}
+      className={cls}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
       {children}
-    </Link>
+    </a>
   );
 }

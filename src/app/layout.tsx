@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import { asset } from "@/lib/asset";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,33 +12,35 @@ const inter = Inter({
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wrapdbtc.github.io"),
   title: {
-    default: "Ajouri — Drei Welten. Ein Name.",
+    default: "Ajouri — Haut, Klang, Linie",
     template: "%s · Ajouri",
   },
   description:
-    "Familien-Hub der Ajouri Expertinnen in Neuburg an der Donau: Hautpflege, Klang & Meditation, Fine-Line Tattoo.",
+    "Drei Frauen, drei Handwerke, ein Name: Michelle Ajouri (Haut), Sabine Ajouri · Vita Sonus (Klang) und Atelier Isabelle (Fine-Line Tattoo) in Neuburg an der Donau.",
   openGraph: {
-    title: "Ajouri",
-    description: "Drei Welten. Ein Name.",
+    siteName: "Ajouri",
     locale: "de_DE",
     type: "website",
+    images: [{ url: asset("/assets/hub/01-hero.jpg"), width: 1280, height: 720 }],
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#faf8f5",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de" className={`${inter.variable} ${cormorant.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">{children}</body>
+    <html lang="de" className={`${inter.variable} ${cormorant.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
