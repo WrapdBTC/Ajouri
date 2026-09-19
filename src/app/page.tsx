@@ -4,7 +4,6 @@ import { Img } from "@/components/Img";
 import { Arrow } from "@/components/Button";
 import { Eyebrow, SectionIntro } from "@/components/SectionIntro";
 import { PullQuote } from "@/components/PullQuote";
-import { FullBleed } from "@/components/FullBleed";
 import { contact, family, mailto } from "@/lib/site";
 
 const principles = [
@@ -103,42 +102,16 @@ export default function HubPage() {
         </div>
       </section>
 
-      {/* Cinematic field — interactive triptych */}
-      <section className="anim-rise anim-rise-4 mt-12 md:mt-16">
+      {/* Cinematic field — atmosphere only; entry is via the portals below */}
+      <section className="anim-rise anim-rise-4 mt-12 md:mt-16" aria-hidden="true">
         <div className="relative aspect-[16/10] overflow-hidden md:aspect-[2.15/1] md:min-h-[26rem]">
           <Img
             src="/assets/hub/01-hero.jpg"
-            alt="Drei Farbfelder in Creme, Indigo und Schwarz — Sinnbild der drei Welten"
+            alt=""
             position="50% 62%"
             priority
             className="anim-settle absolute inset-0 h-full w-full object-cover"
           />
-          <nav aria-label="Die drei Welten" className="absolute inset-0 grid grid-cols-3">
-            {family.map((m) => (
-              <NextLink
-                key={m.slug}
-                href={m.href}
-                data-theme={m.slug}
-                className="group group/btn relative flex flex-col justify-between p-3 text-ink sm:p-5 md:p-8 lg:p-10"
-              >
-                <span
-                  aria-hidden
-                  className="absolute inset-0 bg-white/0 transition-colors duration-700 group-hover:bg-white/[0.07]"
-                />
-                <span className="eyebrow relative text-[0.5rem] text-accent-text sm:text-[0.6rem] md:text-[0.6875rem]">
-                  {m.numeral} — {m.craft}
-                </span>
-                <div className="relative">
-                  <span className="font-display hidden text-3xl leading-none md:block lg:text-[2.75rem]">
-                    {m.first}
-                  </span>
-                  <span className="eyebrow mt-4 hidden items-center gap-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:flex">
-                    Eintreten <Arrow />
-                  </span>
-                </div>
-              </NextLink>
-            ))}
-          </nav>
         </div>
       </section>
 
@@ -208,14 +181,6 @@ export default function HubPage() {
           </div>
         </div>
       </section>
-
-      <FullBleed
-        src="/assets/hub/01-hero.jpg"
-        alt=""
-        position="50% 40%"
-        height="band"
-        className="opacity-90"
-      />
 
       {/* ---------- Adressen ---------- */}
       <section id="adressen" className="section-y">
