@@ -15,7 +15,6 @@ Stack: **Next.js (App Router) · TypeScript · Tailwind CSS**
 ## Lokal starten
 
 ```bash
-cd site   # falls du im Repo-Root bist
 npm install
 npm run dev
 ```
@@ -39,7 +38,7 @@ drei Farbwelten:
 ## Bilder
 
 - **Sabine:** Original-Assets von [vitasonus.de](https://vitasonus.de/) (Studio, Portrait, Kurs-Teaser)
-- **Michelle:** Atmosphärische Key-Visuals (Champagner/Nude); Live-Scraping von michelleajouri.de war von dieser Umgebung aus per TLS nicht erreichbar — Content & Kontaktdaten entsprechen der Live-Site
+- **Michelle:** Atmosphärische Key-Visuals (Champagner/Nude); Live-Scraping von michelleajouri.de war von der Build-Umgebung aus per TLS nicht erreichbar — Texte, Preise und Kontaktdaten entsprechen der Live-Site
 - **Isabelle:** Generierte Fine-Line-/Studio-Visuals (keine Stock-Klischees, keine erfundenen Telefonnummern)
 
 ## Externe Links
