@@ -64,7 +64,7 @@ export const family: {
 
 export const contact = {
   michelle: {
-    street: "Franz-Hoffmann-Straße 29",
+    street: "Franz-Hoffmann-Str. 29",
     city: "86633 Neuburg an der Donau",
     phone: "+49 1577 5056789",
     phoneHref: "tel:+4915775056789",
@@ -75,7 +75,7 @@ export const contact = {
     webHref: "https://michelleajouri.de/",
   },
   sabine: {
-    street: "Amalienstraße 60",
+    street: "Amalienstr. 60",
     city: "86633 Neuburg",
     phone: "0160 99 300 610",
     phoneHref: "tel:+4916099300610",
@@ -105,10 +105,10 @@ export function mapsHref(street: string, city: string) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${street}, ${city}`)}`;
 }
 
-/** Per-world header configuration. */
+/** Per-world header configuration — routes, not hash anchors. */
 export const headers: Record<
   ThemeKey,
-  { title: string; subtitle: string; anchors: Link[]; cta?: Link & { external?: boolean } }
+  { title: string; subtitle: string; anchors: Link[]; cta?: Link }
 > = {
   hub: {
     title: "Ajouri",
@@ -123,34 +123,33 @@ export const headers: Record<
     title: "Michelle Ajouri",
     subtitle: "Glamour Treatments",
     anchors: [
-      { label: "Verstehen", href: "#verstehen" },
-      { label: "Analyse", href: "#analyse" },
-      { label: "Treatments", href: "#treatments" },
-      { label: "Lash & Brow", href: "#lash-brow" },
-      { label: "Kontakt", href: "#kontakt" },
+      { label: "Start", href: "/michelle/" },
+      { label: "Leistungen", href: "/michelle/leistungen/" },
+      { label: "Analyse", href: "/michelle/analyse/" },
+      { label: "Kontakt", href: "/michelle/kontakt/" },
     ],
-    cta: { label: "Termin anfragen", href: mailto(contact.michelle.email, "Terminanfrage") },
+    cta: { label: "Termin wählen", href: "/michelle/kontakt/#buchen" },
   },
   sabine: {
     title: "Vita Sonus",
     subtitle: "Sabine Ajouri",
     anchors: [
-      { label: "Über mich", href: "#ueber-mich" },
-      { label: "Angebote", href: "#angebote" },
-      { label: "Offenes Studio", href: "#offenes-studio" },
-      { label: "Kontakt", href: "#kontakt" },
+      { label: "Start", href: "/sabine/" },
+      { label: "Angebote", href: "/sabine/angebote/" },
+      { label: "Studio", href: "/sabine/studio/" },
+      { label: "Kontakt", href: "/sabine/kontakt/" },
     ],
-    cta: { label: "Anrufen", href: contact.sabine.phoneHref },
+    cta: { label: "Termin wählen", href: "/sabine/kontakt/#buchen" },
   },
   isabelle: {
     title: "Atelier Isabelle",
     subtitle: "Isabelle Ajouri · Fine-Line",
     anchors: [
-      { label: "Atelier", href: "#atelier" },
-      { label: "Stil", href: "#stil" },
-      { label: "Galerie", href: "#galerie" },
-      { label: "Prozess", href: "#prozess" },
+      { label: "Start", href: "/isabelle/" },
+      { label: "Galerie", href: "/isabelle/galerie/" },
+      { label: "Prozess", href: "/isabelle/prozess/" },
+      { label: "Anfrage", href: "/isabelle/anfrage/" },
     ],
-    cta: { label: "Anfrage senden", href: "#kontakt" },
+    cta: { label: "Anfrage senden", href: "/isabelle/anfrage/" },
   },
 };

@@ -258,7 +258,16 @@ export default function HubPage() {
                   )}
                 </div>
 
-                <NextLink href={`${m.href}#kontakt`} className="group/btn eyebrow mt-8 flex items-center gap-3 text-ink">
+                <NextLink
+                  href={
+                    m.slug === "michelle"
+                      ? "/michelle/kontakt/"
+                      : m.slug === "sabine"
+                        ? "/sabine/kontakt/"
+                        : "/isabelle/anfrage/"
+                  }
+                  className="group/btn eyebrow mt-8 flex items-center gap-3 text-ink"
+                >
                   {m.slug === "isabelle" ? "Zur Anfrage" : "Kontakt"} <Arrow />
                 </NextLink>
               </div>

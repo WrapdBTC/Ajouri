@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { PageShell } from "@/components/PageShell";
 import { Hero } from "@/components/Hero";
 import { Img } from "@/components/Img";
 import { Arrow, Button } from "@/components/Button";
-import { Eyebrow, SectionIntro } from "@/components/SectionIntro";
+import { Eyebrow } from "@/components/SectionIntro";
+import { TeaserCard } from "@/components/TeaserCard";
 import { asset } from "@/lib/asset";
-import { contact, mailto, mapsHref } from "@/lib/site";
+import { contact } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Vita Sonus — Sabine Ajouri",
@@ -19,34 +19,6 @@ export const metadata: Metadata = {
 };
 
 const c = contact.sabine;
-const mail = mailto(c.email, "Anfrage Vita Sonus");
-
-const offerings = [
-  {
-    name: "Klangreise",
-    detail:
-      "Eine geführte Reise mit Klangschalen, Stimme und Stille. Der Körper darf loslassen, der Geist zur Ruhe kommen.",
-    time: "60–90 Min.",
-  },
-  {
-    name: "Klangmassage",
-    detail:
-      "Klangschalen auf und um den Körper — Vibration, Wärme und Resonanz, die tief in Gewebe und Nervensystem wirken.",
-    time: "45–60 Min.",
-  },
-  {
-    name: "Meditation",
-    detail:
-      "Achtsamkeitsübungen in kleinen Gruppen oder einzeln. Klar, alltagsnah und ohne Esoterik-Ballast.",
-    time: "nach Absprache",
-  },
-  {
-    name: "Regulationsabend",
-    detail:
-      "Ein Abend für das Nervensystem: Klang, Atem und Stille — gemeinsam ankommen, gemeinsam nachklingen.",
-    time: "ca. 90 Min.",
-  },
-];
 
 const qualities = [
   ["Resonanz", "Klang, der den Körper trifft"],
@@ -55,11 +27,11 @@ const qualities = [
   ["Regulation", "Nervensystem in Balance"],
 ];
 
-export default function SabinePage() {
+export default function SabineHome() {
   return (
-    <PageShell theme="sabine">
+    <>
       <Hero
-        mode="overlay"
+        size="full"
         image="/assets/sabine/01-hero.jpg"
         alt="Dunkles Klangstudio mit Klangschalen und warmem Indigo-Licht"
         position="50% 45%"
@@ -72,11 +44,11 @@ export default function SabinePage() {
         lead="Klangreisen, Klangmassage und Meditation — für Menschen, die Pause brauchen und wieder bei sich ankommen möchten."
         actions={
           <>
-            <Button href={c.phoneHref}>
-              Anrufen <Arrow />
+            <Button href="/sabine/kontakt/#buchen">
+              Termin wählen <Arrow />
             </Button>
-            <Button href={mail} variant="outline">
-              Mailen
+            <Button href="/sabine/angebote/" variant="outline">
+              Angebote
             </Button>
           </>
         }
@@ -88,8 +60,7 @@ export default function SabinePage() {
         }
       />
 
-      {/* ---------- 01 Über mich ---------- */}
-      <section id="ueber-mich" className="section-y">
+      <section className="section-y">
         <div className="container-x grid gap-14 md:grid-cols-12 md:items-center">
           <figure className="reveal md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden bg-surface">
@@ -104,7 +75,7 @@ export default function SabinePage() {
           </figure>
 
           <div className="reveal md:col-span-6 md:col-start-7">
-            <Eyebrow index="01">Über mich</Eyebrow>
+            <Eyebrow index="01">Willkommen</Eyebrow>
             <h2 className="display-2 mt-6">
               Klang ist für mich <em>Zuhause kommen.</em>
             </h2>
@@ -138,192 +109,72 @@ export default function SabinePage() {
         </div>
       </section>
 
-      {/* ---------- 02 Angebote ---------- */}
-      <section id="angebote" className="section-y bg-surface">
+      <section className="section-y bg-surface">
         <div className="container-x">
-          <SectionIntro
-            layout="split"
-            index="02"
-            eyebrow="Angebote"
-            title={
-              <>
-                Formate für <em>Auszeit und Regulation.</em>
-              </>
-            }
-            lead="Jedes Angebot ist ein eigener Rhythmus. Gemeinsam finden wir heraus, was du jetzt brauchst — einzeln oder in der Gruppe."
-          />
-
-          <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-12 md:gap-10">
-            <div className="reveal relative aspect-[4/3] overflow-hidden md:col-span-7 md:aspect-auto md:min-h-[34rem]">
-              <Img
-                src="/assets/sabine/03-bowls.jpg"
-                alt="Klangschalen in warmem Licht auf einem Tuch"
-                position="50% 50%"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-
-            <div className="flex flex-col md:col-span-5">
-              <ul className="divide-y divide-line border-y border-line">
-                {offerings.map((o) => (
-                  <li key={o.name} className="reveal py-7">
-                    <div className="flex items-baseline justify-between gap-4">
-                      <h3 className="font-display text-[1.6rem] leading-tight md:text-[1.75rem]">{o.name}</h3>
-                      <span className="eyebrow shrink-0 text-muted">{o.time}</span>
-                    </div>
-                    <p className="body-copy mt-2 max-w-md">{o.detail}</p>
-                  </li>
-                ))}
-              </ul>
-              <p className="reveal mt-8 bg-elev p-6 text-[0.9rem] leading-relaxed text-muted">
-                <span className="font-display block text-xl text-ink not-italic">Termine</span>
-                Einzeltermine nach Absprache. Schreib mir oder ruf an — wir finden einen ruhigen Slot.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-16 grid gap-14 md:mt-20 md:grid-cols-12 md:items-center">
-            <div className="reveal md:order-2 md:col-span-7">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Img
-                  src="/assets/sabine/04-klangmassage.jpg"
-                  alt="Klangmassage mit Klangschalen am Körper"
-                  position="55% 45%"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="reveal md:order-1 md:col-span-4">
-              <p className="eyebrow text-accent-text">Im Fokus</p>
-              <h3 className="display-3 mt-3">Die Klangmassage</h3>
-              <p className="body-copy mt-4">
-                Schalen werden auf und um den Körper gesetzt. Die Schwingung wirkt direkt — ohne Worte, ohne
-                Aufwand. Viele spüren danach mehr Weite, Wärme und eine tiefe Entspannung.
-              </p>
-              <Button href={mailto(c.email, "Anfrage Klangmassage")} variant="text" className="mt-8">
-                Klangmassage anfragen <Arrow />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- 03 Offenes Studio ---------- */}
-      <section id="offenes-studio" className="section-y">
-        <div className="container-x grid gap-14 md:grid-cols-12 md:items-end">
-          <div className="reveal md:col-span-6">
-            <Eyebrow index="03">Offenes Studio</Eyebrow>
+          <div className="reveal max-w-2xl">
+            <Eyebrow>Entdecken</Eyebrow>
             <h2 className="display-2 mt-6">
-              Freitagabend. <em>Tür offen.</em>
+              Drei Wege in dein <em>Studio.</em>
             </h2>
-            <p className="lead mt-8">
-              Jeden Freitag von 16:30 bis 18:00 Uhr ist das Studio ohne Anmeldung geöffnet — für einen ersten
-              Eindruck, ein Gespräch oder einfach, um anzukommen.
-            </p>
-            <p className="body-copy mt-5">
-              Kein Terminzwang, kein Programm. Du kommst, bleibst so lange du magst und gehst, wenn es gut ist.
-              Ein niedrigschwelliger Einstieg in die Welt von Vita Sonus.
+            <p className="lead mt-6">
+              Angebote, offenes Studio und Kontakt — jeder Einstieg in seinem eigenen Tempo.
             </p>
           </div>
-          <aside className="reveal bg-surface p-8 md:col-span-5 md:col-start-8 md:p-10">
-            <p className="eyebrow text-accent-text">Wann</p>
-            <p className="display-3 mt-3">{c.openStudio}</p>
-            <dl className="mt-8 space-y-4 text-[0.95rem]">
-              <div>
-                <dt className="eyebrow text-muted">Wo</dt>
-                <dd className="mt-1.5">
-                  {c.street}
-                  <br />
-                  {c.city}
-                </dd>
-              </div>
-              <div>
-                <dt className="eyebrow text-muted">Hinweis</dt>
-                <dd className="mt-1.5 text-muted">
-                  Spontan willkommen. Bei Fragen vorher gerne anrufen.
-                </dd>
-              </div>
-            </dl>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href={c.phoneHref} size="sm">
-                Anrufen
-              </Button>
-              <Button href={mapsHref(c.street, c.city)} variant="text" size="sm">
-                Route planen <Arrow />
-              </Button>
-            </div>
-          </aside>
+
+          <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-3 md:gap-10">
+            <TeaserCard
+              href="/sabine/angebote/"
+              eyebrow="Angebote"
+              title="Klangreise & mehr"
+              text="Klangreise, Klangmassage, Meditation und Regulationsabend — Formate für Auszeit und Regulation."
+              image="/assets/sabine/03-bowls.jpg"
+              position="50% 50%"
+              alt="Klangschalen in warmem Licht"
+            />
+            <TeaserCard
+              href="/sabine/studio/"
+              eyebrow="Studio"
+              title="Freitagabend. Tür offen."
+              text="Jeden Freitag 16:30–18:00 ohne Anmeldung — für einen ersten Eindruck oder einfach zum Ankommen."
+              image="/assets/sabine/04-klangmassage.jpg"
+              position="55% 45%"
+              alt="Klangmassage mit Klangschalen"
+            />
+            <TeaserCard
+              href="/sabine/kontakt/"
+              eyebrow="Kontakt"
+              title="Melde dich. Ganz in Ruhe."
+              text="Adresse, Telefon und der Platz für den kommenden Buchungskalender."
+              image="/assets/sabine/05-portal.jpg"
+              position="76% 50%"
+              alt=""
+            />
+          </div>
         </div>
       </section>
 
-      {/* ---------- 04 Kontakt ---------- */}
-      <section id="kontakt" className="relative isolate overflow-hidden">
-        <Img
-          src="/assets/sabine/05-portal.jpg"
-          alt=""
-          position="76% 50%"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
-        />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-bg/45" />
-        <div className="container-x section-y grid gap-14 md:grid-cols-12 md:items-center">
-          <div className="reveal md:col-span-6">
-            <Eyebrow index="04">Kontakt</Eyebrow>
+      <section className="section-y">
+        <div className="container-x grid gap-10 md:grid-cols-12 md:items-end">
+          <div className="reveal md:col-span-7">
+            <Eyebrow>Nächster Schritt</Eyebrow>
             <h2 className="display-2 mt-6">
               Melde dich. <em>Ganz in Ruhe.</em>
             </h2>
-            <p className="lead mt-8 max-w-md text-ink/80!">
-              Ruf an oder schreib mir — ich melde mich persönlich und wir finden gemeinsam den passenden
-              Einstieg.
+            <p className="lead mt-6 max-w-lg">
+              Ruf an oder schreib mir — wir finden gemeinsam den passenden Einstieg. Oder komm Freitag ins offene
+              Studio.
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Button href={c.phoneHref}>
-                Anrufen <Arrow />
-              </Button>
-              <Button href={mail} variant="outline">
-                Mailen
-              </Button>
-            </div>
           </div>
-
-          <address className="reveal bg-elev p-8 not-italic shadow-[0_40px_80px_-40px_rgb(20_24_48/0.45)] md:col-span-5 md:col-start-8 md:p-10">
-            <p className="font-display text-3xl">Vita Sonus</p>
-            <p className="eyebrow mt-2 text-muted">Sabine Ajouri</p>
-            <dl className="mt-8 space-y-5 text-[0.95rem]">
-              <div>
-                <dt className="eyebrow text-accent-text">Studio</dt>
-                <dd className="mt-1.5 leading-relaxed">
-                  {c.street}
-                  <br />
-                  {c.city}
-                </dd>
-              </div>
-              <div>
-                <dt className="eyebrow text-accent-text">Telefon</dt>
-                <dd className="mt-1.5">
-                  <a href={c.phoneHref} className="hover:underline">
-                    {c.phone}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="eyebrow text-accent-text">E-Mail</dt>
-                <dd className="mt-1.5">
-                  <a href={mailto(c.email)} className="hover:underline">
-                    {c.email}
-                  </a>
-                </dd>
-              </div>
-              <div>
-                <dt className="eyebrow text-accent-text">Offenes Studio</dt>
-                <dd className="mt-1.5">{c.openStudio}</dd>
-              </div>
-            </dl>
-            <Button href={mapsHref(c.street, c.city)} variant="text" size="sm" className="mt-8">
-              Route planen <Arrow />
+          <div className="reveal flex flex-wrap gap-3 md:col-span-5 md:justify-end">
+            <Button href="/sabine/kontakt/#buchen">
+              Termin wählen <Arrow />
             </Button>
-          </address>
+            <Button href="/sabine/studio/" variant="outline">
+              Offenes Studio
+            </Button>
+          </div>
         </div>
       </section>
-    </PageShell>
+    </>
   );
 }

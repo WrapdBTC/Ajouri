@@ -1,11 +1,29 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
+import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 import type { Link } from "@/lib/site";
+
+function normalize(path: string) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  let p = path;
+  if (base && p.startsWith(base)) p = p.slice(base.length) || "/";
+  if (!p.endsWith("/")) p = `${p}/`;
+  return p;
+}
+
+function isActive(pathname: string, href: string) {
+  if (href.startsWith("#")) return false;
+  const path = normalize(pathname);
+  const target = normalize(href.split("#")[0] || "/");
+  return path === target;
+}
 
 export function MobileMenu({ anchors, cta }: { anchors: Link[]; cta?: Link }) {
   const [open, setOpen] = useState(false);
   const id = useId();
+  const pathname = usePathname() ?? "/";
 
   useEffect(() => {
     if (!open) return;
@@ -42,25 +60,42 @@ export function MobileMenu({ anchors, cta }: { anchors: Link[]; cta?: Link }) {
         className="absolute inset-x-0 top-full border-b border-line bg-header shadow-[0_30px_60px_-30px_rgb(0_0_0/0.35)]"
       >
         <nav aria-label="Seitennavigation mobil" className="container-x flex flex-col py-4">
-          {anchors.map((a) => (
-            <a
-              key={a.href}
-              href={a.href}
-              onClick={close}
-              className="font-display border-b border-line py-4 text-[1.6rem] leading-none text-ink last:border-0"
-            >
-              {a.label}
-            </a>
-          ))}
-          {cta && (
-            <a
-              href={cta.href}
-              onClick={close}
-              className="mt-4 mb-2 inline-flex h-12 items-center justify-center rounded-[2px] bg-btn text-[0.7rem] font-medium uppercase tracking-[0.22em] text-btn-ink"
-            >
-              {cta.label}
-            </a>
-          )}
+          {anchors.map((a) => {
+            const active = isActive(pathname, a.href);
+            const cls = `font-display border-b border-line py-4 text-[1.6rem] leading-none last:border-0 ${
+              active ? "text-ink" : "text-ink/80"
+            }`;
+            if (a.href.startsWith("/")) {
+              return (
+                <NextLink key={a.href} href={a.href} onClick={close} className={cls} aria-current={active ? "page" : undefined}>
+                  {a.label}
+                </NextLink>
+              );
+            }
+            return (
+              <a key={a.href} href={a.href} onClick={close} className={cls}>
+                {a.label}
+              </a>
+            );
+          })}
+          {cta &&
+            (cta.href.startsWith("/") ? (
+              <NextLink
+                href={cta.href}
+                onClick={close}
+                className="mt-4 mb-2 inline-flex h-12 items-center justify-center rounded-[2px] bg-btn text-[0.7rem] font-medium uppercase tracking-[0.22em] text-btn-ink"
+              >
+                {cta.label}
+              </NextLink>
+            ) : (
+              <a
+                href={cta.href}
+                onClick={close}
+                className="mt-4 mb-2 inline-flex h-12 items-center justify-center rounded-[2px] bg-btn text-[0.7rem] font-medium uppercase tracking-[0.22em] text-btn-ink"
+              >
+                {cta.label}
+              </a>
+            ))}
         </nav>
       </div>
     </div>

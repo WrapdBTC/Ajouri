@@ -37,16 +37,14 @@ function contactLines(current: ThemeKey): Line[] {
       return [
         { text: "Termine auf Anfrage" },
         { text: c.email, href: mailto(c.email, "Anfrage Atelier Isabelle") },
-        ...(c.emailIsPlaceholder
-          ? [{ text: "E-Mail vorerst Platzhalter" }]
-          : []),
+        ...(c.emailIsPlaceholder ? [{ text: "E-Mail vorerst Platzhalter" }] : []),
       ];
     }
     default:
       return [
-        { text: `Michelle · ${contact.michelle.street}`, href: "/michelle/#kontakt" },
-        { text: `Sabine · ${contact.sabine.street}`, href: "/sabine/#kontakt" },
-        { text: "Isabelle · Termine auf Anfrage", href: "/isabelle/#kontakt" },
+        { text: `Michelle · ${contact.michelle.street}`, href: "/michelle/kontakt/" },
+        { text: `Sabine · ${contact.sabine.street}`, href: "/sabine/kontakt/" },
+        { text: "Isabelle · Termine auf Anfrage", href: "/isabelle/anfrage/" },
       ];
   }
 }
