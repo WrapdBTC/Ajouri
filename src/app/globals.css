@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+
+  --color-ink: #1a1614;
+  --color-paper: #faf8f5;
+  --color-muted: #6b635c;
+
+  /* Michelle — champagne / nude */
+  --color-m-bg: #f7f0e8;
+  --color-m-surface: #fffaf5;
+  --color-m-accent: #c4a484;
+  --color-m-accent-deep: #8b6b4f;
+  --color-m-ink: #2c241c;
+  --color-m-rose: #d4b5a0;
+
+  /* Sabine — indigo / gold */
+  --color-s-bg: #0c1220;
+  --color-s-surface: #141c2e;
+  --color-s-accent: #c9a227;
+  --color-s-accent-soft: #e8d5a3;
+  --color-s-ink: #e8e4dc;
+  --color-s-indigo: #3d4f7c;
+
+  /* Isabelle — black / graphite / oxblood */
+  --color-i-bg: #0a0a0b;
+  --color-i-surface: #141416;
+  --color-i-accent: #8b1e2d;
+  --color-i-steel: #8a8a92;
+  --color-i-ink: #f2f2f0;
+  --color-i-graphite: #2a2a2e;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-m-accent) 40%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-serif), Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  .grain-dark::after {
+    opacity: 0.07;
+    mix-blend-mode: soft-light;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.35s; }
+.animate-delay-4 { animation-delay: 0.5s; }
