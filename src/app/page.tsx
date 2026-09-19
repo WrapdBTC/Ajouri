@@ -243,6 +243,14 @@ export default function HubPage() {
                     <>
                       <p>Termine auf Anfrage.</p>
                       <p className="pt-3">
+                        <a className="text-ink hover:underline" href={mailto(contact.isabelle.email, "Anfrage Atelier Isabelle")}>
+                          {contact.isabelle.email}
+                        </a>
+                      </p>
+                      {contact.isabelle.emailIsPlaceholder && (
+                        <p className="pt-2 text-[0.8rem] text-muted">E-Mail vorerst Platzhalter — vor Livegang ersetzen.</p>
+                      )}
+                      <p className="pt-3">
                         Erzähl von deiner Idee — Motiv, Stelle, ungefähre Größe. Die Anfrage läuft direkt über das
                         Atelier.
                       </p>

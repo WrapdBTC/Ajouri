@@ -32,11 +32,16 @@ function contactLines(current: ThemeKey): Line[] {
         { text: `Offenes Studio: ${c.openStudio}` },
       ];
     }
-    case "isabelle":
+    case "isabelle": {
+      const c = contact.isabelle;
       return [
         { text: "Termine auf Anfrage" },
-        { text: "Anfrage über das Formular", href: "#kontakt" },
+        { text: c.email, href: mailto(c.email, "Anfrage Atelier Isabelle") },
+        ...(c.emailIsPlaceholder
+          ? [{ text: "E-Mail vorerst Platzhalter" }]
+          : []),
       ];
+    }
     default:
       return [
         { text: `Michelle · ${contact.michelle.street}`, href: "/michelle/#kontakt" },
