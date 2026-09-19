@@ -32,7 +32,7 @@ export function TeaserCard({ href, eyebrow, title, text, image, position, alt = 
       <p className="eyebrow text-accent-text">{eyebrow}</p>
       <h3 className="display-3 mt-3">{title}</h3>
       <p className="body-copy mt-4 flex-1">{text}</p>
-      <span className="eyebrow mt-8 flex items-center gap-3 text-ink">
+      <span className="eyebrow mt-7 flex items-center gap-3 pb-1 text-ink">
         Weiterlesen <Arrow />
       </span>
     </NextLink>

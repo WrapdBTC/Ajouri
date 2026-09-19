@@ -54,7 +54,7 @@ export default function MichelleAnalyse() {
             lead="Hautpflege ohne Analyse ist Raten. Hier entsteht die Grundlage für jede Empfehlung — sichtbar und nachvollziehbar."
           />
 
-          <div className="mt-16 grid gap-0 md:mt-24 md:grid-cols-12">
+          <div className="mt-12 grid gap-0 md:mt-16 md:grid-cols-12">
             {/* Large tech panel */}
             <article className="reveal relative border-t border-line pt-10 md:col-span-7 md:border-t-0 md:border-r md:pr-12 md:pt-0">
               <div className="ken-wrap relative aspect-[16/10] overflow-hidden bg-surface md:aspect-[4/3]">
@@ -115,7 +115,7 @@ export default function MichelleAnalyse() {
             <p className="lead mt-6">Klar, ruhig und professionell geführt — damit du weißt, was dich erwartet.</p>
           </div>
           <ChapterIndex
-            className="mt-14"
+            className="mt-12 md:mt-14"
             layout="row"
             chapters={[
               {

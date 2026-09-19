@@ -65,7 +65,7 @@ export default function SabineHome() {
 
       {/* Welcome + pull quote */}
       <section className="section-y">
-        <div className="container-x grid gap-14 md:grid-cols-12 md:items-center">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
           <figure className="reveal ken-wrap md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
@@ -95,7 +95,7 @@ export default function SabineHome() {
         </div>
       </section>
 
-      <section className="pb-4 md:pb-8">
+      <section className="section-y-tight">
         <div className="container-x">
           <PullQuote variant="statement" cite="— Jon Kabat-Zinn">
             „You can&apos;t stop the waves, but you can learn to surf.“
@@ -117,7 +117,7 @@ export default function SabineHome() {
             </p>
           </div>
           <ChapterIndex
-            className="mt-14"
+            className="mt-12 md:mt-14"
             chapters={[
               {
                 numeral: "I",
@@ -161,7 +161,7 @@ export default function SabineHome() {
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-12 md:gap-8">
+          <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-5">
               <EditorialCover
                 href="/sabine/angebote/"
@@ -174,7 +174,7 @@ export default function SabineHome() {
                 aspect="tall"
               />
             </div>
-            <div className="md:col-span-4 md:pt-14">
+            <div className="md:col-span-4 md:pt-10 lg:pt-14">
               <EditorialCover
                 href="/sabine/studio/"
                 eyebrow="Studio"

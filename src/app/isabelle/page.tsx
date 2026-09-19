@@ -95,7 +95,7 @@ export default function IsabelleHome() {
             </Button>
           </div>
 
-          <div className="mt-12 grid gap-4 md:mt-16 md:grid-cols-12 md:gap-5">
+          <div className="mt-10 grid gap-4 md:mt-14 md:grid-cols-12 md:gap-5">
             {/* Large botanical with type overlay */}
             <NextLink
               href="/isabelle/galerie/"
@@ -178,7 +178,7 @@ export default function IsabelleHome() {
 
       {/* Sparse atelier intro */}
       <section className="section-y">
-        <div className="container-x grid gap-14 md:grid-cols-12 md:items-center">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
           <figure className="reveal ken-wrap md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
@@ -208,7 +208,7 @@ export default function IsabelleHome() {
         </div>
       </section>
 
-      <section className="pb-6 md:pb-10">
+      <section className="section-y-tight">
         <div className="container-x">
           <PullQuote variant="statement">
             „Eine gute Linie braucht keinen Lärm. Sie braucht nur den richtigen Ort.“
@@ -225,7 +225,7 @@ export default function IsabelleHome() {
               Fine-Line mit <em className="!text-accent-text">editorialer Schärfe.</em>
             </h2>
           </div>
-          <ul className="mt-16 grid gap-0 border-t border-current/15 md:mt-20 md:grid-cols-3">
+          <ul className="mt-12 grid gap-0 border-t border-current/15 md:mt-16 md:grid-cols-3">
             {[
               ["Fein & reduziert", "Wenige Linien, viel Raum. Nur das, was die Idee trägt."],
               ["Botanik & Geometrie", "Pflanzen, die atmen. Formen, die ruhen."],

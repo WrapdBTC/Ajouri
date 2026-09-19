@@ -17,7 +17,7 @@ export default function IsabelleAnfrage() {
     <>
       {/* Almost blank luxury — confidence through emptiness */}
       <section className="relative isolate">
-        <div className="container-x flex min-h-[48svh] flex-col justify-end pb-16 pt-32 md:min-h-[56svh] md:pb-24 md:pt-40">
+        <div className="container-x flex min-h-[40svh] flex-col justify-end pb-12 pt-28 md:min-h-[48svh] md:pb-16 md:pt-36">
           <div className="anim-rise max-w-2xl">
             <Eyebrow>Anfrage · Atelier Isabelle</Eyebrow>
             <h1 className="display-1 mt-6">
@@ -30,8 +30,8 @@ export default function IsabelleAnfrage() {
         </div>
       </section>
 
-      <section className="section-y !pt-0 md:!pt-0">
-        <div className="container-x grid gap-16 md:grid-cols-12 md:gap-10">
+      <section className="section-y-tight">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:gap-10">
           {/* Sparse contact column */}
           <div className="reveal md:col-span-4">
             <p className="eyebrow text-muted">Termine</p>
@@ -57,14 +57,14 @@ export default function IsabelleAnfrage() {
           <div className="reveal md:col-span-7 md:col-start-6">
             <form
               action={inquire}
-              className="border border-line bg-elev px-8 py-12 md:px-14 md:py-16 lg:px-16 lg:py-20"
+              className="border border-line bg-elev px-7 py-10 md:px-12 md:py-14 lg:px-16 lg:py-16"
             >
               <p className="eyebrow text-accent-text">Anfrage</p>
               <p className="font-display mt-6 text-[2rem] leading-[1.1] md:text-[2.5rem]">
                 Was soll die Linie erzählen?
               </p>
 
-              <div className="mt-14 space-y-10">
+              <div className="mt-10 space-y-8 md:mt-12 md:space-y-10">
                 <label className="block">
                   <span className="eyebrow text-muted">Name</span>
                   <span className="mt-3 block border-b border-line bg-transparent px-0 py-4 text-[0.95rem] text-muted/55">

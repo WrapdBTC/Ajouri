@@ -153,7 +153,7 @@ export default function MichelleLeistungen() {
             lead="Auf dem Ersttermin baut jede weitere Behandlung auf — mit Analyse und einem Facial, das zu deinem Hautbild passt."
           />
 
-          <div className="mt-16 grid gap-16 md:mt-20 md:grid-cols-12">
+          <div className="mt-12 grid gap-12 md:mt-16 md:grid-cols-12">
             <div className="md:col-span-8">
               <div className="reveal">
                 <p className="eyebrow text-muted">Der Einstieg</p>
@@ -163,7 +163,7 @@ export default function MichelleLeistungen() {
                   ))}
                 </ul>
               </div>
-              <div className="reveal mt-16">
+              <div className="reveal mt-12 md:mt-14">
                 <p className="eyebrow text-muted">Behandlungen</p>
                 <ul className="mt-2 divide-y divide-line border-b border-line">
                   {treatments.map((t) => (
@@ -174,7 +174,7 @@ export default function MichelleLeistungen() {
             </div>
 
             <aside className="md:col-span-4">
-              <div className="reveal border border-line bg-elev p-8 md:sticky md:top-24 md:p-10">
+              <div className="reveal border border-line bg-elev p-8 md:sticky md:top-28 md:p-10">
                 <p className="eyebrow text-accent-text">Unsicher, was passt?</p>
                 <p className="display-3 mt-4">Starte mit einer kostenlosen Erstberatung.</p>
                 <p className="body-copy mt-5 !max-w-none">
@@ -198,7 +198,7 @@ export default function MichelleLeistungen() {
       />
 
       <section className="section-y">
-        <div className="container-x grid gap-14 md:grid-cols-12 md:items-start">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:items-start md:gap-14">
           <div className="reveal sticky-caption md:col-span-4">
             <Eyebrow index="III">Lash &amp; Brow</Eyebrow>
             <h2 className="display-2 mt-6">

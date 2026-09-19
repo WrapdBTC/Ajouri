@@ -52,7 +52,7 @@ export default function MichelleKontakt() {
             ]}
           />
 
-          <div className="mt-16 grid gap-14 md:mt-20 md:grid-cols-12">
+          <div className="mt-12 grid gap-12 md:mt-16 md:grid-cols-12">
             {/* Elegant address panel */}
             <div className="reveal border border-line bg-elev p-9 md:col-span-5 md:p-12">
               <Eyebrow>Studio</Eyebrow>

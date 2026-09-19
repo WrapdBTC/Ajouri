@@ -64,9 +64,9 @@ function Portal({
           </h3>
         </div>
       </div>
-      <div className="flex flex-1 flex-col border-t border-line pt-6 pb-2">
+      <div className="flex flex-1 flex-col border-t border-line pt-6 pb-1">
         <p className="body-copy !max-w-none flex-1 text-[0.95rem]">{m.line}</p>
-        <span className="eyebrow mt-7 flex items-center gap-3 text-ink">
+        <span className="eyebrow mt-6 flex items-center gap-3 text-ink">
           Eintreten <Arrow />
         </span>
       </div>
@@ -78,7 +78,7 @@ export default function HubPage() {
   return (
     <PageShell theme="hub">
       {/* ---------- Editorial cover hero ---------- */}
-      <section className="container-x pt-10 md:pt-16">
+      <section className="container-x pt-12 md:pt-16">
         <div className="anim-rise flex items-center justify-between gap-6">
           <Eyebrow>Haut · Klang · Linie</Eyebrow>
           <p className="eyebrow hidden text-muted sm:block">Neuburg an der Donau</p>
@@ -103,8 +103,8 @@ export default function HubPage() {
       </section>
 
       {/* Cinematic field — atmosphere only; entry is via the portals below */}
-      <section className="anim-rise anim-rise-4 mt-12 md:mt-16" aria-hidden="true">
-        <div className="relative aspect-[16/10] overflow-hidden md:aspect-[2.15/1] md:min-h-[26rem]">
+      <section className="anim-rise anim-rise-4 mt-10 md:mt-14" aria-hidden="true">
+        <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-[21.5/10]">
           <Img
             src="/assets/hub/01-hero.jpg"
             alt=""
@@ -130,14 +130,14 @@ export default function HubPage() {
           />
 
           {/* Staggered: Michelle tall, Sabine offset wide, Isabelle tall */}
-          <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-12 md:gap-8 lg:gap-10">
+          <div className="mt-12 grid gap-10 md:mt-20 md:grid-cols-12 md:gap-8 lg:gap-10">
             <div className="md:col-span-4">
               <Portal m={family[0]} aspect="aspect-[3/4]" />
             </div>
-            <div className="md:col-span-4 md:pt-20">
+            <div className="md:col-span-4 md:pt-14 lg:pt-20">
               <Portal m={family[1]} aspect="aspect-[4/5]" />
             </div>
-            <div className="md:col-span-4 md:pt-8">
+            <div className="md:col-span-4 md:pt-6 lg:pt-8">
               <Portal m={family[2]} aspect="aspect-[3/4.2]" />
             </div>
           </div>
@@ -153,7 +153,7 @@ export default function HubPage() {
             </PullQuote>
           </div>
 
-          <div className="mt-20 grid gap-14 md:mt-28 md:grid-cols-12">
+          <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-12">
             <div className="reveal md:col-span-4">
               <Eyebrow>Die Haltung</Eyebrow>
               <h2 className="display-2 mt-6">
@@ -196,7 +196,7 @@ export default function HubPage() {
             lead="Jedes Haus hat seine eigene Adresse und seinen eigenen Draht. Am schnellsten geht es direkt."
           />
 
-          <div className="mt-16 grid border-t border-line md:grid-cols-3">
+          <div className="mt-12 grid border-t border-line md:mt-16 md:grid-cols-3">
             {family.map((m) => (
               <div
                 key={m.slug}

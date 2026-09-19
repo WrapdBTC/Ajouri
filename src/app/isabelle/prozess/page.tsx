@@ -53,7 +53,7 @@ export default function IsabelleProzess() {
           </div>
 
           <ChapterIndex
-            className="mt-16 md:mt-20 [&_.chapter-num]:!text-accent-text [&_.body-copy]:!text-deep-ink/65 [&_.display-3]:!text-deep-ink [&_li]:!border-current/15"
+            className="mt-12 md:mt-16 [&_.chapter-num]:!text-accent-text [&_.body-copy]:!text-deep-ink/65 [&_.display-3]:!text-deep-ink [&_li]:!border-current/15"
             chapters={[
               {
                 numeral: "I",
@@ -89,7 +89,7 @@ export default function IsabelleProzess() {
       />
 
       <section className="section-y">
-        <div className="container-x grid gap-12 md:grid-cols-12 md:items-center">
+        <div className="container-x grid gap-10 md:grid-cols-12 md:items-center md:gap-12">
           <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-4">
             <Img
               src="/assets/isabelle/02-portrait.jpg"

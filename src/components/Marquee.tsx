@@ -7,7 +7,7 @@ type Props = {
 export function Marquee({ items, className = "" }: Props) {
   const doubled = [...items, ...items];
   return (
-    <div className={`marquee border-y border-line py-5 ${className}`} aria-hidden>
+    <div className={`marquee max-w-[100vw] border-y border-line py-4 md:py-5 ${className}`} aria-hidden>
       <div className="marquee-track">
         {doubled.map((item, i) => (
           <span key={`${item}-${i}`} className="marquee-item text-ink">

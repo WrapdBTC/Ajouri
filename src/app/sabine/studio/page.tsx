@@ -43,7 +43,7 @@ export default function SabineStudio() {
         }
       />
 
-      <section className="section-y-tight">
+      <section className="pt-10 md:pt-14">
         <div className="container-x">
           <MetaRow
             items={[
@@ -56,8 +56,8 @@ export default function SabineStudio() {
         </div>
       </section>
 
-      <section className="section-y">
-        <div className="container-x grid gap-14 md:grid-cols-12">
+      <section className="section-y !pt-10 md:!pt-14">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:gap-14">
           <div className="reveal md:col-span-5">
             <Eyebrow index="I">Offenes Studio</Eyebrow>
             <h2 className="display-2 mt-6">
@@ -102,7 +102,7 @@ export default function SabineStudio() {
             </h2>
           </div>
           <ChapterIndex
-            className="mt-14"
+            className="mt-12 md:mt-14"
             layout="row"
             chapters={[
               {
@@ -131,7 +131,7 @@ export default function SabineStudio() {
       </section>
 
       <section className="section-y">
-        <div className="container-x grid gap-14 md:grid-cols-12 md:items-center">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
           <div className="reveal ken-wrap relative aspect-[4/3] overflow-hidden md:col-span-7">
             <Img
               src="/assets/sabine/03-bowls.jpg"

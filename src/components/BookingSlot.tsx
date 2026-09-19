@@ -28,7 +28,7 @@ export function BookingSlot({
           backgroundPosition: "0 5rem",
         }}
       />
-      <div className="relative p-9 md:p-12 lg:p-14">
+      <div className="relative p-8 md:p-11 lg:p-14">
         <div className="flex flex-wrap items-start justify-between gap-8">
           <div className="max-w-md">
             <p className="eyebrow text-accent-text">{title}</p>

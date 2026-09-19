@@ -24,7 +24,7 @@ export function SectionIntro({ index, eyebrow, title, lead, className = "", layo
       <div className={`grid gap-8 md:grid-cols-12 md:items-end ${className}`}>
         <div className="md:col-span-7">
           <Eyebrow index={index}>{eyebrow}</Eyebrow>
-          <h2 className="display-2 mt-6">{title}</h2>
+          <h2 className="display-2 mt-5 md:mt-6">{title}</h2>
         </div>
         {lead && <p className="lead md:col-span-4 md:col-start-9">{lead}</p>}
       </div>
@@ -34,7 +34,7 @@ export function SectionIntro({ index, eyebrow, title, lead, className = "", layo
     <div className={className}>
       <Eyebrow index={index}>{eyebrow}</Eyebrow>
       <h2 className="display-2 mt-6">{title}</h2>
-      {lead && <p className="lead mt-6 max-w-xl">{lead}</p>}
+      {lead && <p className="lead mt-5 max-w-xl md:mt-6">{lead}</p>}
     </div>
   );
 }

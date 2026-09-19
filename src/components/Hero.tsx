@@ -53,8 +53,8 @@ export function Hero({
       <div
         className={`container-x flex items-end ${
           isPage
-            ? "min-h-[44svh] pt-28 pb-14 md:min-h-[52svh] md:pt-36 md:pb-20"
-            : "min-h-[calc(100svh-5.5rem)] pt-44 pb-20 md:pb-24"
+            ? "min-h-[42svh] pt-28 pb-12 md:min-h-[50svh] md:pt-32 md:pb-16"
+            : "min-h-[calc(100svh-5.25rem)] pt-40 pb-16 md:pt-44 md:pb-20"
         }`}
       >
         <div className={isPage ? "max-w-xl" : "max-w-3xl"}>
@@ -67,12 +67,12 @@ export function Hero({
             {title}
           </h1>
           <p
-            className={`lead anim-rise anim-rise-2 mt-7 text-ink/85! ${isPage ? "mt-5!" : ""} ${leadClassName}`}
+            className={`lead anim-rise anim-rise-2 text-ink/85! ${isPage ? "mt-5" : "mt-7"} ${leadClassName}`}
           >
             {lead}
           </p>
           <div
-            className={`anim-rise anim-rise-3 flex flex-wrap items-center gap-3 ${isPage ? "mt-8" : "mt-11"}`}
+            className={`anim-rise anim-rise-3 flex flex-wrap items-center gap-3 ${isPage ? "mt-8" : "mt-10"}`}
           >
             {actions}
           </div>

@@ -86,7 +86,7 @@ export default function MichelleHome() {
         </div>
       </section>
 
-      <section className="pb-6 md:pb-10">
+      <section className="section-y-tight">
         <div className="container-x">
           <PullQuote variant="statement">
             „Jede Haut erzählt ihre eigene Geschichte. Ich höre zu, analysiere präzise und behandle
@@ -132,7 +132,7 @@ export default function MichelleHome() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-12 md:gap-8">
+          <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-8">
             <div className="md:col-span-5">
               <EditorialCover
                 href="/michelle/leistungen/"
@@ -145,7 +145,7 @@ export default function MichelleHome() {
                 aspect="tall"
               />
             </div>
-            <div className="md:col-span-4 md:pt-16">
+            <div className="md:col-span-4 md:pt-12 lg:pt-16">
               <EditorialCover
                 href="/michelle/analyse/"
                 eyebrow="Analyse"

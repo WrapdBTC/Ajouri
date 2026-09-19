@@ -77,8 +77,8 @@ export function SiteFooter({ current }: { current: ThemeKey }) {
 
   return (
     <footer className="bg-deep text-deep-ink">
-      <div className="container-x pt-20 pb-10 md:pt-28">
-        <div className="grid gap-14 md:grid-cols-12">
+      <div className="container-x pt-16 pb-10 md:pt-24">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-4">
             {current === "hub" ? (
               <p className="wordmark text-3xl">{cfg.title}</p>

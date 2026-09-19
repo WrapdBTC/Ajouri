@@ -29,7 +29,7 @@ export function SplitFeature({
   sticky = true,
 }: Props) {
   return (
-    <div className={`grid gap-12 md:grid-cols-12 md:items-start md:gap-12 ${className}`}>
+    <div className={`grid gap-10 md:grid-cols-12 md:items-start md:gap-12 ${className}`}>
       <div
         className={`reveal ken-wrap relative aspect-[4/5] overflow-hidden bg-surface md:col-span-7 md:aspect-auto md:min-h-[38rem] ${
           flip ? "md:order-2" : ""

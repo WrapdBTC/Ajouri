@@ -102,11 +102,11 @@ export default function SabineAngebote() {
             lead="Keine Bullet-Menüs — jedes Angebot mit Stimmung und für wen es gedacht ist."
           />
 
-          <div className="mt-16 space-y-0 md:mt-24">
+          <div className="mt-12 space-y-0 md:mt-16">
             {offerings.map((o, i) => (
               <article
                 key={o.name}
-                className={`reveal grid gap-10 border-t border-line py-14 md:grid-cols-12 md:gap-12 md:py-20 ${
+                className={`reveal grid gap-8 border-t border-line py-12 md:grid-cols-12 md:gap-12 md:py-16 ${
                   i === offerings.length - 1 ? "border-b" : ""
                 }`}
               >

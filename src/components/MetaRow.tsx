@@ -45,7 +45,7 @@ export function StatStrip({
       {items.map((item) => (
         <li
           key={item.label}
-          className="reveal border-b border-line py-7 pr-5 sm:border-b-0 sm:border-r sm:pr-8 sm:last:border-r-0"
+          className="reveal border-b border-line py-6 pr-4 last:border-b-0 sm:border-b-0 sm:border-r sm:py-7 sm:pr-8 sm:last:border-r-0"
         >
           <p className="font-display text-[1.65rem] leading-none text-ink md:text-2xl">
             {item.value}

@@ -110,6 +110,7 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
     scroll-behavior: smooth;
     scroll-padding-top: 4.5rem;
     -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
   }
 
   body {
@@ -119,6 +120,7 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
 
   ::selection {
@@ -290,7 +292,7 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
   @media (min-width: 768px) {
     .sticky-caption {
       position: sticky;
-      top: 6.5rem;
+      top: 5.5rem;
     }
   }
 
@@ -315,7 +317,7 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
   .chapter-num {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 5.5rem);
     line-height: 0.9;
     letter-spacing: -0.02em;
     color: var(--t-accent-text);
@@ -327,10 +329,11 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(1.85rem, 3.2vw, 3.15rem);
-    line-height: 1.18;
+    font-size: clamp(1.65rem, 3.2vw, 3.15rem);
+    line-height: 1.2;
     letter-spacing: -0.015em;
     text-wrap: balance;
+    overflow-wrap: break-word;
   }
 
   /* Marquee track */
