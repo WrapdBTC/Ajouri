@@ -49,3 +49,10 @@ drei Farbwelten:
 ## Repo
 
 https://github.com/WrapdBTC/Ajouri
+
+## Live (GitHub Pages)
+
+Nach dem Deploy: https://wrapdbtc.github.io/Ajouri/
+
+Lokal ohne basePath: `npm run dev`  
+Pages-Build setzt `GITHUB_PAGES=true` (basePath `/Ajouri`).
