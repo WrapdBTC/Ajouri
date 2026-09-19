@@ -13,7 +13,7 @@ export function SiteHeader({ current }: { current: ThemeKey }) {
   return (
     <>
       <div className="bg-deep text-deep-ink">
-        <div className="container-x flex h-8 items-center justify-between gap-4 text-[0.6rem] uppercase tracking-[0.22em] md:tracking-[0.28em]">
+        <div className="container-x flex h-9 items-center justify-between gap-3 text-[0.6rem] uppercase tracking-[0.18em] sm:gap-4 sm:tracking-[0.22em] md:tracking-[0.28em]">
           <NextLink
             href="/"
             className={`transition-opacity duration-300 hover:opacity-100 ${current === "hub" ? "opacity-100" : "opacity-55"}`}
@@ -46,7 +46,9 @@ export function SiteHeader({ current }: { current: ThemeKey }) {
         <div className="container-x relative flex h-[3.75rem] items-center justify-between gap-6 md:h-[4rem]">
           <NextLink href={current === "hub" ? "/" : `/${current}/`} className="flex flex-col leading-none">
             {current === "hub" ? (
-              <span className="wordmark text-[1.2rem] text-ink md:text-[1.3rem]">{cfg.title}</span>
+              <span className="font-display text-[1.15rem] tracking-[0.28em] uppercase text-ink md:text-[1.25rem]">
+                {cfg.title}
+              </span>
             ) : (
               <span className="font-display text-[1.4rem] tracking-[-0.01em] text-ink md:text-[1.5rem]">
                 {cfg.title}

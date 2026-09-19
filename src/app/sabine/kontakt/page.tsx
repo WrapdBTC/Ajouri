@@ -70,7 +70,7 @@ export default function SabineKontakt() {
           />
 
           <div className="mt-8 grid gap-8 md:mt-10 md:grid-cols-12 md:gap-10">
-            <div className="reveal border border-line bg-elev p-7 md:col-span-5 md:p-9">
+            <div className="reveal border border-line bg-elev p-5 sm:p-7 md:col-span-5 md:p-9">
               <Eyebrow>Studio</Eyebrow>
               <h2 className="display-3 mt-4">Vita Sonus</h2>
               <p className="eyebrow mt-2 text-muted">Sabine Ajouri</p>

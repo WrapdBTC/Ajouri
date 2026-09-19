@@ -239,7 +239,7 @@ export default function IsabelleHome() {
                   0{i + 1}
                 </span>
                 <h3 className="display-3 mt-7">{title}</h3>
-                <p className="mt-3 max-w-xs flex-1 text-[0.95rem] leading-relaxed text-deep-ink/75">{text}</p>
+                <p className="mt-3 max-w-xs flex-1 text-[0.95rem] leading-relaxed text-deep-ink/88">{text}</p>
               </li>
             ))}
           </ul>

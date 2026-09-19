@@ -59,7 +59,7 @@ export function EditorialCover({
         </div>
       </div>
       <p className="body-copy mt-5 flex-1 !max-w-none text-[0.95rem]">{text}</p>
-      <span className="eyebrow mt-6 flex items-center gap-3 pb-1 text-ink">
+      <span className="tap-row eyebrow mt-5 text-ink">
         Weiterlesen <Arrow />
       </span>
     </NextLink>

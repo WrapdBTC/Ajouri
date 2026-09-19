@@ -58,7 +58,7 @@ function Portal({ m }: { m: (typeof family)[number] }) {
       </div>
       <div className="flex flex-1 flex-col border-t border-line pt-6 pb-1">
         <p className="body-copy !max-w-none flex-1 text-[0.95rem]">{m.line}</p>
-        <span className="eyebrow mt-6 inline-flex items-center gap-3 text-ink">
+        <span className="tap-row eyebrow mt-5 text-ink">
           <span className="sr-only">Zur Welt von {m.first}</span>
           Zur Welt <Arrow />
         </span>
@@ -71,13 +71,13 @@ export default function HubPage() {
   return (
     <PageShell theme="hub">
       {/* ---------- Editorial cover hero ---------- */}
-      <section className="container-x pt-12 md:pt-16">
+      <section className="container-x pt-8 md:pt-16">
         <div className="anim-rise flex items-center justify-between gap-6">
           <Eyebrow>Haut · Klang · Linie</Eyebrow>
           <p className="eyebrow hidden text-muted sm:block">Neuburg an der Donau</p>
         </div>
 
-        <h1 className="wordmark anim-rise anim-rise-1 mt-8 -mr-[0.12em] text-[min(calc((100vw-2.5rem)/4.1),19rem)] leading-[0.86] tracking-[0.12em] md:mt-12 md:text-[min(calc((100vw-5.5rem)/4.1),19rem)]">
+        <h1 className="wordmark wordmark-display anim-rise anim-rise-1 mt-7 tracking-[0.12em] text-[clamp(2.6rem,15vw,4.25rem)] leading-[0.86] md:mt-12 md:text-[min(calc((100vw-5.5rem)/4.1),19rem)] md:tracking-[0.12em]">
           Ajouri
         </h1>
 
@@ -268,7 +268,7 @@ export default function HubPage() {
                         ? "/sabine/kontakt/"
                         : "/isabelle/anfrage/"
                   }
-                  className="group/btn eyebrow mt-10 flex items-center gap-3 text-ink"
+                  className="group/btn tap-row eyebrow mt-8 text-ink"
                 >
                   {m.slug === "isabelle" ? "Zur Anfrage" : "Kontakt"} <Arrow />
                 </NextLink>

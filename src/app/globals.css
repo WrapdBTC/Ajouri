@@ -68,11 +68,11 @@
   --t-bg: #0e1430;
   --t-surface: #131a3b;
   --t-elev: #19214a;
-  --t-ink: #efe6d6;
-  --t-muted: #b4ac9e;
-  --t-line: rgb(239 230 214 / 0.14);
+  --t-ink: #f2ebe0;
+  --t-muted: #c9c0b2;
+  --t-line: rgb(239 230 214 / 0.16);
   --t-accent: #c9a45c;
-  --t-accent-text: #d6b774;
+  --t-accent-text: #e0c588;
   --t-deep: #080c1f;
   --t-deep-ink: #e9dfcc;
   --t-btn: #c9a45c;
@@ -86,11 +86,11 @@
   --t-bg: #0b0b0c;
   --t-surface: #131315;
   --t-elev: #1b1b1e;
-  --t-ink: #eeebe6;
-  --t-muted: #928d87;
-  --t-line: rgb(238 235 230 / 0.12);
+  --t-ink: #f2efea;
+  --t-muted: #b0aaa3;
+  --t-line: rgb(238 235 230 / 0.14);
   --t-accent: #7c1f29;
-  --t-accent-text: #c2505b;
+  --t-accent-text: #d66a74;
   --t-deep: #000000;
   --t-deep-ink: #d9d5cf;
   --t-btn: #7c1f29;
@@ -108,7 +108,7 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4.5rem;
+    scroll-padding-top: 5.25rem;
     -webkit-text-size-adjust: 100%;
     overflow-x: clip;
   }
@@ -435,18 +435,22 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
 
 /* === MOBILE HARDENING === */
 @media (max-width: 767px) {
-  .wordmark {
-    font-size: clamp(2.75rem, 18vw, 5.5rem) !important;
-    letter-spacing: 0.08em !important;
+  /* Only hero/display wordmarks — never the sticky header mark */
+  h1.wordmark,
+  .wordmark-display {
+    font-size: clamp(2.6rem, 15vw, 4.25rem);
+    letter-spacing: 0.1em;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
   .display-0 {
-    font-size: clamp(2.75rem, 14vw, 4.5rem);
+    font-size: clamp(2.6rem, 13vw, 4.25rem);
   }
   .display-1 {
-    font-size: clamp(2.35rem, 11vw, 3.5rem);
+    font-size: clamp(2.2rem, 10.5vw, 3.35rem);
   }
   .display-2 {
-    font-size: clamp(1.85rem, 8vw, 2.75rem);
+    font-size: clamp(1.75rem, 7.5vw, 2.6rem);
   }
   .container-x {
     padding-inline: 1.15rem;
@@ -462,4 +466,25 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
   .marquee-track {
     max-width: 100%;
   }
+  /* Readable chapter body on dark surfaces */
+  .body-copy {
+    color: color-mix(in oklab, var(--t-ink) 82%, var(--t-muted));
+  }
+}
+
+/* Dark themes — stronger body / step copy */
+[data-theme="sabine"] .body-copy,
+[data-theme="isabelle"] .body-copy {
+  color: color-mix(in oklab, var(--t-ink) 78%, var(--t-muted));
+}
+[data-theme="sabine"] .lead,
+[data-theme="isabelle"] .lead {
+  color: color-mix(in oklab, var(--t-ink) 72%, var(--t-muted));
+}
+
+/* Tap-friendly text CTAs */
+.tap-row {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
 }

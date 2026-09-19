@@ -64,8 +64,8 @@ export function Hero({
       <div
         className={`container-x flex items-end ${
           isPage
-            ? "min-h-[36svh] pt-24 pb-10 md:min-h-[42svh] md:pt-28 md:pb-12"
-            : "min-h-[min(100svh-5.25rem,42rem)] pt-32 pb-12 md:min-h-[calc(100svh-5.25rem)] md:pt-44 md:pb-20"
+            ? "min-h-[30svh] pt-20 pb-8 md:min-h-[40svh] md:pt-28 md:pb-12"
+            : "min-h-[min(100svh-5.25rem,34rem)] pt-24 pb-10 md:min-h-[calc(100svh-5.25rem)] md:pt-44 md:pb-20"
         }`}
       >
         <div className={`relative rounded-sm ${isPage ? "max-w-xl" : "max-w-3xl"}`}>
@@ -96,7 +96,7 @@ export function Hero({
             {lead}
           </p>
           <div
-            className={`anim-rise anim-rise-3 flex flex-wrap items-center gap-3 ${isPage ? "mt-7" : "mt-10"}`}
+            className={`anim-rise anim-rise-3 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center [&>a]:w-full sm:[&>a]:w-auto ${isPage ? "mt-6" : "mt-8 md:mt-10"}`}
           >
             {actions}
           </div>

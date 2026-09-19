@@ -68,17 +68,17 @@ export function InquiryForm({
   }
 
   const fieldCls =
-    "mt-3 block w-full border border-line bg-bg/40 px-4 py-3.5 text-[0.95rem] text-ink placeholder:text-muted/70 outline-none transition-[border-color,background-color] focus:border-accent/60 focus:bg-elev";
+    "mt-3 block w-full min-h-12 border border-line bg-bg/50 px-4 py-3.5 text-[0.95rem] text-ink placeholder:text-muted outline-none transition-[border-color,background-color] focus:border-accent/60 focus:bg-elev";
 
   return (
     <form
       onSubmit={onSubmit}
-      className={`border border-line bg-elev px-7 py-9 md:px-10 md:py-11 ${className}`}
+      className={`border border-line bg-elev px-5 py-8 sm:px-7 sm:py-9 md:px-10 md:py-11 ${className}`}
     >
       <p className="eyebrow text-accent-text">{eyebrow}</p>
       <p className="font-display mt-4 text-[1.85rem] leading-[1.1] md:text-[2.15rem]">{title}</p>
 
-      <div className="mt-8 space-y-6 md:mt-9 md:space-y-7">
+      <div className="mt-7 space-y-5 sm:mt-8 sm:space-y-6 md:mt-9 md:space-y-7">
         {fields.map((f) => (
           <label key={f.name} className="block">
             <span className="eyebrow text-muted">{f.label}</span>
@@ -109,7 +109,7 @@ export function InquiryForm({
       <button
         type="submit"
         disabled={busy}
-        className="group/btn mt-8 inline-flex h-12 items-center justify-center gap-3 rounded-[2px] bg-btn px-7 text-[0.7rem] font-medium tracking-[0.22em] text-btn-ink uppercase transition-opacity duration-500 hover:opacity-85 disabled:opacity-60"
+        className="group/btn mt-8 inline-flex h-12 min-h-11 w-full items-center justify-center gap-3 rounded-[2px] bg-btn px-7 text-[0.7rem] font-medium tracking-[0.22em] text-btn-ink uppercase transition-opacity duration-500 hover:opacity-85 disabled:opacity-60 sm:w-auto"
       >
         {busy ? "Öffne …" : submitLabel}
         <svg

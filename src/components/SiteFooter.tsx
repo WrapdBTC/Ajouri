@@ -81,7 +81,7 @@ export function SiteFooter({ current }: { current: ThemeKey }) {
         <div className="grid gap-12 md:grid-cols-12 md:gap-14">
           <div className="md:col-span-4">
             {current === "hub" ? (
-              <p className="wordmark text-3xl">{cfg.title}</p>
+              <p className="font-display text-3xl tracking-[0.2em] uppercase">{cfg.title}</p>
             ) : (
               <p className="font-display text-4xl leading-none">{cfg.title}</p>
             )}

@@ -9,11 +9,11 @@ type Props = {
 export function MetaRow({ items, className = "" }: Props) {
   return (
     <ul
-      className={`flex flex-wrap gap-x-10 gap-y-4 border-y border-line py-6 ${className}`}
+      className={`grid grid-cols-1 gap-5 border-y border-line py-5 sm:flex sm:flex-wrap sm:gap-x-8 sm:gap-y-5 md:gap-x-10 md:py-6 ${className}`}
     >
       {items.map((item) => (
-        <li key={item.label} className="reveal min-w-[8rem]">
-          <p className="eyebrow text-muted">{item.label}</p>
+        <li key={item.label} className="reveal sm:min-w-[8rem]">
+          <p className="eyebrow text-accent-text">{item.label}</p>
           <p className="mt-1.5 font-display text-xl leading-tight text-ink md:text-[1.35rem]">
             {item.value}
           </p>
@@ -42,10 +42,12 @@ export function StatStrip({
 
   return (
     <ul className={`grid grid-cols-2 border-t border-line ${cols} ${className}`}>
-      {items.map((item) => (
+      {items.map((item, i) => (
         <li
           key={item.label}
-          className="reveal border-b border-line py-6 pr-4 last:border-b-0 sm:border-b-0 sm:border-r sm:py-7 sm:pr-8 sm:last:border-r-0"
+          className={`reveal border-b border-line py-6 pr-4 sm:border-b-0 sm:border-r sm:py-7 sm:pr-8 sm:last:border-r-0 ${
+            i === items.length - 1 && items.length % 2 === 1 ? "col-span-2 sm:col-span-1" : ""
+          }`}
         >
           <p className="font-display text-[1.65rem] leading-none text-ink md:text-2xl">
             {item.value}

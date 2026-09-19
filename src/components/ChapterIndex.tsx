@@ -26,11 +26,11 @@ export function ChapterIndex({ chapters, className = "", layout = "rail" }: Prop
         {chapters.map((ch) => (
           <li
             key={ch.numeral}
-            className="reveal flex h-full flex-col border-b border-line py-6 last:border-b-0 sm:border-b-0 sm:border-l sm:px-5 sm:py-7 lg:px-6 sm:first:border-l-0 sm:first:pl-0"
+            className="reveal flex h-full flex-col border-b border-line py-7 last:border-b-0 sm:border-b-0 sm:border-l sm:px-5 sm:py-8 lg:px-6 sm:first:border-l-0 sm:first:pl-0"
           >
             <span className="chapter-num !text-[2.5rem] md:!text-[3.15rem]">{ch.numeral}</span>
             <h3 className="display-3 mt-4">{ch.title}</h3>
-            {ch.line && <p className="body-copy mt-2.5 flex-1">{ch.line}</p>}
+            {ch.line && <p className="body-copy mt-2.5 flex-1 !text-[0.95rem]">{ch.line}</p>}
           </li>
         ))}
       </ol>
@@ -47,7 +47,7 @@ export function ChapterIndex({ chapters, className = "", layout = "rail" }: Prop
           <span className="chapter-num">{ch.numeral}</span>
           <div className="pt-1">
             <h3 className="display-3">{ch.title}</h3>
-            {ch.line && <p className="body-copy mt-2.5 max-w-md">{ch.line}</p>}
+            {ch.line && <p className="body-copy mt-2.5 max-w-md !text-[0.95rem]">{ch.line}</p>}
           </div>
         </li>
       ))}

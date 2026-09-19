@@ -16,7 +16,7 @@ export default function IsabelleAnfrage() {
   return (
     <>
       <section className="relative isolate border-b border-line">
-        <div className="container-x pb-8 pt-20 md:pb-10 md:pt-24">
+        <div className="container-x pb-7 pt-16 md:pb-10 md:pt-24">
           <div className="anim-rise max-w-2xl">
             <Eyebrow>Anfrage · Atelier Isabelle</Eyebrow>
             <h1 className="display-2 mt-5">
@@ -32,27 +32,27 @@ export default function IsabelleAnfrage() {
       {/* Single-column form — balanced on all breakpoints */}
       <section className="section-y-tight !pt-8 md:!pt-10">
         <div className="container-x max-w-2xl">
-          <div className="reveal mb-8 grid gap-5 border border-line bg-elev p-6 sm:grid-cols-3 sm:gap-6 md:p-7 text-[0.9rem]">
+          <div className="reveal mb-8 grid gap-6 border border-line bg-elev p-5 sm:grid-cols-3 sm:gap-6 sm:p-6 md:p-7 text-[0.9rem]">
             <div>
-              <p className="eyebrow text-muted">Termine</p>
-              <p className="mt-1.5 font-display text-xl">Auf Anfrage</p>
+              <p className="eyebrow text-accent-text">Termine</p>
+              <p className="mt-1.5 font-display text-xl text-ink">Auf Anfrage</p>
             </div>
             <div>
-              <p className="eyebrow text-muted">E-Mail</p>
-              <p className="mt-1.5">
+              <p className="eyebrow text-accent-text">E-Mail</p>
+              <p className="mt-1.5 text-ink">
                 <a href={mailto(c.email)} className="hover:underline">
                   {c.email}
                 </a>
               </p>
             </div>
             <div>
-              <p className="eyebrow text-muted">Walk-ins</p>
-              <p className="mt-1.5 text-muted">Keine</p>
+              <p className="eyebrow text-accent-text">Walk-ins</p>
+              <p className="mt-1.5 text-ink/80">Keine</p>
             </div>
           </div>
 
           {c.emailIsPlaceholder && (
-            <p className="reveal mb-6 text-[0.8rem] leading-relaxed text-muted">
+            <p className="reveal mb-8 mt-1 text-[0.85rem] leading-relaxed text-ink/70">
               Die E-Mail-Adresse ist ein Platzhalter und wird vor dem Livegang durch die echte
               Atelier-Adresse ersetzt.
             </p>
