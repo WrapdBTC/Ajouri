@@ -4,6 +4,7 @@ import { Img } from "@/components/Img";
 import { Arrow, Button } from "@/components/Button";
 import { SectionIntro, Eyebrow } from "@/components/SectionIntro";
 import { PriceRow } from "@/components/PriceRow";
+import { FullBleed } from "@/components/FullBleed";
 import { mailto, contact } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -30,12 +31,42 @@ const firstVisit = [
 ];
 
 const treatments = [
-  { name: "Aquafacial", detail: "Tiefenreinigung, die Ablagerungen löst und Platz für Wirkstoffe schafft", price: "140 €" },
-  { name: "Microneedling", detail: "Gezielte Impulse für Regeneration und ein verfeinertes Hautbild", price: "200 €" },
-  { name: "Power Duo", detail: "Aquafacial und Microneedling in einer Behandlung", price: "300 €" },
-  { name: "Dermaplaning", detail: "Sanfte Exfoliation für eine glatte, ebenmäßige Oberfläche", price: "80 €" },
-  { name: "Glass Skin", detail: "Intensives Kombi-Treatment für klaren, ebenmäßigen Glow", price: "340 €" },
-  { name: "ACID Peel", detail: "Professionelles Peeling für frische, verfeinerte Haut", price: "100 €" },
+  {
+    name: "Aquafacial",
+    detail: "Tiefenreinigung, die Ablagerungen löst und Platz für Wirkstoffe schafft",
+    price: "140 €",
+    featured: false,
+  },
+  {
+    name: "Microneedling",
+    detail: "Gezielte Impulse für Regeneration und ein verfeinertes Hautbild",
+    price: "200 €",
+    featured: false,
+  },
+  {
+    name: "Power Duo",
+    detail: "Aquafacial und Microneedling in einer Behandlung",
+    price: "300 €",
+    featured: true,
+  },
+  {
+    name: "Dermaplaning",
+    detail: "Sanfte Exfoliation für eine glatte, ebenmäßige Oberfläche",
+    price: "80 €",
+    featured: false,
+  },
+  {
+    name: "Glass Skin",
+    detail: "Intensives Kombi-Treatment für klaren, ebenmäßigen Glow",
+    price: "340 €",
+    featured: true,
+  },
+  {
+    name: "ACID Peel",
+    detail: "Professionelles Peeling für frische, verfeinerte Haut",
+    price: "100 €",
+    featured: false,
+  },
 ];
 
 const lashBrow = [
@@ -58,7 +89,7 @@ export default function MichelleLeistungen() {
             Ausgewählte <em>Behandlungen.</em>
           </>
         }
-        lead="Orientierungspreise. Welche Behandlung für dich sinnvoll ist, zeigt sich nach Analyse und Gespräch."
+        lead="Orientierungspreise. Welche Behandlung sinnvoll ist, zeigt sich nach Analyse und Gespräch."
         actions={
           <>
             <Button href="/michelle/kontakt/#buchen">
@@ -71,11 +102,48 @@ export default function MichelleLeistungen() {
         }
       />
 
+      {/* Featured treatment — magazine row */}
       <section className="section-y">
+        <div className="container-x">
+          <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
+            <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-5 md:aspect-[3/4]">
+              <Img
+                src="/assets/michelle/03-treatment.jpg"
+                alt="Treatment Detail"
+                position="70% 40%"
+                zoom={1.15}
+                className="ken-img absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+            <div className="reveal md:col-span-6 md:col-start-7">
+              <Eyebrow index="I">Im Fokus</Eyebrow>
+              <h2 className="display-2 mt-6">
+                Glass Skin <em>&amp; Power Duo.</em>
+              </h2>
+              <p className="lead mt-8 !max-w-md">
+                Zwei Treatments, die oft am Anfang stehen: intensiver Glow oder die Kombination aus
+                Reinigung und Regeneration. Beide bauen auf der Analyse auf — nichts wird geraten.
+              </p>
+              <dl className="mt-10 space-y-5 border-t border-line pt-8">
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="font-display text-2xl">Glass Skin</dt>
+                  <dd className="font-display text-2xl tabular-nums">340 €</dd>
+                </div>
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="font-display text-2xl">Power Duo</dt>
+                  <dd className="font-display text-2xl tabular-nums">300 €</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-y bg-surface">
         <div className="container-x">
           <SectionIntro
             layout="split"
-            index="01"
+            index="II"
             eyebrow="Einstieg"
             title={
               <>
@@ -85,7 +153,7 @@ export default function MichelleLeistungen() {
             lead="Auf dem Ersttermin baut jede weitere Behandlung auf — mit Analyse und einem Facial, das zu deinem Hautbild passt."
           />
 
-          <div className="mt-16 grid gap-14 md:mt-20 md:grid-cols-12">
+          <div className="mt-16 grid gap-16 md:mt-20 md:grid-cols-12">
             <div className="md:col-span-8">
               <div className="reveal">
                 <p className="eyebrow text-muted">Der Einstieg</p>
@@ -95,24 +163,25 @@ export default function MichelleLeistungen() {
                   ))}
                 </ul>
               </div>
-              <div className="reveal mt-14">
+              <div className="reveal mt-16">
                 <p className="eyebrow text-muted">Behandlungen</p>
                 <ul className="mt-2 divide-y divide-line border-b border-line">
                   {treatments.map((t) => (
-                    <PriceRow key={t.name} {...t} />
+                    <PriceRow key={t.name} name={t.name} detail={t.detail} price={t.price} />
                   ))}
                 </ul>
               </div>
             </div>
 
             <aside className="md:col-span-4">
-              <div className="reveal bg-surface p-8 md:sticky md:top-28">
+              <div className="reveal border border-line bg-elev p-8 md:sticky md:top-24 md:p-10">
                 <p className="eyebrow text-accent-text">Unsicher, was passt?</p>
                 <p className="display-3 mt-4">Starte mit einer kostenlosen Erstberatung.</p>
-                <p className="body-copy mt-4">
-                  Unverbindlich und ganz ohne Druck. Danach ist der Ersttermin mit Hautanalyse der nächste Schritt.
+                <p className="body-copy mt-5 !max-w-none">
+                  Unverbindlich und ohne Druck. Danach ist der Ersttermin mit Hautanalyse der
+                  nächste Schritt.
                 </p>
-                <Button href={mailto(c.email, "Kostenlose Erstberatung")} className="mt-8 w-full">
+                <Button href={mailto(c.email, "Kostenlose Erstberatung")} className="mt-9 w-full">
                   Erstberatung anfragen
                 </Button>
               </div>
@@ -121,43 +190,48 @@ export default function MichelleLeistungen() {
         </div>
       </section>
 
-      <section className="section-y bg-surface">
-        <div className="container-x grid gap-14 md:grid-cols-12 md:items-center">
-          <div className="reveal md:order-2 md:col-span-7">
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Img
-                src="/assets/michelle/04-lash.jpg"
-                alt="Nahaufnahme eines geschlossenen Auges mit gelifteten Wimpern und definierter Braue"
-                position="58% 50%"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-          </div>
-          <div className="reveal md:order-1 md:col-span-4">
-            <Eyebrow index="02">Lash &amp; Brow</Eyebrow>
+      <FullBleed
+        src="/assets/michelle/04-lash.jpg"
+        alt="Nahaufnahme gelifteter Wimpern"
+        position="58% 50%"
+        height="band"
+      />
+
+      <section className="section-y">
+        <div className="container-x grid gap-14 md:grid-cols-12 md:items-start">
+          <div className="reveal sticky-caption md:col-span-4">
+            <Eyebrow index="III">Lash &amp; Brow</Eyebrow>
             <h2 className="display-2 mt-6">
               Ausdruck, <em>fein definiert.</em>
             </h2>
             <p className="lead mt-8">
-              Präzise Liftings für definierte Wimpern und schöne Brauen. Auch als Beauty-Extra buchbar — ganz
+              Präzise Liftings für definierte Wimpern und schöne Brauen. Auch als Beauty-Extra —
               unabhängig von einer Hautbehandlung.
             </p>
-            <ul className="mt-10 border-t border-line">
-              {lashBrow.map(([name, text]) => (
-                <li key={name} className="border-b border-line py-5">
-                  <p className="font-display text-2xl">{name}</p>
-                  <p className="mt-1 text-[0.9rem] text-muted">{text}</p>
-                </li>
-              ))}
-            </ul>
             <Button href={mailto(c.email, "Anfrage Lash & Brow")} variant="text" className="mt-9">
               Lash &amp; Brow anfragen <Arrow />
             </Button>
           </div>
+          <ul className="md:col-span-7 md:col-start-6">
+            {lashBrow.map(([name, text], i) => (
+              <li
+                key={name}
+                className="reveal grid grid-cols-[3.5rem_1fr] gap-4 border-t border-line py-10 last:border-b"
+              >
+                <span className="chapter-num !text-[2rem]">
+                  {["I", "II", "III"][i]}
+                </span>
+                <div>
+                  <p className="font-display text-[1.75rem] leading-tight md:text-[2rem]">{name}</p>
+                  <p className="body-copy mt-2">{text}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="section-y-tight bg-surface">
         <div className="container-x flex flex-wrap items-center justify-between gap-6">
           <div>
             <p className="eyebrow text-accent-text">Bereit?</p>

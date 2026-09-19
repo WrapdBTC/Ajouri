@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
 import { Arrow, Button } from "@/components/Button";
 import { Eyebrow } from "@/components/SectionIntro";
 import { contact, mailto } from "@/lib/site";
@@ -16,110 +15,93 @@ const inquire = mailto(c.email, "Anfrage Atelier Isabelle");
 export default function IsabelleAnfrage() {
   return (
     <>
-      <Hero
-        size="page"
-        image="/assets/isabelle/06-portal.jpg"
-        alt="Atelier-Atmosphäre"
-        position="50% 50%"
-        eyebrow="Anfrage · Atelier Isabelle"
-        title={
-          <>
-            Erzähl von <em>deiner Idee.</em>
-          </>
-        }
-        lead="Motiv, Stelle, ungefähre Größe — schreib mir. Termine nur auf Anfrage, keine Walk-ins, keine Telefonnummer."
-        actions={
-          <>
-            <Button href={inquire}>
-              Anfrage senden <Arrow />
-            </Button>
-            <Button href="/isabelle/galerie/" variant="outline">
-              Galerie
-            </Button>
-          </>
-        }
-      />
+      {/* Almost blank luxury — confidence through emptiness */}
+      <section className="relative isolate">
+        <div className="container-x flex min-h-[48svh] flex-col justify-end pb-16 pt-32 md:min-h-[56svh] md:pb-24 md:pt-40">
+          <div className="anim-rise max-w-2xl">
+            <Eyebrow>Anfrage · Atelier Isabelle</Eyebrow>
+            <h1 className="display-1 mt-6">
+              Erzähl von <em>deiner Idee.</em>
+            </h1>
+            <p className="lead anim-rise anim-rise-1 mt-8 !max-w-[32ch] !text-[1.15rem] italic font-display !text-ink/85">
+              Motiv. Stelle. Größe. Mehr brauche ich nicht.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <section className="section-y">
-        <div className="container-x grid gap-14 md:grid-cols-12">
-          <div className="reveal md:col-span-5">
-            <Eyebrow>So erreichst du mich</Eyebrow>
-            <h2 className="display-2 mt-6">Atelier Isabelle</h2>
-            <p className="eyebrow mt-3 text-muted">Isabelle Ajouri · Fine-Line</p>
+      <section className="section-y !pt-0 md:!pt-0">
+        <div className="container-x grid gap-16 md:grid-cols-12 md:gap-10">
+          {/* Sparse contact column */}
+          <div className="reveal md:col-span-4">
+            <p className="eyebrow text-muted">Termine</p>
+            <p className="font-display mt-3 text-2xl leading-tight">Auf Anfrage</p>
+            <p className="mt-2 text-[0.9rem] text-muted">Keine Walk-ins · Keine Telefonnummer</p>
 
-            <dl className="mt-10 space-y-6 text-[0.95rem]">
-              <div>
-                <dt className="eyebrow text-accent-text">Termine</dt>
-                <dd className="mt-1.5">Auf Anfrage · keine Telefonnummer</dd>
-              </div>
-              <div>
-                <dt className="eyebrow text-accent-text">E-Mail</dt>
-                <dd className="mt-1.5">
-                  <a href={mailto(c.email)} className="hover:underline">
-                    {c.email}
-                  </a>
-                </dd>
-              </div>
-            </dl>
+            <p className="eyebrow mt-12 text-muted">E-Mail</p>
+            <p className="mt-3">
+              <a href={mailto(c.email)} className="font-display text-xl hover:underline">
+                {c.email}
+              </a>
+            </p>
 
             {c.emailIsPlaceholder && (
-              <p className="mt-8 border-t border-line pt-6 text-[0.85rem] leading-relaxed text-muted">
-                <span className="font-display block text-lg text-ink not-italic">Hinweis</span>
+              <p className="mt-8 max-w-xs text-[0.8rem] leading-relaxed text-muted">
                 Die E-Mail-Adresse ist ein Platzhalter und wird vor dem Livegang durch die echte
                 Atelier-Adresse ersetzt.
               </p>
             )}
           </div>
 
-          <div className="reveal md:col-span-6 md:col-start-7">
-            {/* Visual-only inquiry form — submits via mailto */}
+          {/* Luxury form panel — lots of emptiness */}
+          <div className="reveal md:col-span-7 md:col-start-6">
             <form
               action={inquire}
-              className="border border-line bg-elev p-8 md:p-10"
+              className="border border-line bg-elev px-8 py-12 md:px-14 md:py-16 lg:px-16 lg:py-20"
             >
               <p className="eyebrow text-accent-text">Anfrage</p>
-              <p className="font-display mt-4 text-[1.75rem] leading-tight md:text-[2rem]">
+              <p className="font-display mt-6 text-[2rem] leading-[1.1] md:text-[2.5rem]">
                 Was soll die Linie erzählen?
               </p>
 
-              <div className="mt-8 space-y-5">
+              <div className="mt-14 space-y-10">
                 <label className="block">
                   <span className="eyebrow text-muted">Name</span>
-                  <span className="mt-2 block border-b border-line bg-transparent px-0 py-3 text-[0.95rem] text-muted/70">
+                  <span className="mt-3 block border-b border-line bg-transparent px-0 py-4 text-[0.95rem] text-muted/55">
                     Dein Name
                   </span>
                 </label>
                 <label className="block">
                   <span className="eyebrow text-muted">Motiv</span>
-                  <span className="mt-2 block border-b border-line bg-transparent px-0 py-3 text-[0.95rem] text-muted/70">
+                  <span className="mt-3 block border-b border-line bg-transparent px-0 py-4 text-[0.95rem] text-muted/55">
                     Kurze Beschreibung deiner Idee
                   </span>
                 </label>
                 <label className="block">
                   <span className="eyebrow text-muted">Stelle &amp; Größe</span>
-                  <span className="mt-2 block border-b border-line bg-transparent px-0 py-3 text-[0.95rem] text-muted/70">
+                  <span className="mt-3 block border-b border-line bg-transparent px-0 py-4 text-[0.95rem] text-muted/55">
                     z. B. Unterarm, ca. 8 cm
                   </span>
                 </label>
                 <label className="block">
                   <span className="eyebrow text-muted">Nachricht</span>
-                  <span className="mt-2 block min-h-[5rem] border-b border-line bg-transparent px-0 py-3 text-[0.95rem] text-muted/70">
+                  <span className="mt-3 block min-h-[4.5rem] border-b border-line bg-transparent px-0 py-4 text-[0.95rem] text-muted/55">
                     Alles, was sonst noch wichtig ist
                   </span>
                 </label>
               </div>
 
-              <p className="body-copy mt-8 text-[0.85rem]">
-                Das Formular ist eine visuelle Vorlage. Deine Anfrage öffnet dein E-Mail-Programm mit
-                vorausgefülltem Betreff — oder kopiere die Adresse direkt.
+              <p className="mt-12 text-[0.8rem] leading-relaxed text-muted">
+                Visuelle Vorlage. Deine Anfrage öffnet dein E-Mail-Programm mit vorausgefülltem
+                Betreff.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-10 flex flex-wrap gap-3">
                 <Button href={inquire}>
                   Per E-Mail senden <Arrow />
                 </Button>
-                <Button href={mailto(c.email)} variant="text">
-                  {c.email}
+                <Button href="/isabelle/galerie/" variant="text">
+                  Zurück zur Galerie
                 </Button>
               </div>
             </form>

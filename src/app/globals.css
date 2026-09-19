@@ -1,10 +1,9 @@
 @import "tailwindcss";
 
 /*
- * AJOURI design system
+ * AJOURI design system — editorial boutique
  * One set of components, four palettes. Every surface reads its colours
- * from theme tokens set by the nearest [data-theme] ancestor, so the same
- * markup renders as Hub, Michelle, Sabine or Isabelle.
+ * from theme tokens set by the nearest [data-theme] ancestor.
  */
 
 @theme inline {
@@ -100,7 +99,6 @@
   color-scheme: dark;
 }
 
-/* Overscroll / rubber-band colour follows the page theme. */
 body:has(> [data-theme="michelle"]) { background-color: #f8f1e9; }
 body:has(> [data-theme="sabine"]) { background-color: #0e1430; }
 body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
@@ -110,7 +108,7 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 4.5rem;
     -webkit-text-size-adjust: 100%;
   }
 
@@ -139,19 +137,29 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
 @layer components {
   .container-x {
     width: 100%;
-    max-width: 82rem;
+    max-width: 86rem;
     margin-inline: auto;
     padding-inline: 1.25rem;
   }
   @media (min-width: 768px) {
-    .container-x { padding-inline: 2.5rem; }
+    .container-x { padding-inline: 2.75rem; }
+  }
+  @media (min-width: 1280px) {
+    .container-x { padding-inline: 3.5rem; }
   }
 
   .section-y {
-    padding-block: 5.5rem;
+    padding-block: 6.5rem;
   }
   @media (min-width: 768px) {
-    .section-y { padding-block: 8.5rem; }
+    .section-y { padding-block: 10rem; }
+  }
+
+  .section-y-tight {
+    padding-block: 4rem;
+  }
+  @media (min-width: 768px) {
+    .section-y-tight { padding-block: 6rem; }
   }
 
   .eyebrow {
@@ -163,33 +171,44 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
     line-height: 1.4;
   }
 
+  /* Display moments — bigger, tighter tracking */
+  .display-0 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(3.75rem, 9vw, 9.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
   .display-1 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2.85rem, 6.2vw, 5.9rem);
-    line-height: 0.98;
-    letter-spacing: -0.018em;
+    font-size: clamp(3.1rem, 7vw, 6.75rem);
+    line-height: 0.96;
+    letter-spacing: -0.022em;
     text-wrap: balance;
   }
 
   .display-2 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(2.2rem, 4.2vw, 3.9rem);
-    line-height: 1.02;
-    letter-spacing: -0.015em;
+    font-size: clamp(2.35rem, 4.6vw, 4.35rem);
+    line-height: 1.0;
+    letter-spacing: -0.018em;
     text-wrap: balance;
   }
 
   .display-3 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(1.55rem, 2.3vw, 2.1rem);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.65rem, 2.5vw, 2.35rem);
+    line-height: 1.1;
+    letter-spacing: -0.012em;
     text-wrap: balance;
   }
 
+  .display-0 em,
   .display-1 em,
   .display-2 em,
   .display-3 em {
@@ -199,9 +218,10 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
 
   .lead {
     font-size: 1.0625rem;
-    line-height: 1.75;
+    line-height: 1.72;
     color: var(--t-muted);
     text-wrap: pretty;
+    max-width: 42ch;
   }
   @media (min-width: 768px) {
     .lead { font-size: 1.125rem; }
@@ -209,9 +229,17 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
 
   .body-copy {
     font-size: 0.975rem;
-    line-height: 1.8;
+    line-height: 1.82;
     color: var(--t-muted);
     text-wrap: pretty;
+    max-width: 40ch;
+  }
+
+  .measure {
+    max-width: 40ch;
+  }
+  .measure-wide {
+    max-width: 48ch;
   }
 
   /* Dotted leader for price lists */
@@ -229,48 +257,173 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
     letter-spacing: 0.3em;
     text-transform: uppercase;
   }
+
+  /* Asymmetric editorial grids */
+  .grid-57 {
+    display: grid;
+    gap: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .grid-57 {
+      grid-template-columns: 5fr 7fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+  }
+
+  .grid-75 {
+    display: grid;
+    gap: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .grid-75 {
+      grid-template-columns: 7fr 5fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+  }
+
+  /* Sticky side caption column */
+  .sticky-caption {
+    position: relative;
+  }
+  @media (min-width: 768px) {
+    .sticky-caption {
+      position: sticky;
+      top: 6.5rem;
+    }
+  }
+
+  /* Ken-burns hover on image wrappers */
+  .ken-wrap {
+    overflow: hidden;
+  }
+  .ken-wrap img,
+  .ken-img {
+    transition: transform 2.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: transform;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .ken-wrap:hover img,
+    .group:hover .ken-img,
+    .group\/btn:hover .ken-img {
+      transform: scale(1.06);
+    }
+  }
+
+  /* Chapter numeral — large roman / display index */
+  .chapter-num {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--t-accent-text);
+    opacity: 0.85;
+  }
+
+  /* Pull quote as typographic object */
+  .pull-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.85rem, 3.2vw, 3.15rem);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  /* Marquee track */
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .marquee-track {
+      animation: marquee 42s linear infinite;
+    }
+  }
+  .marquee-item {
+    flex-shrink: 0;
+    padding-inline: 1.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    opacity: 0.55;
+  }
+  .marquee-item::after {
+    content: "·";
+    margin-left: 1.75rem;
+    opacity: 0.4;
+  }
 }
 
 /* ---------- Motion ---------- */
 
 @keyframes settle {
-  from { transform: scale(1.06); }
+  from { transform: scale(1.07); }
   to { transform: scale(1); }
 }
 
 @keyframes rise {
-  from { opacity: 0; transform: translateY(18px); }
+  from { opacity: 0; transform: translateY(22px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes reveal {
-  from { opacity: 0; transform: translateY(28px); }
+  from { opacity: 0; transform: translateY(32px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .anim-settle {
-    animation: settle 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: settle 3.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 
   .anim-rise {
-    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
-  .anim-rise-1 { animation-delay: 0.08s; }
-  .anim-rise-2 { animation-delay: 0.18s; }
-  .anim-rise-3 { animation-delay: 0.3s; }
-  .anim-rise-4 { animation-delay: 0.42s; }
+  .anim-rise-1 { animation-delay: 0.1s; }
+  .anim-rise-2 { animation-delay: 0.22s; }
+  .anim-rise-3 { animation-delay: 0.36s; }
+  .anim-rise-4 { animation-delay: 0.5s; }
+  .anim-rise-5 { animation-delay: 0.64s; }
 
-  /* Scroll reveal — progressive enhancement; content stays visible without support. */
+  .anim-fade {
+    animation: fade-in 1.4s ease both;
+  }
+
   @supports (animation-timeline: view()) {
     .reveal {
       animation: reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 38%;
+      animation-range: entry 0% entry 42%;
+    }
+    .reveal-late {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 12% entry 55%;
     }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .marquee-track { animation: none !important; }
 }

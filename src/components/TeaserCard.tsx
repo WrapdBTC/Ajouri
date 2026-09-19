@@ -20,12 +20,12 @@ export function TeaserCard({ href, eyebrow, title, text, image, position, alt = 
       className="reveal group group/btn flex flex-col border-t border-line pt-8 transition-opacity duration-500 hover:opacity-95"
     >
       {image && (
-        <div className="relative mb-7 aspect-[16/10] overflow-hidden bg-surface">
+        <div className="ken-wrap relative mb-7 aspect-[16/10] overflow-hidden bg-surface">
           <Img
             src={image}
             alt={alt}
             position={position}
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.04]"
+            className="ken-img absolute inset-0 h-full w-full object-cover"
           />
         </div>
       )}

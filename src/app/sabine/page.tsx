@@ -3,7 +3,11 @@ import { Hero } from "@/components/Hero";
 import { Img } from "@/components/Img";
 import { Arrow, Button } from "@/components/Button";
 import { Eyebrow } from "@/components/SectionIntro";
-import { TeaserCard } from "@/components/TeaserCard";
+import { PullQuote } from "@/components/PullQuote";
+import { ChapterIndex } from "@/components/ChapterIndex";
+import { FullBleed } from "@/components/FullBleed";
+import { Marquee } from "@/components/Marquee";
+import { EditorialCover } from "@/components/EditorialCover";
 import { asset } from "@/lib/asset";
 import { contact } from "@/lib/site";
 
@@ -20,16 +24,10 @@ export const metadata: Metadata = {
 
 const c = contact.sabine;
 
-const qualities = [
-  ["Resonanz", "Klang, der den Körper trifft"],
-  ["Stille", "Raum zwischen den Tönen"],
-  ["Achtsamkeit", "Präsenz ohne Druck"],
-  ["Regulation", "Nervensystem in Balance"],
-];
-
 export default function SabineHome() {
   return (
     <>
+      {/* Ritual invitation hero — short poetic lead */}
       <Hero
         size="full"
         image="/assets/sabine/01-hero.jpg"
@@ -41,7 +39,8 @@ export default function SabineHome() {
             Ein Raum, in dem es <em>still werden darf.</em>
           </>
         }
-        lead="Klangreisen, Klangmassage und Meditation — für Menschen, die Pause brauchen und wieder bei sich ankommen möchten."
+        lead="Du musst nichts erreichen. Du darfst ankommen."
+        leadClassName="!text-[1.2rem] md:!text-[1.3rem] !leading-relaxed italic font-display !text-ink/90 !max-w-[28ch]"
         actions={
           <>
             <Button href="/sabine/kontakt/#buchen">
@@ -60,109 +59,158 @@ export default function SabineHome() {
         }
       />
 
+      <Marquee
+        items={["Resonanz", "Stille", "Achtsamkeit", "Regulation", "Klang", "Atem", "Nachklang"]}
+      />
+
+      {/* Welcome + pull quote */}
       <section className="section-y">
         <div className="container-x grid gap-14 md:grid-cols-12 md:items-center">
-          <figure className="reveal md:col-span-5">
+          <figure className="reveal ken-wrap md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
                 src="/assets/sabine/02-portrait.jpg"
                 alt="Sabine Ajouri, Vita Sonus"
                 position="62% 30%"
-                className="absolute inset-0 h-full w-full object-cover"
+                className="ken-img absolute inset-0 h-full w-full object-cover"
               />
             </div>
             <figcaption className="eyebrow mt-4 text-muted">Sabine Ajouri · Vita Sonus</figcaption>
           </figure>
 
           <div className="reveal md:col-span-6 md:col-start-7">
-            <Eyebrow index="01">Willkommen</Eyebrow>
+            <Eyebrow index="I">Willkommen</Eyebrow>
             <h2 className="display-2 mt-6">
               Klang ist für mich <em>Zuhause kommen.</em>
             </h2>
-            <p className="lead mt-8">
-              Vita Sonus ist mein Studio für Klang und Achtsamkeit in Neuburg. Hier geht es nicht um Leistung —
-              sondern darum, dem Nervensystem Raum zu geben, sich zu regulieren.
+            <p className="lead mt-8 !max-w-none">
+              Vita Sonus ist mein Studio für Klang und Achtsamkeit in Neuburg. Hier geht es nicht um
+              Leistung — sondern darum, dem Nervensystem Raum zu geben, sich zu regulieren.
             </p>
-            <p className="body-copy mt-5">
-              Ob in einer Klangreise, einer Klangmassage oder in der Meditation: Ich begleite dich mit Präsenz,
-              Klarheit und einem ruhigen Rahmen. Du musst nichts erreichen. Du darfst ankommen.
+            <p className="body-copy mt-5 !max-w-none">
+              Ob in einer Klangreise, einer Klangmassage oder in der Meditation: Ich begleite dich
+              mit Präsenz und einem ruhigen Rahmen.
             </p>
-            <blockquote className="mt-10 border-l border-accent pl-6">
-              <p className="font-display text-[1.6rem] leading-snug italic md:text-[1.85rem]">
-                „You can&apos;t stop the waves, but you can learn to surf.“
-              </p>
-              <cite className="eyebrow mt-4 block not-italic text-muted">— Jon Kabat-Zinn</cite>
-            </blockquote>
           </div>
-        </div>
-
-        <div className="container-x mt-20 md:mt-28">
-          <p className="eyebrow text-muted">Was diesen Raum trägt</p>
-          <ul className="mt-6 grid grid-cols-2 border-t border-line sm:grid-cols-4">
-            {qualities.map(([title, text]) => (
-              <li key={title} className="reveal border-b border-line py-6 pr-4 sm:border-b-0">
-                <p className="font-display text-xl">{title}</p>
-                <p className="mt-1 text-[0.85rem] text-muted">{text}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
+      <section className="pb-4 md:pb-8">
+        <div className="container-x">
+          <PullQuote variant="statement" cite="— Jon Kabat-Zinn">
+            „You can&apos;t stop the waves, but you can learn to surf.“
+          </PullQuote>
+        </div>
+      </section>
+
+      {/* ChapterIndex journey */}
       <section className="section-y bg-surface">
+        <div className="container-x">
+          <div className="reveal max-w-xl">
+            <Eyebrow>Die Reise</Eyebrow>
+            <h2 className="display-2 mt-6">
+              Vier Stationen. <em>Ein Atem.</em>
+            </h2>
+            <p className="lead mt-6">
+              So fühlt sich ein Besuch bei Vita Sonus an — nicht als Checkliste, sondern als
+              Verlauf.
+            </p>
+          </div>
+          <ChapterIndex
+            className="mt-14"
+            chapters={[
+              {
+                numeral: "I",
+                title: "Ankommen",
+                line: "Die Tür schließt. Das Licht ist warm. Du legst ab, was du tragen musstest.",
+              },
+              {
+                numeral: "II",
+                title: "Klang",
+                line: "Schalen, Stimme, Vibration — der Körper wird angesprochen, nicht belehrt.",
+              },
+              {
+                numeral: "III",
+                title: "Stille",
+                line: "Der Raum zwischen den Tönen. Hier darf das Nervensystem nachgeben.",
+              },
+              {
+                numeral: "IV",
+                title: "Nachklang",
+                line: "Du gehst anders raus, als du reingekommen bist. Ohne Eile.",
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      <FullBleed
+        src="/assets/sabine/03-bowls.jpg"
+        alt="Klangschalen in warmem Licht"
+        position="50% 50%"
+        height="tall"
+      />
+
+      {/* Editorial covers */}
+      <section className="section-y">
         <div className="container-x">
           <div className="reveal max-w-2xl">
             <Eyebrow>Entdecken</Eyebrow>
             <h2 className="display-2 mt-6">
               Drei Wege in dein <em>Studio.</em>
             </h2>
-            <p className="lead mt-6">
-              Angebote, offenes Studio und Kontakt — jeder Einstieg in seinem eigenen Tempo.
-            </p>
           </div>
 
-          <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-3 md:gap-10">
-            <TeaserCard
-              href="/sabine/angebote/"
-              eyebrow="Angebote"
-              title="Klangreise & mehr"
-              text="Klangreise, Klangmassage, Meditation und Regulationsabend — Formate für Auszeit und Regulation."
-              image="/assets/sabine/03-bowls.jpg"
-              position="50% 50%"
-              alt="Klangschalen in warmem Licht"
-            />
-            <TeaserCard
-              href="/sabine/studio/"
-              eyebrow="Studio"
-              title="Freitagabend. Tür offen."
-              text="Jeden Freitag 16:30–18:00 ohne Anmeldung — für einen ersten Eindruck oder einfach zum Ankommen."
-              image="/assets/sabine/04-klangmassage.jpg"
-              position="55% 45%"
-              alt="Klangmassage mit Klangschalen"
-            />
-            <TeaserCard
-              href="/sabine/kontakt/"
-              eyebrow="Kontakt"
-              title="Melde dich. Ganz in Ruhe."
-              text="Adresse, Telefon und der Platz für den kommenden Buchungskalender."
-              image="/assets/sabine/05-portal.jpg"
-              position="76% 50%"
-              alt=""
-            />
+          <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-5">
+              <EditorialCover
+                href="/sabine/angebote/"
+                eyebrow="Angebote"
+                title="Klangreise & mehr"
+                text="Klangreise, Klangmassage, Meditation und Regulationsabend — Formate für Auszeit."
+                image="/assets/sabine/03-bowls.jpg"
+                position="50% 50%"
+                alt="Klangschalen"
+                aspect="tall"
+              />
+            </div>
+            <div className="md:col-span-4 md:pt-14">
+              <EditorialCover
+                href="/sabine/studio/"
+                eyebrow="Studio"
+                title="Freitagabend. Tür offen."
+                text="Jeden Freitag 16:30–18:00 ohne Anmeldung — für einen ersten Eindruck."
+                image="/assets/sabine/04-klangmassage.jpg"
+                position="55% 45%"
+                alt="Klangmassage"
+                aspect="square"
+              />
+            </div>
+            <div className="md:col-span-3 md:pt-4">
+              <EditorialCover
+                href="/sabine/kontakt/"
+                eyebrow="Kontakt"
+                title="Melde dich. Ganz in Ruhe."
+                text="Adresse, Telefon und der Platz für den Buchungskalender."
+                image="/assets/sabine/05-portal.jpg"
+                position="76% 50%"
+                aspect="tall"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section-y">
+      <section className="section-y bg-surface">
         <div className="container-x grid gap-10 md:grid-cols-12 md:items-end">
           <div className="reveal md:col-span-7">
             <Eyebrow>Nächster Schritt</Eyebrow>
             <h2 className="display-2 mt-6">
               Melde dich. <em>Ganz in Ruhe.</em>
             </h2>
-            <p className="lead mt-6 max-w-lg">
-              Ruf an oder schreib mir — wir finden gemeinsam den passenden Einstieg. Oder komm Freitag ins offene
-              Studio.
+            <p className="lead mt-6">
+              Ruf an oder schreib mir — wir finden den passenden Einstieg. Oder komm Freitag ins
+              offene Studio.
             </p>
           </div>
           <div className="reveal flex flex-wrap gap-3 md:col-span-5 md:justify-end">

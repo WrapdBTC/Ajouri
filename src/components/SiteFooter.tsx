@@ -2,10 +2,10 @@ import NextLink from "next/link";
 import { contact, family, headers, mailto, type ThemeKey } from "@/lib/site";
 
 const taglines: Record<ThemeKey, string> = {
-  hub: "Drei Frauen, drei Handwerke, ein Name — Haut, Klang und Linie. Eine Familie aus Neuburg an der Donau.",
-  michelle: "Hautanalyse, Treatments und Lash & Brow — erst verstehen, dann behandeln.",
-  sabine: "Klangreisen, Klangmassage und Meditation. Ein Studio für Klang und Achtsamkeit.",
-  isabelle: "Fine-Line-Tattoos, reduziert auf das Wesentliche. Termine auf Anfrage.",
+  hub: "Drei Frauen. Drei Handwerke. Ein Name — Haut, Klang und Linie. Neuburg an der Donau.",
+  michelle: "Hautanalyse, Treatments, Lash & Brow — erst verstehen, dann behandeln.",
+  sabine: "Klangreise, Klangmassage, Meditation. Ein Studio für Klang und Achtsamkeit.",
+  isabelle: "Fine-Line, reduziert auf das Wesentliche. Termine auf Anfrage.",
 };
 
 type Line = { text: string; href?: string };

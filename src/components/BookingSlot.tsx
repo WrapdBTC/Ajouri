@@ -18,23 +18,24 @@ export function BookingSlot({
       id={id}
       className="relative overflow-hidden border border-line bg-elev scroll-mt-28"
     >
-      {/* Subtle calendar grid suggestion */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        className="pointer-events-none absolute inset-0 opacity-[0.055]"
         style={{
           backgroundImage:
             "linear-gradient(to right, var(--t-ink) 1px, transparent 1px), linear-gradient(to bottom, var(--t-ink) 1px, transparent 1px)",
-          backgroundSize: "calc(100% / 7) 3.25rem",
-          backgroundPosition: "0 4.5rem",
+          backgroundSize: "calc(100% / 7) 3.5rem",
+          backgroundPosition: "0 5rem",
         }}
       />
-      <div className="relative p-8 md:p-12">
-        <div className="flex flex-wrap items-start justify-between gap-6">
-          <div>
+      <div className="relative p-9 md:p-12 lg:p-14">
+        <div className="flex flex-wrap items-start justify-between gap-8">
+          <div className="max-w-md">
             <p className="eyebrow text-accent-text">{title}</p>
-            <p className="font-display mt-4 text-[2rem] leading-none md:text-[2.4rem]">{note}</p>
-            <p className="body-copy mt-5 max-w-lg">{detail}</p>
+            <p className="font-display mt-5 text-[2.15rem] leading-[1.05] md:text-[2.6rem]">
+              {note}
+            </p>
+            <p className="body-copy mt-6 !max-w-md">{detail}</p>
           </div>
           <div
             aria-hidden
@@ -43,14 +44,14 @@ export function BookingSlot({
             {Array.from({ length: 14 }).map((_, i) => (
               <span
                 key={i}
-                className={`h-8 w-8 rounded-[2px] border border-line ${
-                  i === 9 || i === 10 ? "bg-accent/25 border-accent/40" : "bg-surface/60"
+                className={`h-8 w-8 rounded-[1px] border border-line ${
+                  i === 9 || i === 10 ? "border-accent/45 bg-accent/20" : "bg-surface/50"
                 }`}
               />
             ))}
           </div>
         </div>
-        <div className="mt-10 flex flex-wrap gap-x-8 gap-y-2 border-t border-line pt-6 text-[0.8rem] text-muted">
+        <div className="mt-12 flex flex-wrap gap-x-8 gap-y-2 border-t border-line pt-6 text-[0.78rem] text-muted">
           <span className="eyebrow text-muted">Vorschau</span>
           <span>Kalender · Zeitslots · Bestätigung</span>
           <span className="text-accent-text">Bald verfügbar</span>

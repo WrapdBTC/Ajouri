@@ -3,7 +3,11 @@ import { Hero } from "@/components/Hero";
 import { Img } from "@/components/Img";
 import { Arrow, Button } from "@/components/Button";
 import { Eyebrow } from "@/components/SectionIntro";
-import { TeaserCard } from "@/components/TeaserCard";
+import { PullQuote } from "@/components/PullQuote";
+import { FullBleed } from "@/components/FullBleed";
+import { SplitFeature } from "@/components/SplitFeature";
+import { EditorialCover } from "@/components/EditorialCover";
+import { StatStrip } from "@/components/MetaRow";
 import { asset } from "@/lib/asset";
 import { contact } from "@/lib/site";
 
@@ -20,14 +24,6 @@ export const metadata: Metadata = {
 
 const c = contact.michelle;
 
-const skinTypes = [
-  ["Trockene Haut", "Feuchtigkeit & Aufbau"],
-  ["Sensible Haut", "Beruhigende Pflege"],
-  ["Unreine Haut", "Tiefenreinigung"],
-  ["Fahle Haut", "Frische & Glow"],
-  ["Reife Haut", "Regeneration"],
-];
-
 export default function MichelleHome() {
   return (
     <>
@@ -42,7 +38,7 @@ export default function MichelleHome() {
             Schönheit beginnt mit <em>Verstehen.</em>
           </>
         }
-        lead="Individuelle Hautanalyse, hochwertige Treatments und ein ganzheitlicher Blick auf deine Haut — persönlich, präzise und mit Liebe zum Detail."
+        lead="Individuelle Hautanalyse, ausgewählte Treatments und ein ruhiger Blick auf deine Haut — präzise, persönlich, ohne Eile."
         actions={
           <>
             <Button href="/michelle/kontakt/#buchen">
@@ -61,56 +57,69 @@ export default function MichelleHome() {
         }
       />
 
+      {/* Welcome — cinematic split */}
       <section className="section-y">
-        <div className="container-x grid gap-14 md:grid-cols-12 md:items-center">
-          <figure className="reveal md:col-span-5">
-            <div className="relative aspect-[4/5] overflow-hidden bg-surface">
-              <Img
-                src="/assets/michelle/02-portrait.jpg"
-                alt="Michelle Ajouri, Hautexpertin"
-                position="46% 30%"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-            <figcaption className="eyebrow mt-4 text-muted">Michelle Ajouri · Hautexpertin</figcaption>
-          </figure>
-
-          <div className="reveal md:col-span-6 md:col-start-7">
-            <Eyebrow index="01">Willkommen</Eyebrow>
-            <h2 className="display-2 mt-6">
-              Beauty ist für mich immer auch <em>Gesundheit.</em>
-            </h2>
-            <p className="lead mt-8">
-              Glamour Treatments ist ein Kosmetikstudio für hochwertige Behandlungen, individuelle Hautpflege
-              und präzise Lash &amp; Brow Treatments. Im Mittelpunkt steht ein gepflegtes, natürlich schönes
-              Ergebnis, das zu dir passt.
+        <div className="container-x">
+          <SplitFeature
+            image="/assets/michelle/02-portrait.jpg"
+            alt="Michelle Ajouri, Hautexpertin"
+            position="46% 28%"
+            index="I"
+            eyebrow="Willkommen"
+            title={
+              <>
+                Beauty ist für mich immer auch <em>Gesundheit.</em>
+              </>
+            }
+          >
+            <p className="lead !max-w-none">
+              Glamour Treatments ist ein Studio für hochwertige Behandlungen, individuelle Hautpflege
+              und präzise Lash &amp; Brow. Im Mittelpunkt steht ein gepflegtes, natürlich schönes
+              Ergebnis — das zu dir passt.
             </p>
-            <p className="body-copy mt-5">
-              Bevor eine einzige Behandlung beginnt, nehme ich mir Zeit, deine Haut wirklich zu verstehen —
-              dein Hautbild, deine Gewohnheiten, dein Ziel. Keine Standardlösung von der Stange.
+            <p className="body-copy !max-w-none">
+              Bevor eine Behandlung beginnt, nehme ich mir Zeit, deine Haut zu verstehen: Hautbild,
+              Gewohnheiten, Ziel. Keine Standardlösung von der Stange.
             </p>
-            <blockquote className="mt-10 border-l border-accent pl-6">
-              <p className="font-display text-[1.6rem] leading-snug italic md:text-[1.85rem]">
-                „Jede Haut erzählt ihre eigene Geschichte. Ich höre zu, analysiere präzise und behandle
-                individuell.“
-              </p>
-            </blockquote>
-          </div>
-        </div>
-
-        <div className="container-x mt-20 md:mt-28">
-          <p className="eyebrow text-muted">Für jeden Hauttyp die passende Lösung</p>
-          <ul className="mt-6 grid grid-cols-2 border-t border-line sm:grid-cols-3 lg:grid-cols-5">
-            {skinTypes.map(([type, focus]) => (
-              <li key={type} className="reveal border-b border-line py-6 pr-4 lg:border-b-0">
-                <p className="font-display text-xl">{type}</p>
-                <p className="mt-1 text-[0.85rem] text-muted">{focus}</p>
-              </li>
-            ))}
-          </ul>
+            <p className="eyebrow mt-2 text-muted">Michelle Ajouri · Hautexpertin</p>
+          </SplitFeature>
         </div>
       </section>
 
+      <section className="pb-6 md:pb-10">
+        <div className="container-x">
+          <PullQuote variant="statement">
+            „Jede Haut erzählt ihre eigene Geschichte. Ich höre zu, analysiere präzise und behandle
+            individuell.“
+          </PullQuote>
+        </div>
+      </section>
+
+      <FullBleed
+        src="/assets/michelle/03-treatment.jpg"
+        alt="Serum wird mit einer Pipette auf die Wange aufgetragen"
+        position="62% 45%"
+        height="tall"
+      />
+
+      {/* Skin types as quiet meta */}
+      <section className="section-y-tight">
+        <div className="container-x">
+          <p className="eyebrow text-muted">Für jeden Hauttyp die passende Richtung</p>
+          <StatStrip
+            className="mt-6"
+            items={[
+              { value: "Trocken", label: "Feuchtigkeit & Aufbau" },
+              { value: "Sensibel", label: "Beruhigende Pflege" },
+              { value: "Unrein", label: "Tiefenreinigung" },
+              { value: "Fahl", label: "Frische & Glow" },
+              { value: "Reif", label: "Regeneration" },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* Editorial covers — not equal TeaserCards */}
       <section className="section-y bg-surface">
         <div className="container-x">
           <div className="reveal max-w-2xl">
@@ -119,38 +128,46 @@ export default function MichelleHome() {
               Drei Wege in dein <em>Studio.</em>
             </h2>
             <p className="lead mt-6">
-              Jede Seite erzählt einen Teil der Geschichte — Treatments, Analyse und der direkte Draht zu mir.
+              Treatments, Analyse und Kontakt — jeweils als eigene Geschichte, nicht als Katalog.
             </p>
           </div>
 
-          <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-3 md:gap-10">
-            <TeaserCard
-              href="/michelle/leistungen/"
-              eyebrow="Leistungen"
-              title="Treatments & Preise"
-              text="Aquafacial, Microneedling, Glass Skin, Lash & Brow — Orientierungspreise und der passende Einstieg."
-              image="/assets/michelle/03-treatment.jpg"
-              position="62% 50%"
-              alt="Serum wird mit einer Pipette auf die Wange aufgetragen"
-            />
-            <TeaserCard
-              href="/michelle/analyse/"
-              eyebrow="Analyse"
-              title="OBSERV & BalanceTest"
-              text="Außen sehen, innen mitdenken — die Technologie hinter jeder Empfehlung."
-              image="/assets/michelle/04-lash.jpg"
-              position="58% 50%"
-              alt="Nahaufnahme gelifteter Wimpern und definierter Braue"
-            />
-            <TeaserCard
-              href="/michelle/kontakt/"
-              eyebrow="Kontakt"
-              title="Studio & Termin"
-              text="Adresse, Telefon, WhatsApp — und der Platz für den kommenden Buchungskalender."
-              image="/assets/michelle/05-portal.jpg"
-              position="50% 50%"
-              alt=""
-            />
+          <div className="mt-16 grid gap-12 md:mt-20 md:grid-cols-12 md:gap-8">
+            <div className="md:col-span-5">
+              <EditorialCover
+                href="/michelle/leistungen/"
+                eyebrow="Leistungen"
+                title="Treatments & Preise"
+                text="Aquafacial, Microneedling, Glass Skin, Lash & Brow — Orientierungspreise und der passende Einstieg."
+                image="/assets/michelle/03-treatment.jpg"
+                position="62% 50%"
+                alt="Serum auf der Wange"
+                aspect="tall"
+              />
+            </div>
+            <div className="md:col-span-4 md:pt-16">
+              <EditorialCover
+                href="/michelle/analyse/"
+                eyebrow="Analyse"
+                title="OBSERV & BalanceTest"
+                text="Außen sehen, innen mitdenken — die Technologie hinter jeder Empfehlung."
+                image="/assets/michelle/04-lash.jpg"
+                position="58% 50%"
+                alt="Geliftete Wimpern"
+                aspect="square"
+              />
+            </div>
+            <div className="md:col-span-3 md:pt-6">
+              <EditorialCover
+                href="/michelle/kontakt/"
+                eyebrow="Kontakt"
+                title="Studio & Termin"
+                text="Adresse, Telefon, WhatsApp — und der Platz für den Buchungskalender."
+                image="/assets/michelle/05-portal.jpg"
+                position="50% 50%"
+                aspect="tall"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -162,9 +179,9 @@ export default function MichelleHome() {
             <h2 className="display-2 mt-6">
               Für deine Haut. <em>Für dein Gefühl.</em>
             </h2>
-            <p className="lead mt-6 max-w-lg">
-              Starte mit einer kostenlosen Erstberatung — unverbindlich und ganz ohne Druck. Danach finden wir
-              gemeinsam den passenden Termin.
+            <p className="lead mt-6">
+              Starte mit einer kostenlosen Erstberatung — unverbindlich. Danach finden wir den
+              passenden Termin.
             </p>
           </div>
           <div className="reveal flex flex-wrap gap-3 md:col-span-5 md:justify-end">

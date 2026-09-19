@@ -3,54 +3,71 @@ import { PageShell } from "@/components/PageShell";
 import { Img } from "@/components/Img";
 import { Arrow } from "@/components/Button";
 import { Eyebrow, SectionIntro } from "@/components/SectionIntro";
+import { PullQuote } from "@/components/PullQuote";
+import { FullBleed } from "@/components/FullBleed";
 import { contact, family, mailto } from "@/lib/site";
 
 const principles = [
   {
+    numeral: "I",
     title: "Zeit statt Takt",
-    text: "Keine Termine im Minutentakt. Wer zu uns kommt, bekommt Aufmerksamkeit — nicht Abfertigung.",
+    text: "Keine Termine im Minutentakt. Wer kommt, bekommt Aufmerksamkeit — nicht Abfertigung.",
   },
   {
+    numeral: "II",
     title: "Verstehen vor Handeln",
-    text: "Zuerst zuhören und hinsehen: die Haut lesen, den Moment spüren, die Linie denken. Erst dann beginnt die Arbeit.",
+    text: "Zuerst zuhören und hinsehen: die Haut lesen, den Moment spüren, die Linie denken.",
   },
   {
+    numeral: "III",
     title: "Sorgfalt im Detail",
     text: "Präzision im Kleinen, Ruhe im Raum, Ehrlichkeit in der Beratung. Das verbindet alle drei Häuser.",
   },
 ];
 
-function PortalCard({ m }: { m: (typeof family)[number] }) {
+/** Staggered portal — distinct aspect per house, not three equal cards. */
+function Portal({
+  m,
+  aspect,
+  offset,
+}: {
+  m: (typeof family)[number];
+  aspect: string;
+  offset?: string;
+}) {
   return (
     <NextLink
       href={m.href}
       data-theme={m.slug}
-      className="reveal group group/btn flex flex-col bg-bg text-ink shadow-[0_40px_80px_-50px_rgb(26_22_20/0.5)]"
+      className={`reveal group group/btn flex flex-col bg-bg text-ink ${offset ?? ""}`}
     >
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <div className={`ken-wrap relative overflow-hidden ${aspect}`}>
         <Img
           src={m.portal}
           alt=""
           position={m.portalPosition}
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.05]"
+          className="ken-img absolute inset-0 h-full w-full object-cover"
         />
-        <span className="font-display absolute top-5 left-6 text-3xl text-ink/85">{m.numeral}</span>
-        <span className="eyebrow absolute top-7 right-6 text-ink/80">{m.craft}</span>
-      </div>
-      <div className="relative flex flex-1 flex-col px-6 pt-14 pb-8 md:px-8">
-        <div className="absolute -top-11 left-6 h-[5.5rem] w-[5.5rem] overflow-hidden rounded-full ring-4 ring-bg md:left-8">
-          <Img
-            src={m.portrait}
-            alt={`Portrait ${m.name}`}
-            position={m.portraitPosition}
-            zoom={1.9}
-            className="h-full w-full object-cover"
-          />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-bg/70 via-transparent to-transparent"
+        />
+        <span className="font-display absolute top-5 left-5 text-[2rem] leading-none text-ink/90 md:top-6 md:left-6 md:text-[2.4rem]">
+          {m.numeral}
+        </span>
+        <span className="eyebrow absolute top-6 right-5 text-ink/75 md:top-7 md:right-6">
+          {m.craft}
+        </span>
+        <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
+          <p className="eyebrow text-accent-text">{m.house}</p>
+          <h3 className="font-display mt-2 text-[1.85rem] leading-none md:text-[2.15rem]">
+            {m.first}
+          </h3>
         </div>
-        <p className="eyebrow text-accent-text">{m.house}</p>
-        <h3 className="display-3 mt-3">{m.name}</h3>
-        <p className="body-copy mt-4 flex-1">{m.line}</p>
-        <span className="eyebrow mt-9 flex items-center gap-3 text-ink">
+      </div>
+      <div className="flex flex-1 flex-col border-t border-line pt-6 pb-2">
+        <p className="body-copy !max-w-none flex-1 text-[0.95rem]">{m.line}</p>
+        <span className="eyebrow mt-7 flex items-center gap-3 text-ink">
           Eintreten <Arrow />
         </span>
       </div>
@@ -61,65 +78,71 @@ function PortalCard({ m }: { m: (typeof family)[number] }) {
 export default function HubPage() {
   return (
     <PageShell theme="hub">
-      {/* ---------- Hero ---------- */}
-      <section className="container-x pt-12 md:pt-20">
+      {/* ---------- Editorial cover hero ---------- */}
+      <section className="container-x pt-10 md:pt-16">
         <div className="anim-rise flex items-center justify-between gap-6">
           <Eyebrow>Haut · Klang · Linie</Eyebrow>
           <p className="eyebrow hidden text-muted sm:block">Neuburg an der Donau</p>
         </div>
 
-        <h1 className="wordmark anim-rise anim-rise-1 mt-8 -mr-[0.14em] text-[min(calc((100vw-2.5rem)/4.3),18rem)] leading-[0.88] tracking-[0.14em] md:mt-10 md:text-[min(calc((100vw-5rem)/4.3),18rem)]">
+        <h1 className="wordmark anim-rise anim-rise-1 mt-8 -mr-[0.12em] text-[min(calc((100vw-2.5rem)/4.1),19rem)] leading-[0.86] tracking-[0.12em] md:mt-12 md:text-[min(calc((100vw-5.5rem)/4.1),19rem)]">
           Ajouri
         </h1>
 
         <div className="mt-10 grid gap-8 md:mt-14 md:grid-cols-12 md:items-end">
           <p className="display-2 anim-rise anim-rise-2 md:col-span-7">
             <span className="whitespace-nowrap">Drei Frauen.</span>{" "}
-            <span className="whitespace-nowrap">Drei Handwerke.</span> <em className="whitespace-nowrap">Ein Name.</em>
+            <span className="whitespace-nowrap">Drei Handwerke.</span>{" "}
+            <em className="whitespace-nowrap">Ein Name.</em>
           </p>
-          <p className="lead anim-rise anim-rise-3 md:col-span-4 md:col-start-9">
-            Michelle, Sabine und Isabelle Ajouri führen drei eigenständige Häuser — für die Haut, für den
-            Klang und für die feine Linie. Jedes spricht seine eigene Sprache. Alle teilen dieselbe Haltung.
+          <p className="lead anim-rise anim-rise-3 !max-w-none md:col-span-4 md:col-start-9">
+            Michelle, Sabine und Isabelle Ajouri führen drei eigenständige Häuser — für die Haut,
+            für den Klang und für die feine Linie. Jedes spricht seine eigene Sprache. Alle teilen
+            dieselbe Haltung.
           </p>
         </div>
+      </section>
 
-        <div className="anim-rise anim-rise-4 relative mt-12 aspect-[16/9] overflow-hidden md:mt-16 md:aspect-[2.1/1]">
+      {/* Cinematic field — interactive triptych */}
+      <section className="anim-rise anim-rise-4 mt-12 md:mt-16">
+        <div className="relative aspect-[16/10] overflow-hidden md:aspect-[2.15/1] md:min-h-[26rem]">
           <Img
             src="/assets/hub/01-hero.jpg"
-            alt="Drei Farbfelder in Creme, Indigo und Schwarz mit Trockenzweigen, Stein und Vase — ein Sinnbild der drei Welten"
+            alt="Drei Farbfelder in Creme, Indigo und Schwarz — Sinnbild der drei Welten"
             position="50% 62%"
             priority
             className="anim-settle absolute inset-0 h-full w-full object-cover"
           />
-          {/* The three fields of the image are the three worlds — each field links to its house. */}
           <nav aria-label="Die drei Welten" className="absolute inset-0 grid grid-cols-3">
             {family.map((m) => (
               <NextLink
                 key={m.slug}
                 href={m.href}
                 data-theme={m.slug}
-                className="group group/btn relative flex flex-col p-3 text-ink sm:p-5 md:p-8 lg:p-10"
+                className="group group/btn relative flex flex-col justify-between p-3 text-ink sm:p-5 md:p-8 lg:p-10"
               >
                 <span
                   aria-hidden
-                  className="absolute inset-0 bg-white/0 transition-colors duration-700 group-hover:bg-white/[0.06]"
+                  className="absolute inset-0 bg-white/0 transition-colors duration-700 group-hover:bg-white/[0.07]"
                 />
                 <span className="eyebrow relative text-[0.5rem] text-accent-text sm:text-[0.6rem] md:text-[0.6875rem]">
                   {m.numeral} — {m.craft}
                 </span>
-                <span className="font-display relative mt-2 hidden text-3xl leading-none md:block lg:text-4xl">
-                  {m.first}
-                </span>
-                <span className="eyebrow relative mt-4 hidden items-center gap-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:flex">
-                  Eintreten <Arrow />
-                </span>
+                <div className="relative">
+                  <span className="font-display hidden text-3xl leading-none md:block lg:text-[2.75rem]">
+                    {m.first}
+                  </span>
+                  <span className="eyebrow mt-4 hidden items-center gap-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100 md:flex">
+                    Eintreten <Arrow />
+                  </span>
+                </div>
               </NextLink>
             ))}
           </nav>
         </div>
       </section>
 
-      {/* ---------- Die drei Welten ---------- */}
+      {/* ---------- Die drei Welten — staggered portals ---------- */}
       <section id="welten" className="section-y">
         <div className="container-x">
           <SectionIntro
@@ -132,43 +155,67 @@ export default function HubPage() {
             }
             lead="Jede Welt steht für sich — mit eigener Atmosphäre, eigenem Handwerk und eigener Adresse. Tritt dort ein, wo es dich hinzieht."
           />
-          <div className="mt-16 grid gap-16 md:mt-20 md:grid-cols-3 md:gap-6 lg:gap-8">
-            {family.map((m) => (
-              <PortalCard key={m.slug} m={m} />
-            ))}
+
+          {/* Staggered: Michelle tall, Sabine offset wide, Isabelle tall */}
+          <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-12 md:gap-8 lg:gap-10">
+            <div className="md:col-span-4">
+              <Portal m={family[0]} aspect="aspect-[3/4]" />
+            </div>
+            <div className="md:col-span-4 md:pt-20">
+              <Portal m={family[1]} aspect="aspect-[4/5]" />
+            </div>
+            <div className="md:col-span-4 md:pt-8">
+              <Portal m={family[2]} aspect="aspect-[3/4.2]" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ---------- Haltung ---------- */}
+      {/* ---------- Haltung with pull-quote ---------- */}
       <section id="haltung" className="section-y bg-surface">
-        <div className="container-x grid gap-14 md:grid-cols-12">
-          <div className="reveal md:col-span-5">
-            <Eyebrow>Die Haltung</Eyebrow>
-            <h2 className="display-2 mt-6">
-              Drei Handwerke, <em>eine Haltung.</em>
-            </h2>
-            <p className="lead mt-8">
-              Haut, Klang und Linie haben auf den ersten Blick wenig gemeinsam. Und doch folgen sie denselben
-              Regeln: genau hinsehen, sich Zeit nehmen und nichts versprechen, was man nicht halten kann.
-            </p>
+        <div className="container-x">
+          <div className="mx-auto max-w-3xl">
+            <PullQuote variant="statement" cite="— Die Haltung der Familie Ajouri">
+              „Genau hinsehen. Sich Zeit nehmen. Nichts versprechen, was man nicht halten kann.“
+            </PullQuote>
           </div>
-          <ol className="border-y border-line md:col-span-6 md:col-start-7">
-            {principles.map((p, i) => (
-              <li
-                key={p.title}
-                className="reveal grid grid-cols-[3.25rem_1fr] gap-4 border-b border-line py-9 last:border-b-0"
-              >
-                <span className="font-display text-2xl leading-none text-accent-text tabular-nums">0{i + 1}</span>
-                <div>
-                  <h3 className="display-3">{p.title}</h3>
-                  <p className="body-copy mt-3 max-w-md">{p.text}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+
+          <div className="mt-20 grid gap-14 md:mt-28 md:grid-cols-12">
+            <div className="reveal md:col-span-4">
+              <Eyebrow>Die Haltung</Eyebrow>
+              <h2 className="display-2 mt-6">
+                Drei Handwerke, <em>eine Haltung.</em>
+              </h2>
+              <p className="lead mt-8 !max-w-none">
+                Haut, Klang und Linie haben auf den ersten Blick wenig gemeinsam. Und doch folgen
+                sie denselben Regeln.
+              </p>
+            </div>
+            <ol className="md:col-span-7 md:col-start-6">
+              {principles.map((p) => (
+                <li
+                  key={p.title}
+                  className="reveal grid grid-cols-[4rem_1fr] gap-5 border-t border-line py-10 last:border-b md:grid-cols-[5.5rem_1fr] md:gap-8"
+                >
+                  <span className="chapter-num !text-[2.5rem] md:!text-[3.25rem]">{p.numeral}</span>
+                  <div className="pt-1">
+                    <h3 className="display-3">{p.title}</h3>
+                    <p className="body-copy mt-3 max-w-md">{p.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
+
+      <FullBleed
+        src="/assets/hub/01-hero.jpg"
+        alt=""
+        position="50% 40%"
+        height="band"
+        className="opacity-90"
+      />
 
       {/* ---------- Adressen ---------- */}
       <section id="adressen" className="section-y">
@@ -188,7 +235,7 @@ export default function HubPage() {
             {family.map((m) => (
               <div
                 key={m.slug}
-                className="reveal flex flex-col border-b border-line py-10 md:border-b-0 md:border-l md:px-8 md:first:border-l-0 md:first:pl-0"
+                className="reveal flex flex-col border-b border-line py-12 md:border-b-0 md:border-l md:px-8 md:py-14 md:first:border-l-0 md:first:pl-0"
               >
                 <div className="flex items-center gap-3">
                   <span
@@ -203,9 +250,9 @@ export default function HubPage() {
                     {m.numeral} — {m.house}
                   </p>
                 </div>
-                <h3 className="display-3 mt-5">{m.name}</h3>
+                <h3 className="display-3 mt-6">{m.name}</h3>
 
-                <div className="body-copy mt-5 flex-1 space-y-1">
+                <div className="body-copy mt-6 !max-w-none flex-1 space-y-1 text-[0.95rem]">
                   {m.slug === "michelle" && (
                     <>
                       <p>{contact.michelle.street}</p>
@@ -243,16 +290,20 @@ export default function HubPage() {
                     <>
                       <p>Termine auf Anfrage.</p>
                       <p className="pt-3">
-                        <a className="text-ink hover:underline" href={mailto(contact.isabelle.email, "Anfrage Atelier Isabelle")}>
+                        <a
+                          className="text-ink hover:underline"
+                          href={mailto(contact.isabelle.email, "Anfrage Atelier Isabelle")}
+                        >
                           {contact.isabelle.email}
                         </a>
                       </p>
                       {contact.isabelle.emailIsPlaceholder && (
-                        <p className="pt-2 text-[0.8rem] text-muted">E-Mail vorerst Platzhalter — vor Livegang ersetzen.</p>
+                        <p className="pt-2 text-[0.8rem] text-muted">
+                          E-Mail vorerst Platzhalter — vor Livegang ersetzen.
+                        </p>
                       )}
                       <p className="pt-3">
-                        Erzähl von deiner Idee — Motiv, Stelle, ungefähre Größe. Die Anfrage läuft direkt über das
-                        Atelier.
+                        Erzähl von deiner Idee — Motiv, Stelle, ungefähre Größe.
                       </p>
                     </>
                   )}
@@ -266,7 +317,7 @@ export default function HubPage() {
                         ? "/sabine/kontakt/"
                         : "/isabelle/anfrage/"
                   }
-                  className="group/btn eyebrow mt-8 flex items-center gap-3 text-ink"
+                  className="group/btn eyebrow mt-10 flex items-center gap-3 text-ink"
                 >
                   {m.slug === "isabelle" ? "Zur Anfrage" : "Kontakt"} <Arrow />
                 </NextLink>
