@@ -2,6 +2,7 @@ import NextLink from "next/link";
 import { family, headers, type ThemeKey } from "@/lib/site";
 import { MobileMenu } from "./MobileMenu";
 import { NavLinks } from "./NavLinks";
+import { ThemeToggle } from "./ThemeToggle";
 
 /**
  * Two tiers, identical on every page, coloured by the page theme:
@@ -20,25 +21,29 @@ export function SiteHeader({ current }: { current: ThemeKey }) {
           >
             {current === "hub" ? "Ajouri · Maison" : "← Ajouri"}
           </NextLink>
-          <nav aria-label="Familie Ajouri" className="flex items-center gap-4 md:gap-7">
-            {family.map((m) => {
-              const active = m.slug === current;
-              return (
-                <NextLink
-                  key={m.slug}
-                  href={m.href}
-                  aria-current={active ? "page" : undefined}
-                  className={
-                    active
-                      ? "underline decoration-accent decoration-1 underline-offset-[5px]"
-                      : "opacity-50 transition-opacity duration-300 hover:opacity-100"
-                  }
-                >
-                  {m.first}
-                </NextLink>
-              );
-            })}
-          </nav>
+          <div className="flex items-center gap-3 sm:gap-5 md:gap-7">
+            <nav aria-label="Familie Ajouri" className="flex items-center gap-4 md:gap-7">
+              {family.map((m) => {
+                const active = m.slug === current;
+                return (
+                  <NextLink
+                    key={m.slug}
+                    href={m.href}
+                    aria-current={active ? "page" : undefined}
+                    className={
+                      active
+                        ? "underline decoration-accent decoration-1 underline-offset-[5px]"
+                        : "opacity-50 transition-opacity duration-300 hover:opacity-100"
+                    }
+                  >
+                    {m.first}
+                  </NextLink>
+                );
+              })}
+            </nav>
+            <span aria-hidden className="hidden h-3 w-px bg-current/25 sm:block" />
+            <ThemeToggle />
+          </div>
         </div>
       </div>
 

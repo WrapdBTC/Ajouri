@@ -2,10 +2,9 @@ import NextLink from "next/link";
 import { contact, family, headers, mailto, type ThemeKey } from "@/lib/site";
 
 const taglines: Record<ThemeKey, string> = {
-  hub: "Drei Frauen. Drei Handwerke. Ein Name — Haut, Klang und Linie. Neuburg an der Donau.",
+  hub: "Zwei Frauen. Zwei Handwerke. Ein Name — Haut und Klang. Neuburg an der Donau.",
   michelle: "Hautanalyse, Treatments, Lash & Brow — erst verstehen, dann behandeln.",
   sabine: "Klangreise, Klangmassage, Meditation. Ein Studio für Klang und Achtsamkeit.",
-  isabelle: "Fine-Line, reduziert auf das Wesentliche. Termine auf Anfrage.",
 };
 
 type Line = { text: string; href?: string };
@@ -32,19 +31,10 @@ function contactLines(current: ThemeKey): Line[] {
         { text: `Offenes Studio: ${c.openStudio}` },
       ];
     }
-    case "isabelle": {
-      const c = contact.isabelle;
-      return [
-        { text: "Termine auf Anfrage" },
-        { text: c.email, href: mailto(c.email, "Anfrage Atelier Isabelle") },
-        ...(c.emailIsPlaceholder ? [{ text: "E-Mail vorerst Platzhalter" }] : []),
-      ];
-    }
     default:
       return [
         { text: `Michelle · ${contact.michelle.street}`, href: "/michelle/kontakt/" },
         { text: `Sabine · ${contact.sabine.street}`, href: "/sabine/kontakt/" },
-        { text: "Isabelle · Termine auf Anfrage", href: "/isabelle/anfrage/" },
       ];
   }
 }

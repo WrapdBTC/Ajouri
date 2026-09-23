@@ -2,8 +2,8 @@
 
 /*
  * AJOURI design system — editorial boutique
- * One set of components, four palettes. Every surface reads its colours
- * from theme tokens set by the nearest [data-theme] ancestor.
+ * One set of components, three world palettes (hub / michelle / sabine).
+ * Every surface reads colours from [data-theme]; light/dark via html[data-mode].
  */
 
 @theme inline {
@@ -25,7 +25,12 @@
   --color-header: var(--t-header);
 }
 
-/* ---------- Palettes ---------- */
+/* ---------- Palettes ----------
+ * Worlds set via [data-theme] on PageShell.
+ * Site-wide light/dark via html[data-mode="light"|"dark"].
+ * Default world look = light for hub/michelle, dark for sabine;
+ * the opposite mode flips each world meaningfully.
+ */
 
 :root,
 [data-theme="hub"] {
@@ -45,7 +50,7 @@
   color-scheme: light;
 }
 
-/* Michelle — champagne, ivory, nude, espresso */
+/* Michelle — champagne, ivory, nude, espresso (clinic light) */
 [data-theme="michelle"] {
   --t-bg: #f8f1e9;
   --t-surface: #efe3d5;
@@ -63,7 +68,7 @@
   color-scheme: light;
 }
 
-/* Sabine — midnight indigo, gold, soft sand */
+/* Sabine — midnight indigo, gold, soft sand (ritual dark by default) */
 [data-theme="sabine"] {
   --t-bg: #0e1430;
   --t-surface: #131a3b;
@@ -81,27 +86,81 @@
   color-scheme: dark;
 }
 
-/* Isabelle — matte black, graphite, off-white, oxblood */
-[data-theme="isabelle"] {
-  --t-bg: #0b0b0c;
-  --t-surface: #131315;
-  --t-elev: #1b1b1e;
-  --t-ink: #f2efea;
-  --t-muted: #b0aaa3;
-  --t-line: rgb(238 235 230 / 0.14);
-  --t-accent: #7c1f29;
-  --t-accent-text: #d66a74;
-  --t-deep: #000000;
-  --t-deep-ink: #d9d5cf;
-  --t-btn: #7c1f29;
-  --t-btn-ink: #f4f1ec;
-  --t-header: #0b0b0c;
+/* ----- Mode overrides: darken light worlds ----- */
+html[data-mode="dark"],
+html[data-mode="dark"] [data-theme="hub"] {
+  --t-bg: #141210;
+  --t-surface: #1c1916;
+  --t-elev: #26211d;
+  --t-ink: #f3eee7;
+  --t-muted: #b0a69c;
+  --t-line: rgb(243 238 231 / 0.14);
+  --t-accent: #c4a07a;
+  --t-accent-text: #d4b896;
+  --t-deep: #0a0908;
+  --t-deep-ink: #f3eee7;
+  --t-btn: #f3eee7;
+  --t-btn-ink: #141210;
+  --t-header: #141210;
   color-scheme: dark;
 }
 
-body:has(> [data-theme="michelle"]) { background-color: #f8f1e9; }
-body:has(> [data-theme="sabine"]) { background-color: #0e1430; }
-body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
+html[data-mode="dark"] [data-theme="michelle"] {
+  --t-bg: #1a1410;
+  --t-surface: #241c16;
+  --t-elev: #2e241c;
+  --t-ink: #f5ebe1;
+  --t-muted: #c4b0a0;
+  --t-line: rgb(245 235 225 / 0.15);
+  --t-accent: #c9a074;
+  --t-accent-text: #ddb892;
+  --t-deep: #100c09;
+  --t-deep-ink: #f3e7da;
+  --t-btn: #f5ebe1;
+  --t-btn-ink: #1a1410;
+  --t-header: #1a1410;
+  color-scheme: dark;
+}
+
+/* Sabine already dark — deepen slightly in explicit dark mode */
+html[data-mode="dark"] [data-theme="sabine"] {
+  --t-bg: #0a0f24;
+  --t-surface: #0f1532;
+  --t-elev: #151c40;
+  --t-ink: #f5eee2;
+  --t-muted: #cfc6b8;
+  --t-line: rgb(245 238 226 / 0.14);
+  --t-accent: #d0ad68;
+  --t-accent-text: #e6cc94;
+  --t-deep: #050814;
+  --t-deep-ink: #ebe1ce;
+  --t-btn: #d0ad68;
+  --t-btn-ink: #0a0f24;
+  --t-header: #0a0f24;
+  color-scheme: dark;
+}
+
+/* ----- Mode overrides: lighten Sabine ----- */
+html[data-mode="light"] [data-theme="sabine"] {
+  --t-bg: #f3efe6;
+  --t-surface: #e8e1d3;
+  --t-elev: #faf7f1;
+  --t-ink: #12182e;
+  --t-muted: #5a6178;
+  --t-line: rgb(18 24 46 / 0.14);
+  --t-accent: #9a7a3a;
+  --t-accent-text: #7a6028;
+  --t-deep: #12182e;
+  --t-deep-ink: #f3efe6;
+  --t-btn: #12182e;
+  --t-btn-ink: #f3efe6;
+  --t-header: #ebe4d6;
+  color-scheme: light;
+}
+
+body:has(> [data-theme="michelle"]) { background-color: var(--t-bg); }
+body:has(> [data-theme="sabine"]) { background-color: var(--t-bg); }
+body:has(> [data-theme="hub"]) { background-color: var(--t-bg); }
 
 /* ---------- Base ---------- */
 
@@ -472,14 +531,22 @@ body:has(> [data-theme="isabelle"]) { background-color: #0b0b0c; }
   }
 }
 
-/* Dark themes — stronger body / step copy */
+/* Dark-leaning surfaces — stronger body / step copy */
 [data-theme="sabine"] .body-copy,
-[data-theme="isabelle"] .body-copy {
+html[data-mode="dark"] [data-theme="hub"] .body-copy,
+html[data-mode="dark"] [data-theme="michelle"] .body-copy {
   color: color-mix(in oklab, var(--t-ink) 78%, var(--t-muted));
 }
 [data-theme="sabine"] .lead,
-[data-theme="isabelle"] .lead {
+html[data-mode="dark"] [data-theme="hub"] .lead,
+html[data-mode="dark"] [data-theme="michelle"] .lead {
   color: color-mix(in oklab, var(--t-ink) 72%, var(--t-muted));
+}
+html[data-mode="light"] [data-theme="sabine"] .body-copy {
+  color: color-mix(in oklab, var(--t-ink) 70%, var(--t-muted));
+}
+html[data-mode="light"] [data-theme="sabine"] .lead {
+  color: var(--t-muted);
 }
 
 /* Tap-friendly text CTAs */

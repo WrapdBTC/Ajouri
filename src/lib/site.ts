@@ -1,9 +1,9 @@
-export type Slug = "michelle" | "sabine" | "isabelle";
+export type Slug = "michelle" | "sabine";
 export type ThemeKey = "hub" | Slug;
 
 export type Link = { label: string; href: string };
 
-/** The three members of the family, in hub order. */
+/** The two members of the family, in hub order. */
 export const family: {
   slug: Slug;
   first: string;
@@ -46,20 +46,6 @@ export const family: {
     portrait: "/assets/sabine/02-portrait.jpg",
     portraitPosition: "62% 30%",
   },
-  {
-    slug: "isabelle",
-    first: "Isabelle",
-    name: "Isabelle Ajouri",
-    house: "Atelier Isabelle",
-    craft: "Linie",
-    numeral: "III",
-    line: "Fine-Line — reduziert, präzise, für genau eine Haut gezeichnet.",
-    href: "/isabelle/",
-    portal: "/assets/isabelle/06-portal.jpg",
-    portalPosition: "50% 50%",
-    portrait: "/assets/isabelle/02-portrait.jpg",
-    portraitPosition: "52% 22%",
-  },
 ];
 
 export const contact = {
@@ -84,15 +70,6 @@ export const contact = {
     web: "vitasonus.de",
     webHref: "https://vitasonus.de/",
   },
-  isabelle: {
-    /**
-     * PLATZHALTER — noch keine echte Atelier-Adresse vorhanden.
-     * Vor dem Livegang durch die echte E-Mail ersetzen; `emailIsPlaceholder`
-     * dann auf false setzen, damit der Hinweis auf der Seite verschwindet.
-     */
-    email: "kontakt@example.com",
-    emailIsPlaceholder: true,
-  },
 } as const;
 
 export function mailto(address: string, subject?: string) {
@@ -114,7 +91,7 @@ export const headers: Record<
     title: "Ajouri",
     subtitle: "Neuburg an der Donau",
     anchors: [
-      { label: "Die drei Welten", href: "#welten" },
+      { label: "Die zwei Welten", href: "#welten" },
       { label: "Haltung", href: "#haltung" },
       { label: "Adressen", href: "#adressen" },
     ],
@@ -140,16 +117,5 @@ export const headers: Record<
       { label: "Kontakt", href: "/sabine/kontakt/" },
     ],
     cta: { label: "Termin wählen", href: "/sabine/kontakt/#buchen" },
-  },
-  isabelle: {
-    title: "Atelier Isabelle",
-    subtitle: "Isabelle Ajouri · Fine-Line",
-    anchors: [
-      { label: "Start", href: "/isabelle/" },
-      { label: "Galerie", href: "/isabelle/galerie/" },
-      { label: "Prozess", href: "/isabelle/prozess/" },
-      { label: "Anfrage", href: "/isabelle/anfrage/" },
-    ],
-    cta: { label: "Anfrage senden", href: "/isabelle/anfrage/" },
   },
 };

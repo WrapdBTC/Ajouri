@@ -3,7 +3,7 @@ type Props = {
   className?: string;
 };
 
-/** Slow craft-tag marquee — fits Isabelle / Sabine atmosphere. */
+/** Slow craft-tag marquee — fits Sabine ritual atmosphere. */
 export function Marquee({ items, className = "" }: Props) {
   const doubled = [...items, ...items];
   return (
