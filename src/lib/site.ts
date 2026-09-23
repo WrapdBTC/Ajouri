@@ -42,9 +42,9 @@ export const family: {
     line: "Klangreise, Klangmassage, Meditation — ein Raum, in dem es still werden darf.",
     href: "/sabine/",
     portal: "/assets/sabine/05-portal.jpg",
-    portalPosition: "76% 50%",
+    portalPosition: "50% 28%",
     portrait: "/assets/sabine/02-portrait.jpg",
-    portraitPosition: "62% 30%",
+    portraitPosition: "50% 22%",
   },
 ];
 

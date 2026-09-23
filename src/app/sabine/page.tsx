@@ -69,8 +69,8 @@ export default function SabineHome() {
             <div className="relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
                 src="/assets/sabine/02-portrait.jpg"
-                alt="Sabine Ajouri, Vita Sonus"
-                position="62% 30%"
+                alt="Sabine Ajouri mit Klangschale im Studio"
+                position="50% 22%"
                 className="ken-img absolute inset-0 h-full w-full object-cover"
               />
             </div>
@@ -179,8 +179,9 @@ export default function SabineHome() {
               eyebrow="Kontakt"
               title="Melde dich. Ganz in Ruhe."
               text="Adresse, Telefon und der Platz für den Buchungskalender."
-              image="/assets/sabine/05-portal.jpg"
-              position="76% 50%"
+              image="/assets/sabine/01-hero.jpg"
+              position="50% 40%"
+              alt="Studio Vita Sonus"
               aspect="tall"
             />
           </div>

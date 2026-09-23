@@ -20,9 +20,9 @@ export default function SabineStudio() {
     <>
       <Hero
         size="page"
-        image="/assets/sabine/01-hero.jpg"
-        alt="Dunkles Klangstudio mit warmem Licht"
-        position="50% 40%"
+        image="/assets/sabine/06-studio.jpg"
+        alt="Sabine Ajouri mit Klangschale im gemeinsamen Studio"
+        position="50% 28%"
         eyebrow="Studio · Vita Sonus"
         title={
           <>
@@ -134,9 +134,9 @@ export default function SabineStudio() {
         <div className="container-x grid gap-8 md:grid-cols-12 md:items-center md:gap-10">
           <div className="reveal ken-wrap relative aspect-[4/3] overflow-hidden md:col-span-7">
             <Img
-              src="/assets/sabine/03-bowls.jpg"
-              alt="Klangschalen im Studio"
-              position="50% 50%"
+              src="/assets/sabine/06-studio.jpg"
+              alt="Sabine Ajouri mit Klangschale im Studio"
+              position="50% 28%"
               className="ken-img absolute inset-0 h-full w-full object-cover"
             />
           </div>
