@@ -28,9 +28,9 @@ export const family: {
     line: "Analyse, Facials und Lash & Brow — erst verstehen, dann behandeln.",
     href: "/michelle/",
     portal: "/assets/michelle/05-portal.jpg",
-    portalPosition: "50% 50%",
+    portalPosition: "48% 22%",
     portrait: "/assets/michelle/02-portrait.jpg",
-    portraitPosition: "46% 22%",
+    portraitPosition: "48% 20%",
   },
   {
     slug: "sabine",

@@ -61,7 +61,7 @@ export default function MichelleHome() {
           <SplitFeature
             image="/assets/michelle/02-portrait.jpg"
             alt="Michelle Ajouri, Hautexpertin"
-            position="46% 28%"
+            position="48% 20%"
             index="I"
             eyebrow="Willkommen"
             title={
@@ -149,7 +149,7 @@ export default function MichelleHome() {
               eyebrow="Kontakt"
               title="Studio & Termin"
               text="Adresse, Telefon, WhatsApp — und der Platz für den Buchungskalender."
-              image="/assets/michelle/05-portal.jpg"
+              image="/assets/michelle/01-hero.jpg"
               position="50% 50%"
               aspect="tall"
             />
