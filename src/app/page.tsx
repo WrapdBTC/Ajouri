@@ -118,7 +118,7 @@ export default function HubPage() {
                 Zwei Häuser, <em>eine Familie.</em>
               </>
             }
-            lead="Jede Welt steht für sich — mit eigener Atmosphäre, eigenem Handwerk und eigener Adresse."
+            lead="Jede Welt steht für sich — mit eigener Atmosphäre, eigenem Handwerk und eigener Praxis. Unter einem Dach."
           />
 
           <div className="mt-10 grid items-stretch gap-8 md:mt-14 md:grid-cols-2 md:gap-7 lg:gap-10">
@@ -178,7 +178,7 @@ export default function HubPage() {
                 Wo du uns <em>findest.</em>
               </>
             }
-            lead="Jedes Haus hat seine eigene Adresse und seinen eigenen Draht. Am schnellsten geht es direkt."
+            lead="Gemeinsames Studio in der Amalienstraße — zwei Handwerke unter einem Dach. Jede Praxis hat ihren eigenen Draht."
           />
 
           <div className="mt-12 grid items-stretch border-t border-line md:mt-16 md:grid-cols-2">

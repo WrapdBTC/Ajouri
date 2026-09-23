@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { contact, family, headers, mailto, type ThemeKey } from "@/lib/site";
+import { contact, family, headers, mailto, studio, type ThemeKey } from "@/lib/site";
 
 const taglines: Record<ThemeKey, string> = {
   hub: "Zwei Frauen. Zwei Handwerke. Ein Name — Haut und Klang. Neuburg an der Donau.",
@@ -33,8 +33,9 @@ function contactLines(current: ThemeKey): Line[] {
     }
     default:
       return [
-        { text: `Michelle · ${contact.michelle.street}`, href: "/michelle/kontakt/" },
-        { text: `Sabine · ${contact.sabine.street}`, href: "/sabine/kontakt/" },
+        { text: `${studio.street} · ${studio.city}` },
+        { text: `Michelle · ${contact.michelle.phone}`, href: "/michelle/kontakt/" },
+        { text: `Sabine · ${contact.sabine.phone}`, href: "/sabine/kontakt/" },
       ];
   }
 }

@@ -48,10 +48,16 @@ export const family: {
   },
 ];
 
+/** Shared studio — both practices under one roof. */
+export const studio = {
+  street: "Amalienstr. 60",
+  city: "86633 Neuburg",
+} as const;
+
 export const contact = {
   michelle: {
-    street: "Franz-Hoffmann-Str. 29",
-    city: "86633 Neuburg an der Donau",
+    street: studio.street,
+    city: studio.city,
     phone: "+49 1577 5056789",
     phoneHref: "tel:+4915775056789",
     whatsappHref: "https://wa.me/4915775056789",
@@ -61,8 +67,8 @@ export const contact = {
     webHref: "https://michelleajouri.de/",
   },
   sabine: {
-    street: "Amalienstr. 60",
-    city: "86633 Neuburg",
+    street: studio.street,
+    city: studio.city,
     phone: "0160 99 300 610",
     phoneHref: "tel:+4916099300610",
     email: "info@vitasonus.de",
@@ -80,6 +86,10 @@ export function mailto(address: string, subject?: string) {
 
 export function mapsHref(street: string, city: string) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${street}, ${city}`)}`;
+}
+
+export function mapsStudioHref() {
+  return mapsHref(studio.street, studio.city);
 }
 
 /** Per-world header configuration — routes, not hash anchors. */

@@ -38,6 +38,15 @@ zwei Farbwelten plus Hub — jeweils mit Hell-/Dunkelmodus (`data-mode`):
 - **Sabine:** Original-Assets von [vitasonus.de](https://vitasonus.de/) (Studio, Portrait, Kurs-Teaser)
 - **Michelle:** Atmosphärische Key-Visuals (Champagner/Nude); Texte, Preise und Kontaktdaten entsprechen der Live-Site
 
+
+## Studio
+
+Gemeinsames Studio (beide Praxen):
+
+- Amalienstr. 60, 86633 Neuburg
+- Michelle: +49 1577 5056789 · info@michelleajouri.de
+- Sabine: 0160 99 300 610 · info@vitasonus.de
+
 ## Externe Links
 
 - Michelle: https://michelleajouri.de/

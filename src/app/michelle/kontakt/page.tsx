@@ -10,7 +10,7 @@ import { contact, mailto, mapsHref } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Kontakt & Termin",
   description:
-    "Glamour Treatments — Franz-Hoffmann-Str. 29, 86633 Neuburg. Telefon, WhatsApp und Terminanfrage bei Michelle Ajouri.",
+    "Glamour Treatments — Amalienstr. 60, 86633 Neuburg. Telefon, WhatsApp und Terminanfrage bei Michelle Ajouri.",
 };
 
 const c = contact.michelle;
@@ -26,7 +26,7 @@ const faq = [
   },
   {
     q: "Parken?",
-    a: "In der Franz-Hoffmann-Straße und Umgebung — kurze Wege zum Studio.",
+    a: "In der Amalienstraße und Umgebung — kurze Wege zum Studio.",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function MichelleKontakt() {
           <MetaRow
             items={[
               { label: "Adresse", value: c.street },
-              { label: "Ort", value: "Neuburg a. d. Donau" },
+              { label: "Ort", value: c.city },
               { label: "Öffnung", value: c.hours },
               { label: "Telefon", value: c.phone },
             ]}
@@ -129,10 +129,8 @@ export default function MichelleKontakt() {
               <div className="flex min-h-[9rem] flex-col justify-between bg-surface p-6 md:col-span-5 md:min-h-[11rem] md:p-8">
                 <div>
                   <p className="eyebrow text-accent-text">Standort</p>
-                  <p className="font-display mt-3 text-2xl leading-tight">
-                    Franz-Hoffmann-Str. 29
-                  </p>
-                  <p className="mt-1 text-[0.9rem] text-muted">86633 Neuburg an der Donau</p>
+                  <p className="font-display mt-3 text-2xl leading-tight">{c.street}</p>
+                  <p className="mt-1 text-[0.9rem] text-muted">{c.city}</p>
                 </div>
                 <Button href={mapsHref(c.street, c.city)} variant="text" size="sm" className="mt-6">
                   In Maps öffnen <Arrow />
