@@ -35,8 +35,8 @@ export default function SabineKontakt() {
     <>
       <Hero
         size="page"
-        image="/assets/sabine/06-studio.jpg"
-        alt="Vita Sonus Studio-Atmosphäre"
+        image="/assets/sabine/01-hero.jpg"
+        alt="Klangstudio Vita Sonus"
         position="76% 50%"
         eyebrow="Kontakt · Vita Sonus"
         title={

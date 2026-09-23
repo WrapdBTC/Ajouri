@@ -78,7 +78,7 @@ export default function SabineHome() {
           </figure>
 
           <div className="reveal md:col-span-6 md:col-start-7">
-            <Eyebrow index="I">Willkommen</Eyebrow>
+            <Eyebrow index="I">Über mich</Eyebrow>
             <h2 className="display-2 mt-6">
               Klang ist für mich <em>Zuhause kommen.</em>
             </h2>
