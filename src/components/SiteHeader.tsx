@@ -15,12 +15,18 @@ export function SiteHeader({ current }: { current: ThemeKey }) {
     <>
       <div className="bg-deep text-deep-ink">
         <div className="container-x flex h-9 items-center justify-between gap-3 text-[0.6rem] uppercase tracking-[0.18em] sm:gap-4 sm:tracking-[0.22em] md:tracking-[0.28em]">
-          <NextLink
-            href="/"
-            className={`transition-opacity duration-300 hover:opacity-100 ${current === "hub" ? "opacity-100" : "opacity-55"}`}
-          >
-            {current === "hub" ? "Ajouri · Maison" : "← Ajouri"}
-          </NextLink>
+          {current === "hub" ? (
+            <span className="opacity-0 select-none" aria-hidden>
+              ·
+            </span>
+          ) : (
+            <NextLink
+              href="/"
+              className="opacity-55 transition-opacity duration-300 hover:opacity-100"
+            >
+              ← Ajouri
+            </NextLink>
+          )}
           <div className="flex items-center gap-3 sm:gap-5 md:gap-7">
             <nav aria-label="Familie Ajouri" className="flex items-center gap-4 md:gap-7">
               {family.map((m) => {

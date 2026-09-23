@@ -41,11 +41,7 @@ function contactLines(current: ThemeKey): Line[] {
 }
 
 const external: Partial<Record<ThemeKey, { label: string; href: string }[]>> = {
-  hub: [
-    { label: contact.michelle.web, href: contact.michelle.webHref },
-    { label: contact.sabine.web, href: contact.sabine.webHref },
-  ],
-  michelle: [{ label: contact.michelle.web, href: contact.michelle.webHref }],
+  hub: [{ label: contact.sabine.web, href: contact.sabine.webHref }],
   sabine: [{ label: contact.sabine.web, href: contact.sabine.webHref }],
 };
 
