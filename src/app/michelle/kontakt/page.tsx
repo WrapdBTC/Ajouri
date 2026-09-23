@@ -35,9 +35,9 @@ export default function MichelleKontakt() {
     <>
       <Hero
         size="page"
-        image="/assets/michelle/06-portrait.jpg"
-        alt="Studio-Atmosphäre Glamour Treatments"
-        position="50% 50%"
+        image="/assets/michelle/01-hero.jpg"
+        alt="Behandlungssuite Glamour Treatments"
+        position="58% 50%"
         eyebrow="Kontakt · Glamour Treatments"
         title={
           <>

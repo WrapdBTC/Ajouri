@@ -61,9 +61,9 @@ export default function MichelleHome() {
           <SplitFeature
             image="/assets/michelle/02-portrait.jpg"
             alt="Michelle Ajouri, Hautexpertin"
-            position="48% 20%"
+            position="48% 28%"
             index="I"
-            eyebrow="Willkommen"
+            eyebrow="Über mich"
             title={
               <>
                 Beauty ist für mich immer auch <em>Gesundheit.</em>
