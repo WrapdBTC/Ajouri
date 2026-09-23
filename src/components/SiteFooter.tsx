@@ -40,11 +40,6 @@ function contactLines(current: ThemeKey): Line[] {
   }
 }
 
-const external: Partial<Record<ThemeKey, { label: string; href: string }[]>> = {
-  hub: [{ label: contact.sabine.web, href: contact.sabine.webHref }],
-  sabine: [{ label: contact.sabine.web, href: contact.sabine.webHref }],
-};
-
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   const cls = "transition-opacity duration-300 hover:opacity-100 opacity-75";
   return href.startsWith("/") ? (
@@ -110,18 +105,8 @@ export function SiteFooter({ current }: { current: ThemeKey }) {
           </div>
         </div>
 
-        <div className="mt-20 flex flex-col gap-3 border-t border-current/15 pt-6 text-[0.72rem] tracking-[0.04em] opacity-60 md:flex-row md:items-center md:justify-between">
+        <div className="mt-20 border-t border-current/15 pt-6 text-[0.72rem] tracking-[0.04em] opacity-60">
           <p>© {year} Ajouri · Neuburg an der Donau</p>
-          {external[current] && (
-            <p className="flex gap-4">
-              <span>Auch unter</span>
-              {external[current]!.map((e) => (
-                <a key={e.href} href={e.href} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
-                  {e.label}
-                </a>
-              ))}
-            </p>
-          )}
         </div>
       </div>
     </footer>
