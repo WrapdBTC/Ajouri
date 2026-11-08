@@ -21,7 +21,7 @@ export function PhotoStrip({ photos, caption, className = "" }: Props) {
             key={p.src}
             className={`ken-wrap relative aspect-[3/4] overflow-hidden bg-surface ${
               i === 1 ? "md:translate-y-16" : ""
-            } ${i === 2 ? "col-span-2 aspect-[4/3] md:col-span-1 md:aspect-[3/4]" : ""}`}
+            } ${i === 2 ? "col-span-2 aspect-[4/5] md:col-span-1 md:aspect-[3/4]" : ""}`}
           >
             <Img
               src={p.src}

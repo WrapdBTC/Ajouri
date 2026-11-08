@@ -169,9 +169,9 @@ export default function SabineHome() {
                 position: "50% 35%",
               },
               {
-                src: "/assets/sabine/klangschalen-detail.jpg",
-                alt: "Klangschalen im Gras",
-                position: "8% 60%",
+                src: "/assets/sabine/lachen-wind.jpg",
+                alt: "Sabine Ajouri lacht, eine Hand im Haar",
+                position: "50% 40%",
               },
             ]}
             caption="Sabine Ajouri · Vita Sonus · Neuburg"
