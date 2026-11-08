@@ -23,7 +23,7 @@ export function SiteHeader({ current }: { current: ThemeKey }) {
           ) : (
             <NextLink
               href="/"
-              className="opacity-55 transition-opacity duration-300 hover:opacity-100"
+              className="inline-flex h-9 items-center opacity-55 transition-opacity duration-300 hover:opacity-100"
             >
               ← Ajouri
             </NextLink>
@@ -37,11 +37,11 @@ export function SiteHeader({ current }: { current: ThemeKey }) {
                     key={m.slug}
                     href={m.href}
                     aria-current={active ? "page" : undefined}
-                    className={
+                    className={`inline-flex h-9 items-center ${
                       active
                         ? "underline decoration-accent decoration-1 underline-offset-[5px]"
                         : "opacity-50 transition-opacity duration-300 hover:opacity-100"
-                    }
+                    }`}
                   >
                     {m.first}
                   </NextLink>

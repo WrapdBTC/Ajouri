@@ -41,7 +41,8 @@ function contactLines(current: ThemeKey): Line[] {
 }
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
-  const cls = "transition-opacity duration-300 hover:opacity-100 opacity-75";
+  const cls =
+    "inline-flex min-h-8 items-center transition-opacity duration-300 hover:opacity-100 opacity-75";
   return href.startsWith("/") ? (
     <NextLink href={href} className={cls}>
       {children}
@@ -73,7 +74,7 @@ export function SiteFooter({ current }: { current: ThemeKey }) {
 
           <div className="md:col-span-4 md:col-start-6">
             <p className="eyebrow opacity-50">Kontakt</p>
-            <ul className="mt-6 space-y-2 text-[0.95rem] leading-relaxed">
+            <ul className="mt-5 space-y-0.5 text-[0.95rem] leading-relaxed">
               {contactLines(current).map((l) => (
                 <li key={l.text}>
                   {l.href ? <FooterLink href={l.href}>{l.text}</FooterLink> : <span className="opacity-75">{l.text}</span>}
@@ -84,7 +85,7 @@ export function SiteFooter({ current }: { current: ThemeKey }) {
 
           <div className="md:col-span-3 md:col-start-10">
             <p className="eyebrow opacity-50">Familie Ajouri</p>
-            <ul className="mt-6 space-y-2 text-[0.95rem] leading-relaxed">
+            <ul className="mt-5 space-y-0.5 text-[0.95rem] leading-relaxed">
               <li>
                 <FooterLink href="/">Ajouri — Übersicht</FooterLink>
               </li>

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Michelle Ajouri — Kosmetik · Haut & Darm",
     description: "Haut lesen. Darm verstehen.",
-    images: [{ url: asset("/assets/michelle/hero-herbst.jpg"), width: 2400, height: 1687 }],
+    images: [{ url: asset("/assets/michelle/hero-herbst.jpg"), width: 2000, height: 1406 }],
   },
 };
 

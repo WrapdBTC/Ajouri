@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Arrow, Button } from "@/components/Button";
 import { Eyebrow } from "@/components/SectionIntro";
-import { BookingSlot } from "@/components/BookingSlot";
 import { InquiryForm } from "@/components/InquiryForm";
 import { MetaRow } from "@/components/MetaRow";
 import { contact, mailto, mapsHref } from "@/lib/site";
@@ -35,6 +34,7 @@ export default function SabineKontakt() {
     <>
       <Hero
         size="page"
+        layout="split"
         image="/assets/sabine/portrait-kontakt.jpg"
         alt="Sabine Ajouri lacht im Herbstlicht"
         position="50% 25%"
@@ -84,7 +84,7 @@ export default function SabineKontakt() {
                 <div>
                   <dt className="eyebrow text-accent-text">Telefon</dt>
                   <dd className="mt-1.5">
-                    <a href={c.phoneHref} className="hover:underline">
+                    <a href={c.phoneHref} className="inline-flex min-h-8 items-center hover:underline">
                       {c.phone}
                     </a>
                   </dd>
@@ -92,7 +92,7 @@ export default function SabineKontakt() {
                 <div>
                   <dt className="eyebrow text-accent-text">E-Mail</dt>
                   <dd className="mt-1.5">
-                    <a href={mailto(c.email)} className="hover:underline">
+                    <a href={mailto(c.email)} className="inline-flex min-h-8 items-center hover:underline">
                       {c.email}
                     </a>
                   </dd>
@@ -136,29 +136,43 @@ export default function SabineKontakt() {
                   In Maps öffnen <Arrow />
                 </Button>
               </div>
-              <div
-                aria-hidden
-                className="relative min-h-[9rem] bg-elev md:col-span-7 md:min-h-[11rem]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(135deg, color-mix(in oklab, var(--t-accent) 14%, var(--t-surface)) 0%, var(--t-elev) 50%, color-mix(in oklab, var(--t-ink) 8%, var(--t-deep)) 100%)",
-                }}
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="eyebrow text-muted">Karte · folgt mit Buchung</span>
+              <div className="flex flex-col justify-between gap-6 bg-elev p-6 md:col-span-7 md:p-8">
+                <div>
+                  <p className="eyebrow text-accent-text">Unter einem Dach</p>
+                  <p className="font-display mt-3 text-2xl leading-tight">
+                    Ein Studio, zwei Handwerke.
+                  </p>
+                  <p className="body-copy mt-2 !max-w-md text-[0.95rem]">
+                    In der Sternstraße findest du auch Michelle Ajouri — Kosmetik, Haut & Darm.
+                  </p>
                 </div>
-                <div
-                  aria-hidden
-                  className="absolute inset-6 border border-dashed border-line/80"
-                />
+                <Button href="/michelle/" variant="text" size="sm">
+                  Zu Michelle <Arrow />
+                </Button>
               </div>
             </div>
           </div>
 
           <div className="reveal mt-8 md:mt-10">
-            <BookingSlot
-              detail="Online-Buchung wird in Kürze freigeschaltet. Bis dahin: Anruf, Formular oder E-Mail — ich melde mich persönlich. Freitags bist du auch ohne Termin willkommen."
-            />
+            <div
+              id="buchen"
+              className="scroll-mt-28 flex flex-col gap-6 border border-line bg-deep p-7 text-deep-ink md:flex-row md:items-center md:justify-between md:p-10"
+            >
+              <div>
+                <p className="eyebrow text-accent">Termin anfragen</p>
+                <p className="display-3 mt-3">Ruf an oder schreib mir — ich melde mich persönlich.</p>
+                <p className="mt-3 max-w-xl text-[0.95rem] opacity-80">
+                  Freitags von 16:30 bis 18:00 Uhr bist du im offenen Studio auch ohne Termin
+                  willkommen.
+                </p>
+              </div>
+              <div className="flex shrink-0 flex-wrap gap-3">
+                <Button href={c.phoneHref}>Anrufen</Button>
+                <Button href={mailto(c.email, "Terminanfrage Vita Sonus")} variant="outline" className="!border-current !text-current">
+                  E-Mail
+                </Button>
+              </div>
+            </div>
           </div>
 
           <div className="reveal mt-10 border-t border-line pt-8 md:mt-12 md:pt-10">

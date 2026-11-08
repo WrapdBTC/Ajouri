@@ -20,6 +20,7 @@ export default function SabineStudio() {
     <>
       <Hero
         size="page"
+        layout="split"
         image="/assets/sabine/meditation.jpg"
         alt="Sabine Ajouri in Meditationshaltung mit Klangschalen"
         position="50% 28%"

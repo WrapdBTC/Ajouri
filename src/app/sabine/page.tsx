@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vita Sonus — Sabine Ajouri",
     description: "Ein Raum, in dem es still werden darf.",
-    images: [{ url: asset("/assets/sabine/hero-klangschalen.jpg"), width: 1280, height: 720 }],
+    images: [{ url: asset("/assets/sabine/hero-klangschalen.jpg"), width: 2000, height: 1467 }],
   },
 };
 

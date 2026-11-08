@@ -38,6 +38,7 @@ export default function MichelleKontakt() {
     <>
       <Hero
         size="page"
+        layout="split"
         image="/assets/michelle/brauen-detail.jpg"
         alt="Nahaufnahme gepflegter Haut und Augenbraue"
         position="50% 45%"
@@ -86,7 +87,7 @@ export default function MichelleKontakt() {
                 <div>
                   <dt className="eyebrow text-accent-text">Telefon / WhatsApp</dt>
                   <dd className="mt-1.5">
-                    <a href={c.phoneHref} className="hover:underline">
+                    <a href={c.phoneHref} className="inline-flex min-h-8 items-center hover:underline">
                       {c.phone}
                     </a>
                   </dd>
@@ -94,7 +95,7 @@ export default function MichelleKontakt() {
                 <div>
                   <dt className="eyebrow text-accent-text">E-Mail</dt>
                   <dd className="mt-1.5">
-                    <a href={mailto(c.email)} className="hover:underline">
+                    <a href={mailto(c.email)} className="inline-flex min-h-8 items-center hover:underline">
                       {c.email}
                     </a>
                   </dd>
@@ -102,7 +103,7 @@ export default function MichelleKontakt() {
                 <div>
                   <dt className="eyebrow text-accent-text">Instagram</dt>
                   <dd className="mt-1.5">
-                    <a href={c.instagramHref} className="hover:underline" target="_blank" rel="noopener noreferrer">
+                    <a href={c.instagramHref} className="inline-flex min-h-8 items-center hover:underline" target="_blank" rel="noopener noreferrer">
                       {c.instagram}
                     </a>
                   </dd>
@@ -147,21 +148,19 @@ export default function MichelleKontakt() {
                   In Maps öffnen <Arrow />
                 </Button>
               </div>
-              <div
-                aria-hidden
-                className="relative min-h-[9rem] bg-elev md:col-span-7 md:min-h-[11rem]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(135deg, color-mix(in oklab, var(--t-accent) 12%, var(--t-surface)) 0%, var(--t-elev) 48%, color-mix(in oklab, var(--t-ink) 6%, var(--t-surface)) 100%)",
-                }}
-              >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="eyebrow text-muted">Karte · folgt mit Buchung</span>
+              <div className="flex flex-col justify-between gap-6 bg-elev p-6 md:col-span-7 md:p-8">
+                <div>
+                  <p className="eyebrow text-accent-text">Unter einem Dach</p>
+                  <p className="font-display mt-3 text-2xl leading-tight">
+                    Ein Studio, zwei Handwerke.
+                  </p>
+                  <p className="body-copy mt-2 !max-w-md text-[0.95rem]">
+                    In der Sternstraße findest du auch Sabine Ajouri — Vita Sonus, Klang & Meditation.
+                  </p>
                 </div>
-                <div
-                  aria-hidden
-                  className="absolute inset-6 border border-dashed border-line/80"
-                />
+                <Button href="/sabine/" variant="text" size="sm">
+                  Zu Sabine <Arrow />
+                </Button>
               </div>
             </div>
           </div>
@@ -187,7 +186,7 @@ export default function MichelleKontakt() {
 
           <div className="reveal mt-10 border-t border-line pt-8 md:mt-12 md:pt-10">
             <Eyebrow>Kurz gefragt</Eyebrow>
-            <ul className="mt-6 grid items-stretch gap-6 sm:grid-cols-3 sm:gap-8">
+            <ul className="mt-6 grid items-stretch gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
               {faq.map((item) => (
                 <li key={item.q} className="flex h-full flex-col">
                   <p className="font-display text-xl leading-snug">{item.q}</p>

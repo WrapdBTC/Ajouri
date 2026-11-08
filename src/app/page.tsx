@@ -100,7 +100,7 @@ export default function HubPage() {
           <Img
             src="/assets/hub/zusammen.jpg"
             alt=""
-            position="55% 55%"
+            position="50% 28%"
             priority
             className="anim-settle absolute inset-0 h-full w-full object-cover"
           />
@@ -208,12 +208,12 @@ export default function HubPage() {
                       <p>{contact.michelle.street}</p>
                       <p>{contact.michelle.city}</p>
                       <p className="pt-3">
-                        <a className="text-ink hover:underline" href={contact.michelle.phoneHref}>
+                        <a className="inline-flex min-h-8 items-center text-ink hover:underline" href={contact.michelle.phoneHref}>
                           {contact.michelle.phone}
                         </a>
                       </p>
                       <p>
-                        <a className="text-ink hover:underline" href={mailto(contact.michelle.email)}>
+                        <a className="inline-flex min-h-8 items-center text-ink hover:underline" href={mailto(contact.michelle.email)}>
                           {contact.michelle.email}
                         </a>
                       </p>
@@ -224,12 +224,12 @@ export default function HubPage() {
                       <p>{contact.sabine.street}</p>
                       <p>{contact.sabine.city}</p>
                       <p className="pt-3">
-                        <a className="text-ink hover:underline" href={contact.sabine.phoneHref}>
+                        <a className="inline-flex min-h-8 items-center text-ink hover:underline" href={contact.sabine.phoneHref}>
                           {contact.sabine.phone}
                         </a>
                       </p>
                       <p>
-                        <a className="text-ink hover:underline" href={mailto(contact.sabine.email)}>
+                        <a className="inline-flex min-h-8 items-center text-ink hover:underline" href={mailto(contact.sabine.email)}>
                           {contact.sabine.email}
                         </a>
                       </p>

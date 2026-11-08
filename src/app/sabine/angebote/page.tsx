@@ -55,8 +55,8 @@ const offerings = [
     detail:
       "Ein Abend für das Nervensystem: Klang, Atem und Stille — gemeinsam ankommen, gemeinsam nachklingen.",
     time: "ca. 90 Min.",
-    image: "/assets/sabine/regulation.jpg",
-    position: "76% 50%",
+    image: "/assets/sabine/gemeinsam.jpg",
+    position: "50% 40%",
   },
 ];
 
@@ -65,6 +65,7 @@ export default function SabineAngebote() {
     <>
       <Hero
         size="page"
+        layout="split"
         image="/assets/sabine/portrait-lachen-2.jpg"
         alt="Sabine Ajouri — Vita Sonus"
         position="62% 28%"

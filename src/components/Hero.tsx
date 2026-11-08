@@ -13,6 +13,11 @@ type Props = {
   size?: "full" | "page";
   /** Tighter poetic lead — Sabine ritual style */
   leadClassName?: string;
+  /**
+   * "overlay" = full-bleed photo behind the copy (needs a large photo).
+   * "split" = copy left, portrait frame right — keeps smaller images sharp.
+   */
+  layout?: "overlay" | "split";
 };
 
 /**
@@ -31,43 +36,85 @@ export function Hero({
   meta,
   size = "full",
   leadClassName = "",
+  layout = "overlay",
 }: Props) {
   const isPage = size === "page";
 
+  if (layout === "split") {
+    return (
+      <section className="bg-surface">
+        <div className="container-x grid gap-10 pt-12 pb-14 md:grid-cols-12 md:items-center md:gap-14 md:pt-16 md:pb-20">
+          <div className="md:col-span-6">
+            <div className="anim-rise">
+              <Eyebrow>{eyebrow}</Eyebrow>
+            </div>
+            <h1 className="anim-rise anim-rise-1 display-2 mt-5 text-ink">{title}</h1>
+            <p className={`lead anim-rise anim-rise-2 mt-5 !max-w-lg ${leadClassName}`}>{lead}</p>
+            <div className="anim-rise anim-rise-3 mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center [&>a]:w-full sm:[&>a]:w-auto">
+              {actions}
+            </div>
+            {meta && (
+              <div className="anim-rise anim-rise-4 mt-8 border-t border-line pt-5 text-[0.85rem] text-ink/90">
+                {meta}
+              </div>
+            )}
+          </div>
+          <div className="anim-settle relative aspect-[4/3] overflow-hidden md:col-span-5 md:col-start-8 md:aspect-[4/5] md:max-h-[34rem]">
+            <Img
+              src={image}
+              alt={alt}
+              position={position}
+              priority
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative isolate overflow-hidden">
-      <Img
-        src={image}
-        alt={alt}
-        position={position}
-        priority
-        className="anim-settle absolute inset-0 -z-10 h-full w-full object-cover"
-      />
-      {/* Light wash + directional scrims: photo stays visible, copy stays readable */}
-      <div aria-hidden className="absolute inset-0 -z-10 bg-bg/15" />
+      {/* Phone: photo stacked above the copy, so text never covers a face.
+          Desktop: full-bleed photo behind the copy. */}
+      <div className="relative aspect-[4/5] w-full md:absolute md:inset-0 md:-z-10 md:aspect-auto">
+        <Img
+          src={image}
+          alt={alt}
+          position={position}
+          priority
+          className="anim-settle absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-bg to-transparent md:hidden"
+        />
+      </div>
+      {/* Desktop: light wash + directional scrims keep the copy readable */}
+      <div aria-hidden className="absolute inset-0 -z-10 hidden bg-bg/15 md:block" />
       <div
         aria-hidden
         className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-bg/90 via-bg/35 to-transparent md:block"
       />
       <div
         aria-hidden
-        className={`absolute inset-x-0 bottom-0 -z-10 bg-gradient-to-t from-bg via-bg/60 to-transparent ${
-          isPage ? "h-[75%]" : "h-[65%] md:h-[55%]"
+        className={`absolute inset-x-0 bottom-0 -z-10 hidden bg-gradient-to-t from-bg via-bg/60 to-transparent md:block ${
+          isPage ? "h-[75%]" : "h-[55%]"
         }`}
       />
 
       <div
         className={`container-x flex items-end ${
           isPage
-            ? "min-h-[30svh] pt-20 pb-8 md:min-h-[40svh] md:pt-28 md:pb-12"
-            : "min-h-[min(100svh-5.25rem,34rem)] pt-24 pb-10 md:min-h-[calc(100svh-5.25rem)] md:pt-44 md:pb-20"
+            ? "pt-4 pb-10 md:min-h-[40svh] md:pt-28 md:pb-12"
+            : "pt-4 pb-12 md:min-h-[calc(100svh-5.25rem)] md:pt-44 md:pb-20"
         }`}
       >
         <div className={`relative rounded-sm ${isPage ? "max-w-xl" : "max-w-3xl"}`}>
-          {/* Soft panel behind copy */}
+          {/* Soft panel behind copy (desktop, over the photo) */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -inset-x-5 -inset-y-4 -z-10 rounded-sm bg-gradient-to-r from-bg/80 via-bg/45 to-transparent md:-inset-x-8 md:-inset-y-5"
+            className="pointer-events-none absolute -inset-x-8 -inset-y-5 -z-10 hidden rounded-sm bg-gradient-to-r from-bg/80 via-bg/45 to-transparent md:block"
           />
           <div className="anim-rise">
             <Eyebrow>{eyebrow}</Eyebrow>

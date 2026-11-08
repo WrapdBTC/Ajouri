@@ -77,6 +77,7 @@ export default function MichellePakete() {
     <>
       <Hero
         size="page"
+        layout="split"
         image="/assets/michelle/entspannung.jpg"
         alt="Entspannte Kundin mit geschlossenen Augen auf der Liege"
         position="50% 35%"

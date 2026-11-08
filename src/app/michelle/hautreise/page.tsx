@@ -42,6 +42,7 @@ export default function MichelleHautreise() {
     <>
       <Hero
         size="page"
+        layout="split"
         image="/assets/michelle/maske-berry.jpg"
         alt="Beerenfarbene Maske wird auf die Wange aufgetragen"
         position="50% 35%"
