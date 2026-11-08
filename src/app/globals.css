@@ -34,19 +34,21 @@
 
 :root,
 [data-theme="hub"] {
-  --t-bg: #faf8f5;
-  --t-surface: #f1ece5;
-  --t-elev: #ffffff;
-  --t-ink: #1a1614;
-  --t-muted: #6b625a;
-  --t-line: rgb(26 22 20 / 0.13);
-  --t-accent: #8a6b4e;
-  --t-accent-text: #7a5c41;
-  --t-deep: #1a1614;
-  --t-deep-ink: #f3eee7;
-  --t-btn: #1a1614;
-  --t-btn-ink: #faf8f5;
-  --t-header: #faf8f5;
+  /* Hub — die gemeinsame Basis beider Häuser: Creme · Sand · Gold,
+   * Tinte zwischen Michelles Tiefwald und Sabines Nachtblau. */
+  --t-bg: #f7f3ec;
+  --t-surface: #efe7da;
+  --t-elev: #fbf9f4;
+  --t-ink: #1e2b2e;
+  --t-muted: #4f5a5e;
+  --t-line: rgb(30 43 46 / 0.15);
+  --t-accent: #c6a15b;
+  --t-accent-text: #8a6a35;
+  --t-deep: #1e2b2e;
+  --t-deep-ink: #f7f3ec;
+  --t-btn: #1e2b2e;
+  --t-btn-ink: #f7f3ec;
+  --t-header: #f7f3ec;
   color-scheme: light;
 }
 
@@ -93,19 +95,19 @@
 /* ----- Mode overrides: darken light worlds ----- */
 html[data-mode="dark"],
 html[data-mode="dark"] [data-theme="hub"] {
-  --t-bg: #141210;
-  --t-surface: #1c1916;
-  --t-elev: #26211d;
-  --t-ink: #f3eee7;
-  --t-muted: #b0a69c;
-  --t-line: rgb(243 238 231 / 0.14);
-  --t-accent: #c4a07a;
-  --t-accent-text: #d4b896;
-  --t-deep: #0a0908;
-  --t-deep-ink: #f3eee7;
-  --t-btn: #f3eee7;
-  --t-btn-ink: #141210;
-  --t-header: #141210;
+  --t-bg: #131b1d;
+  --t-surface: #182326;
+  --t-elev: #1e2b2e;
+  --t-ink: #f7f3ec;
+  --t-muted: #c4bfb4;
+  --t-line: rgb(247 243 236 / 0.14);
+  --t-accent: #c6a15b;
+  --t-accent-text: #d8b878;
+  --t-deep: #0b1012;
+  --t-deep-ink: #f7f3ec;
+  --t-btn: #c6a15b;
+  --t-btn-ink: #1e2b2e;
+  --t-header: #131b1d;
   color-scheme: dark;
 }
 
@@ -542,3 +544,8 @@ html[data-mode="light"] [data-theme="sabine"] .lead {
   display: inline-flex;
   align-items: center;
 }
+
+/* Brand mark: swap line colour with light/dark mode */
+.logo-dark { display: none; }
+html[data-mode="dark"] .logo-light { display: none; }
+html[data-mode="dark"] .logo-dark { display: block; }

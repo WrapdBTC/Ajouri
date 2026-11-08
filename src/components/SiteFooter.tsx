@@ -3,7 +3,7 @@ import { contact, family, headers, mailto, studio, type ThemeKey } from "@/lib/s
 
 const taglines: Record<ThemeKey, string> = {
   hub: "Zwei Frauen. Zwei Handwerke. Ein Name — Haut und Klang. Neuburg an der Donau.",
-  michelle: "Hautanalyse, Treatments, Lash & Brow — erst verstehen, dann behandeln.",
+  michelle: "Haut lesen. Darm verstehen. Kosmetik mit Plan über Wochen und Monate.",
   sabine: "Klangreise, Klangmassage, Meditation. Ein Studio für Klang und Achtsamkeit.",
 };
 

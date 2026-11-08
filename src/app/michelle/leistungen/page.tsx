@@ -4,242 +4,298 @@ import { Img } from "@/components/Img";
 import { Arrow, Button } from "@/components/Button";
 import { SectionIntro, Eyebrow } from "@/components/SectionIntro";
 import { PriceRow } from "@/components/PriceRow";
-import { FullBleed } from "@/components/FullBleed";
-import { mailto, contact } from "@/lib/site";
+import { contact } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Leistungen & Preise",
+  title: "Pakete & Preise",
   description:
-    "Facials, Aquafacial, Microneedling, Glass Skin und Lash & Brow bei Michelle Ajouri — Orientierungspreise in Neuburg.",
+    "SKIN FIRST, SKIN START, SKIN RENEWAL, SKIN TRANSFORMATION sowie Korean Lash Lift und Brow Lift bei Michelle Ajouri in Neuburg — direkt buchbar über Beautinda.",
 };
 
 const c = contact.michelle;
 
-const firstVisit = [
+type Pkg = {
+  name: string;
+  claim: string;
+  sessions: string;
+  duration: string;
+  price: string;
+  popular?: boolean;
+  text: string;
+  features: string[];
+};
+
+const packages: Pkg[] = [
   {
-    name: "Ersttermin",
-    detail: "Hautanalyse mit OBSERV 320x und individuelles Facial",
-    time: "90 Min.",
-    price: "210 €",
+    name: "SKIN START",
+    claim: "Dein sanfter Einstieg",
+    sessions: "4 Termine à 80 Min.",
+    duration: "rund 3 Monate",
+    price: "1.890 €",
+    text: "Dein sanfter Einstieg in eine Hautreise mit Begleitung. Behandlungen, die aufeinander aufbauen — und der Blick auf Haut und Darm zusammen.",
+    features: [
+      "4 Behandlungen, die aufeinander aufbauen",
+      "5 Reviderm-Produkte für zu Hause: Reinigung, Toner, Serum, Creme",
+      "Haut und Darm im Blick",
+      "Video-Check-ins zwischen den Terminen gratis",
+    ],
   },
   {
-    name: "Ersttermin Deluxe",
-    detail: "Hautanalyse, Zinzino BalanceTest und individuelles Facial",
-    time: "120 Min.",
-    price: "270 €",
+    name: "SKIN RENEWAL",
+    claim: "Richtig ankommen",
+    sessions: "6 Termine à 80 Min.",
+    duration: "rund 5 Monate",
+    price: "2.390 €",
+    popular: true,
+    text: "Für alle, die richtig ankommen wollen. Deine Haut hat Zeit, sich nachhaltig zu verändern — Schritt für Schritt, von innen und außen.",
+    features: [
+      "6 Behandlungen, angepasst an deine Fortschritte",
+      "Deine Haut gestärkt von innen und außen",
+      "5 Reviderm-Produkte inklusive",
+      "Ich bin auch zwischen den Terminen für dich da",
+    ],
+  },
+  {
+    name: "SKIN TRANSFORMATION",
+    claim: "Deine ganz große Hautreise",
+    sessions: "10 Termine à 80 Min.",
+    duration: "rund 9 Monate",
+    price: "3.490 €",
+    text: "Neun Monate intensive Begleitung, in denen wir Haut und Darm in Balance bringen und dein Ergebnis langfristig festigen. Für dich, wenn du es von Herzen ernst meinst.",
+    features: [
+      "10 Behandlungen, perfekt aufeinander abgestimmt",
+      "Haut und Darm in Balance",
+      "5 Reviderm-Produkte für zu Hause",
+      "Volle Begleitung mit Video-Check-ins",
+      "Alle Unterlagen als PDF",
+    ],
   },
 ];
 
-const treatments = [
-  {
-    name: "Aquafacial",
-    detail: "Tiefenreinigung, die Ablagerungen löst und Platz für Wirkstoffe schafft",
-    price: "140 €",
-    featured: false,
-  },
-  {
-    name: "Microneedling",
-    detail: "Gezielte Impulse für Regeneration und ein verfeinertes Hautbild",
-    price: "200 €",
-    featured: false,
-  },
-  {
-    name: "Power Duo",
-    detail: "Aquafacial und Microneedling in einer Behandlung",
-    price: "300 €",
-    featured: true,
-  },
-  {
-    name: "Dermaplaning",
-    detail: "Sanfte Exfoliation für eine glatte, ebenmäßige Oberfläche",
-    price: "80 €",
-    featured: false,
-  },
-  {
-    name: "Glass Skin",
-    detail: "Intensives Kombi-Treatment für klaren, ebenmäßigen Glow",
-    price: "340 €",
-    featured: true,
-  },
-  {
-    name: "ACID Peel",
-    detail: "Professionelles Peeling für frische, verfeinerte Haut",
-    price: "100 €",
-    featured: false,
-  },
-];
-
-const lashBrow = [
-  ["Lash Lift", "Schwung und Definition für deine eigenen Wimpern."],
-  ["Korean Lash Lift", "Ein besonders sanfter, natürlicher Schwung."],
-  ["Brow Lift", "Geordnete, definierte Brauen mit mehr Ausdruck."],
-];
-
-export default function MichelleLeistungen() {
+export default function MichellePakete() {
   return (
     <>
       <Hero
         size="page"
-        image="/assets/michelle/03-treatment.jpg"
-        alt="Serum wird mit einer Pipette auf die Wange aufgetragen"
-        position="62% 50%"
-        eyebrow="Leistungen · Glamour Treatments"
+        image="/assets/michelle/entspannung.jpg"
+        alt="Entspannte Kundin mit geschlossenen Augen auf der Liege"
+        position="50% 35%"
+        eyebrow="Pakete & Preise · direkt buchbar"
         title={
           <>
-            Ausgewählte <em>Behandlungen.</em>
+            Deine <em>Hautreise.</em>
           </>
         }
-        lead="Orientierungspreise. Welche Behandlung sinnvoll ist, zeigt sich nach Analyse und Gespräch."
+        lead="Starte mit SKIN FIRST, geh mit einem Paket den ganzen Weg — oder gönn dir Lash & Brow. Alles direkt über Beautinda buchbar."
         actions={
           <>
-            <Button href="/michelle/kontakt/#buchen">
-              Termin wählen <Arrow />
+            <Button href={c.bookingHref}>
+              Termin buchen <Arrow />
             </Button>
-            <Button href="/michelle/analyse/" variant="outline">
-              Zur Analyse
+            <Button href="/michelle/hautreise/" variant="outline">
+              So läuft&apos;s
             </Button>
           </>
         }
       />
 
-      {/* Featured treatment — magazine row */}
+      {/* SKIN FIRST */}
       <section className="section-y-tight">
-        <div className="container-x">
-          <div className="grid gap-10 md:grid-cols-12 md:items-center md:gap-12">
-            <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-5 md:aspect-[3/4]">
-              <Img
-                src="/assets/michelle/01-hero.jpg"
-                alt="Behandlungssuite — Atmosphäre"
-                position="58% 45%"
-                zoom={1.1}
-                className="ken-img absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-            <div className="reveal md:col-span-6 md:col-start-7">
-              <Eyebrow index="I">Im Fokus</Eyebrow>
-              <h2 className="display-2 mt-6">
-                Glass Skin <em>&amp; Power Duo.</em>
-              </h2>
-              <p className="lead mt-8 !max-w-md">
-                Zwei Treatments, die oft am Anfang stehen: intensiver Glow oder die Kombination aus
-                Reinigung und Regeneration. Beide bauen auf der Analyse auf — nichts wird geraten.
+        <div className="container-x grid gap-10 md:grid-cols-12 md:items-center md:gap-12">
+          <div className="reveal md:col-span-6">
+            <Eyebrow index="I">Erstbehandlung</Eyebrow>
+            <h2 className="display-2 mt-6">
+              SKIN <em>FIRST.</em>
+            </h2>
+            <p className="lead mt-6 !max-w-lg">
+              Du stehst vor dem Spiegel und fragst dich, warum deine Haut nicht zur Ruhe kommt? Dann
+              ist SKIN FIRST dein Moment: ganzheitliche Hautgesundheit in 2 Stunden.
+            </p>
+            <p className="body-copy mt-4 !max-w-lg">
+              Mit dem OBSERV, einem professionellen Hautanalysegerät, machen wir sichtbar, was dein
+              Auge allein nicht sieht: Pigmente, Feuchtigkeit, Talg, Rötungen, Poren und erste
+              Zeichen der Hautalterung. Du siehst deine Haut selbst auf dem Bildschirm — und ich muss
+              nicht raten.
+            </p>
+            <ul className="mt-6 space-y-2 text-[0.98rem]">
+              {[
+                "Deine persönliche OBSERV-Hautanalyse",
+                "Die passende Behandlung für deine Haut, alles inklusive — ob Aquafacial, Microneedling, Peeling, Galvanik oder Mikroströme",
+                "Der Blick auf Haut und Darm als Einheit",
+                "Dein persönlicher Plan für zu Hause",
+                "Ganz viel Raum für deine Fragen",
+              ].map((f) => (
+                <li key={f} className="flex gap-3">
+                  <span aria-hidden className="text-accent-text">·</span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="reveal md:col-span-5 md:col-start-8">
+            <div className="border border-line bg-elev p-8 md:p-10">
+              <p className="eyebrow text-accent-text">SKIN FIRST · 2 Std.</p>
+              <p className="font-display mt-4 text-[3.25rem] leading-none tabular-nums">249 €</p>
+              <p className="body-copy mt-4 !max-w-none text-[0.95rem]">
+                Keine versteckten Kosten, keine Überraschungen — die Behandlung ist im Preis
+                inklusive.
               </p>
-              <dl className="mt-10 space-y-5 border-t border-line pt-8">
-                <div className="flex items-baseline justify-between gap-4">
-                  <dt className="font-display text-2xl">Glass Skin</dt>
-                  <dd className="font-display text-2xl tabular-nums">340 €</dd>
-                </div>
-                <div className="flex items-baseline justify-between gap-4">
-                  <dt className="font-display text-2xl">Power Duo</dt>
-                  <dd className="font-display text-2xl tabular-nums">300 €</dd>
-                </div>
-              </dl>
+              <Button href={c.bookingHref} className="mt-8 w-full">
+                SKIN FIRST buchen
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-y-tight bg-surface">
+      {/* Packages */}
+      <section className="section-y bg-surface">
         <div className="container-x">
           <SectionIntro
             layout="split"
             index="II"
-            eyebrow="Einstieg"
+            eyebrow="Hautreise"
             title={
               <>
-                Der erste <em>Termin.</em>
+                Drei Pakete, <em>ein Weg.</em>
               </>
             }
-            lead="Auf dem Ersttermin baut jede weitere Behandlung auf — mit Analyse und einem Facial, das zu deinem Hautbild passt."
+            lead="Jeder Termin dauert 80 Minuten. Deine fünf Reviderm-Pflegeprodukte für zu Hause sind in jedem Paket schon dabei."
           />
 
-          <div className="mt-8 grid gap-10 md:mt-10 md:grid-cols-12">
-            <div className="md:col-span-8">
-              <div className="reveal">
-                <p className="eyebrow text-muted">Der Einstieg</p>
-                <ul className="mt-2 divide-y divide-line border-b border-line">
-                  {firstVisit.map((t) => (
-                    <PriceRow key={t.name} {...t} />
-                  ))}
-                </ul>
-              </div>
-              <div className="reveal mt-12 md:mt-14">
-                <p className="eyebrow text-muted">Behandlungen</p>
-                <ul className="mt-2 divide-y divide-line border-b border-line">
-                  {treatments.map((t) => (
-                    <PriceRow key={t.name} name={t.name} detail={t.detail} price={t.price} />
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <aside className="md:col-span-4">
-              <div className="reveal border border-line bg-elev p-8 md:sticky md:top-28 md:p-10">
-                <p className="eyebrow text-accent-text">Unsicher, was passt?</p>
-                <p className="display-3 mt-4">Starte mit einer kostenlosen Erstberatung.</p>
-                <p className="body-copy mt-5 !max-w-none">
-                  Unverbindlich und ohne Druck. Danach ist der Ersttermin mit Hautanalyse der
-                  nächste Schritt.
+          <div className="mt-12 grid items-stretch gap-6 md:mt-14 md:grid-cols-3 md:gap-6">
+            {packages.map((p) => (
+              <article
+                key={p.name}
+                className={`reveal relative flex h-full flex-col border p-7 md:p-8 ${
+                  p.popular ? "border-accent bg-deep text-deep-ink" : "border-line bg-elev"
+                }`}
+              >
+                {p.popular && (
+                  <span className="eyebrow absolute -top-3 left-7 bg-accent px-3 py-1 text-[0.6rem] text-deep">
+                    Beliebt
+                  </span>
+                )}
+                <p className={`eyebrow ${p.popular ? "text-accent" : "text-accent-text"}`}>
+                  {p.claim}
                 </p>
-                <Button href={mailto(c.email, "Kostenlose Erstberatung")} className="mt-9 w-full">
-                  Erstberatung anfragen
+                <h3 className="font-display mt-3 text-[1.9rem] leading-none tracking-[0.03em]">
+                  {p.name}
+                </h3>
+                <p className={`mt-2 text-[0.9rem] ${p.popular ? "opacity-75" : "text-muted"}`}>
+                  {p.sessions} · {p.duration}
+                </p>
+                <p className="font-display mt-6 text-[2.6rem] leading-none tabular-nums">{p.price}</p>
+                <p className={`mt-5 text-[0.95rem] leading-relaxed ${p.popular ? "opacity-85" : "body-copy"}`}>
+                  {p.text}
+                </p>
+                <ul
+                  className={`mt-6 flex-1 space-y-3 border-t pt-6 text-[0.95rem] ${
+                    p.popular ? "border-white/15" : "border-line"
+                  }`}
+                >
+                  {p.features.map((f) => (
+                    <li key={f} className="flex gap-3">
+                      <span aria-hidden className={p.popular ? "text-accent" : "text-accent-text"}>
+                        ·
+                      </span>
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  href={c.bookingHref}
+                  variant={p.popular ? "solid" : "outline"}
+                  className="mt-8 w-full"
+                >
+                  {p.name} buchen
                 </Button>
-              </div>
-            </aside>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <FullBleed
-        src="/assets/michelle/04-lash.jpg"
-        alt="Nahaufnahme gelifteter Wimpern"
-        position="58% 50%"
-        height="band"
-      />
-
-      <section className="section-y-tight">
-        <div className="container-x grid gap-10 md:grid-cols-12 md:items-start md:gap-12">
-          <div className="reveal sticky-caption md:col-span-4">
-            <Eyebrow index="III">Lash &amp; Brow</Eyebrow>
-            <h2 className="display-2 mt-6">
-              Ausdruck, <em>fein definiert.</em>
-            </h2>
-            <p className="lead mt-8">
-              Präzise Liftings für definierte Wimpern und schöne Brauen. Auch als Beauty-Extra —
-              unabhängig von einer Hautbehandlung.
-            </p>
-            <Button href={mailto(c.email, "Anfrage Lash & Brow")} variant="text" className="mt-9">
-              Lash &amp; Brow anfragen <Arrow />
-            </Button>
+      {/* Home care */}
+      <section className="section-y">
+        <div className="container-x grid gap-12 md:grid-cols-12 md:items-center md:gap-14">
+          <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-5">
+            <Img
+              src="/assets/michelle/heimpflege-serum.jpg"
+              alt="Seren mit Pipette auf einer Holzscheibe"
+              position="50% 55%"
+              className="ken-img absolute inset-0 h-full w-full object-cover"
+            />
           </div>
-          <ul className="md:col-span-7 md:col-start-6">
-            {lashBrow.map(([name, text], i) => (
-              <li
-                key={name}
-                className="reveal grid grid-cols-[3.5rem_1fr] gap-4 border-t border-line py-7 last:border-b"
-              >
-                <span className="chapter-num !text-[2rem]">
-                  {["I", "II", "III"][i]}
-                </span>
-                <div>
-                  <p className="font-display text-[1.75rem] leading-tight md:text-[2rem]">{name}</p>
-                  <p className="body-copy mt-2">{text}</p>
-                </div>
-              </li>
-            ))}
+          <div className="reveal md:col-span-6 md:col-start-7">
+            <Eyebrow index="III">Deine Heimpflege</Eyebrow>
+            <h2 className="display-2 mt-6">
+              Zu Hause passiert <em>die Hälfte.</em>
+            </h2>
+            <p className="lead mt-6 !max-w-none">
+              In jedem Paket bekommst du deine fünf Reviderm-Pflegeprodukte für zu Hause, passend zu
+              deiner Haut: Reinigung, Toner, Serum und deine Creme. Was du zu Hause machst, ist
+              mindestens so wichtig wie das, was bei mir auf der Liege passiert.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Lash & Brow */}
+      <section className="section-y-tight bg-surface">
+        <div className="container-x grid gap-10 md:grid-cols-12">
+          <div className="reveal md:col-span-4">
+            <Eyebrow index="IV">Lash &amp; Brow</Eyebrow>
+            <h2 className="display-2 mt-6">
+              Ausdruck, <em>ganz natürlich.</em>
+            </h2>
+            <p className="lead mt-6">
+              Schwung für deine eigenen Wimpern und volle, definierte Brauen — ganz ohne Extensions
+              und ohne tägliches Styling.
+            </p>
+          </div>
+          <ul className="divide-y divide-line border-b border-line md:col-span-7 md:col-start-6">
+            <PriceRow
+              name="Korean Lash Lift"
+              time="60 Min."
+              detail="Besonders sanftes Lifting vom Ansatz an: optisch längere, geschwungene, definierte Wimpern. Inklusive Wimpern färben."
+              price="75 €"
+            />
+            <PriceRow
+              name="Brow Lift"
+              time="60 Min."
+              detail="Die Härchen werden aufgerichtet und fixiert — voller, definierter, harmonischer. Inklusive Färben und präzisem Zupfen."
+              price="65 €"
+            />
+            <PriceRow
+              name="Korean Lash Lift & Brow Lift"
+              time="80 Min."
+              detail="Beides in einem Termin."
+              price="125 €"
+            />
           </ul>
         </div>
       </section>
 
-      <section className="section-y-tight bg-surface">
-        <div className="container-x flex flex-wrap items-center justify-between gap-6">
-          <div>
-            <p className="eyebrow text-accent-text">Bereit?</p>
-            <p className="display-3 mt-3">Wähle deinen Termin — oder schreib mir vorher.</p>
+      {/* Booking */}
+      <section className="section-y-tight">
+        <div className="container-x grid gap-8 md:grid-cols-12 md:items-center">
+          <div className="reveal md:col-span-7">
+            <p className="eyebrow text-accent-text">Buchen &amp; bezahlen</p>
+            <p className="display-3 mt-3">Alles direkt über Beautinda buchbar.</p>
+            <p className="body-copy mt-3 !max-w-none">
+              Sichere Onlinezahlung, auf Wunsch in Raten. Fragen vorher? Schreib mir einfach per
+              WhatsApp.
+            </p>
           </div>
-          <Button href="/michelle/kontakt/#buchen">
-            Termin wählen <Arrow />
-          </Button>
+          <div className="reveal flex flex-wrap gap-3 md:col-span-4 md:col-start-9 md:justify-end">
+            <Button href={c.bookingHref}>
+              Termin buchen <Arrow />
+            </Button>
+            <Button href={c.whatsappHref} variant="outline">
+              WhatsApp
+            </Button>
+          </div>
         </div>
       </section>
     </>

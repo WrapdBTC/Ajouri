@@ -43,10 +43,10 @@ function Portal({ m }: { m: (typeof family)[number] }) {
           aria-hidden
           className="absolute inset-0 bg-gradient-to-t from-bg/75 via-transparent to-transparent"
         />
-        <span className="font-display absolute top-5 left-5 text-[2rem] leading-none text-ink/90 md:top-6 md:left-6 md:text-[2.4rem]">
+        <span className="font-display absolute top-5 left-5 text-[2rem] leading-none text-white [text-shadow:0_1px_12px_rgb(0_0_0/0.45)] md:top-6 md:left-6 md:text-[2.4rem]">
           {m.numeral}
         </span>
-        <span className="eyebrow absolute top-6 right-5 text-ink/75 md:top-7 md:right-6">
+        <span className="eyebrow absolute top-6 right-5 text-white [text-shadow:0_1px_10px_rgb(0_0_0/0.5)] md:top-7 md:right-6">
           {m.craft}
         </span>
         <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
@@ -98,9 +98,9 @@ export default function HubPage() {
       <section className="anim-rise anim-rise-4 mt-10 md:mt-14" aria-hidden="true">
         <div className="relative aspect-[16/10] w-full overflow-hidden md:aspect-[21.5/10]">
           <Img
-            src="/assets/hub/01-hero.jpg"
+            src="/assets/hub/zusammen.jpg"
             alt=""
-            position="50% 62%"
+            position="55% 55%"
             priority
             className="anim-settle absolute inset-0 h-full w-full object-cover"
           />

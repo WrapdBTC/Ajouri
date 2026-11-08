@@ -35,9 +35,9 @@ export default function SabineKontakt() {
     <>
       <Hero
         size="page"
-        image="/assets/sabine/01-hero.jpg"
-        alt="Sabine Ajouri mit Klangschalen"
-        position="76% 50%"
+        image="/assets/sabine/portrait-kontakt.jpg"
+        alt="Sabine Ajouri lacht im Herbstlicht"
+        position="50% 25%"
         eyebrow="Kontakt · Vita Sonus"
         title={
           <>

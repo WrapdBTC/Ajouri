@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { Arrow, Button } from "@/components/Button";
 import { Eyebrow } from "@/components/SectionIntro";
-import { BookingSlot } from "@/components/BookingSlot";
 import { InquiryForm } from "@/components/InquiryForm";
 import { MetaRow } from "@/components/MetaRow";
 import { contact, mailto, mapsHref } from "@/lib/site";
@@ -10,7 +9,7 @@ import { contact, mailto, mapsHref } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Kontakt & Termin",
   description:
-    "Glamour Treatments — Sternstraße 180, 86633 Neuburg. Telefon, WhatsApp und Terminanfrage bei Michelle Ajouri.",
+    "Michelle Ajouri · Kosmetik, Haut & Darm — Sternstraße 180, 86633 Neuburg. WhatsApp, Telefon, Mail und Buchung über Beautinda.",
 };
 
 const c = contact.michelle;
@@ -18,11 +17,15 @@ const c = contact.michelle;
 const faq = [
   {
     q: "Wie buche ich?",
-    a: "Online-Kalender folgt. Bis dahin: Anruf, WhatsApp oder das Formular — ich melde mich persönlich.",
+    a: "Termine buchst du über Beautinda. Oder schreib mir per WhatsApp, Mail oder über das Formular — ich melde mich persönlich.",
   },
   {
-    q: "Ersttermin?",
-    a: "Ideal mit Hautanalyse. Unsicher? Kostenlose Erstberatung vorab.",
+    q: "Wann bist du in Neuburg?",
+    a: "Alle 9 Wochen für 3 Wochen — das sind die Behandlungsblöcke. Dazwischen bin ich in Kroatien und online für dich da.",
+  },
+  {
+    q: "Verschieben?",
+    a: "Bis 24 Stunden vorher kostenlos. Später oder nicht erschienen: 30 % des anteiligen Terminpreises.",
   },
   {
     q: "Parken?",
@@ -35,20 +38,20 @@ export default function MichelleKontakt() {
     <>
       <Hero
         size="page"
-        image="/assets/michelle/01-hero.jpg"
-        alt="Behandlungssuite Glamour Treatments"
-        position="58% 50%"
-        eyebrow="Kontakt · Glamour Treatments"
+        image="/assets/michelle/brauen-detail.jpg"
+        alt="Nahaufnahme gepflegter Haut und Augenbraue"
+        position="50% 45%"
+        eyebrow="Kontakt · Kosmetik · Haut & Darm"
         title={
           <>
             Für deine Haut. <em>Für dein Gefühl.</em>
           </>
         }
-        lead="Schreib mir oder ruf an — ich melde mich persönlich, und wir finden den passenden Einstieg."
+        lead="Schreib mir oder ruf an — ich antworte dir so schnell wie möglich, auch aus meinen Kroatien-Wochen. Ich freu mich auf dich."
         actions={
           <>
-            <Button href="#buchen">
-              Termin wählen <Arrow />
+            <Button href={c.bookingHref}>
+              Termin buchen <Arrow />
             </Button>
             <Button href={c.phoneHref} variant="outline">
               Anrufen
@@ -63,7 +66,7 @@ export default function MichelleKontakt() {
             items={[
               { label: "Adresse", value: c.street },
               { label: "Ort", value: c.city },
-              { label: "Öffnung", value: c.hours },
+              { label: "Buchung", value: "Über Beautinda" },
               { label: "Telefon", value: c.phone },
             ]}
           />
@@ -71,8 +74,8 @@ export default function MichelleKontakt() {
           <div className="mt-8 grid gap-8 md:mt-10 md:grid-cols-12 md:gap-10">
             <div className="reveal border border-line bg-elev p-5 sm:p-7 md:col-span-5 md:p-9">
               <Eyebrow>Studio</Eyebrow>
-              <h2 className="display-3 mt-4">Glamour Treatments</h2>
-              <p className="eyebrow mt-2 text-muted">Michelle Ajouri</p>
+              <h2 className="display-3 mt-4">Michelle Ajouri</h2>
+              <p className="eyebrow mt-2 text-muted">Kosmetik · Haut &amp; Darm</p>
 
               <address className="mt-7 space-y-1 not-italic leading-relaxed text-[1.05rem]">
                 <p>{c.street}</p>
@@ -97,7 +100,15 @@ export default function MichelleKontakt() {
                   </dd>
                 </div>
                 <div>
-                  <dt className="eyebrow text-accent-text">Öffnungszeiten</dt>
+                  <dt className="eyebrow text-accent-text">Instagram</dt>
+                  <dd className="mt-1.5">
+                    <a href={c.instagramHref} className="hover:underline" target="_blank" rel="noopener noreferrer">
+                      {c.instagram}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="eyebrow text-accent-text">Im Studio</dt>
                   <dd className="mt-1.5">{c.hours}</dd>
                 </div>
               </dl>
@@ -115,7 +126,7 @@ export default function MichelleKontakt() {
             <div className="reveal md:col-span-7">
               <InquiryForm
                 to={c.email}
-                subject="Anfrage Glamour Treatments"
+                subject="Anfrage Michelle Ajouri · Haut & Darm"
                 title="Kurze Nachricht reicht."
                 eyebrow="Anfrage"
                 submitLabel="Nachricht senden"
@@ -156,9 +167,22 @@ export default function MichelleKontakt() {
           </div>
 
           <div className="reveal mt-8 md:mt-10">
-            <BookingSlot
-              detail="Online-Buchung wird in Kürze freigeschaltet. Bis dahin: Anruf, WhatsApp, Formular oder E-Mail — ich melde mich persönlich."
-            />
+            <div
+              id="buchen"
+              className="scroll-mt-28 flex flex-col gap-6 border border-line bg-deep p-7 text-deep-ink md:flex-row md:items-center md:justify-between md:p-10"
+            >
+              <div>
+                <p className="eyebrow text-accent">Online buchen</p>
+                <p className="display-3 mt-3">Deinen Termin buchst du über Beautinda.</p>
+                <p className="mt-3 max-w-xl text-[0.95rem] opacity-80">
+                  SKIN FIRST, die Pakete und Lash &amp; Brow — mit Onlinezahlung, auf Wunsch in
+                  Raten über Klarna oder PayPal.
+                </p>
+              </div>
+              <Button href={c.bookingHref} className="shrink-0">
+                Zu Beautinda <Arrow />
+              </Button>
+            </div>
           </div>
 
           <div className="reveal mt-10 border-t border-line pt-8 md:mt-12 md:pt-10">

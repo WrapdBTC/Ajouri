@@ -22,7 +22,7 @@ const offerings = [
     detail:
       "Eine geführte Reise mit Klangschalen, Stimme und Stille. Der Körper darf loslassen, der Geist zur Ruhe kommen.",
     time: "60–90 Min.",
-    image: "/assets/sabine/03-bowls.jpg",
+    image: "/assets/sabine/klangreise.jpg",
     position: "50% 50%",
   },
   {
@@ -44,7 +44,7 @@ const offerings = [
     detail:
       "Achtsamkeitsübungen in kleinen Gruppen oder einzeln. Klar, alltagsnah und ohne Esoterik-Ballast.",
     time: "nach Absprache",
-    image: "/assets/sabine/01-hero.jpg",
+    image: "/assets/sabine/meditation-sitzend.jpg",
     position: "50% 40%",
   },
   {
@@ -55,7 +55,7 @@ const offerings = [
     detail:
       "Ein Abend für das Nervensystem: Klang, Atem und Stille — gemeinsam ankommen, gemeinsam nachklingen.",
     time: "ca. 90 Min.",
-    image: "/assets/sabine/05-portal.jpg",
+    image: "/assets/sabine/regulation.jpg",
     position: "76% 50%",
   },
 ];
@@ -65,7 +65,7 @@ export default function SabineAngebote() {
     <>
       <Hero
         size="page"
-        image="/assets/sabine/02-portrait.jpg"
+        image="/assets/sabine/portrait-lachen-2.jpg"
         alt="Sabine Ajouri — Vita Sonus"
         position="62% 28%"
         eyebrow="Angebote · Vita Sonus"

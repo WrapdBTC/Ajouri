@@ -7,6 +7,8 @@ import { PullQuote } from "@/components/PullQuote";
 import { ChapterIndex } from "@/components/ChapterIndex";
 import { Marquee } from "@/components/Marquee";
 import { EditorialCover } from "@/components/EditorialCover";
+import { FullBleed } from "@/components/FullBleed";
+import { PhotoStrip } from "@/components/PhotoStrip";
 import { asset } from "@/lib/asset";
 import { contact } from "@/lib/site";
 
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vita Sonus — Sabine Ajouri",
     description: "Ein Raum, in dem es still werden darf.",
-    images: [{ url: asset("/assets/sabine/01-hero.jpg"), width: 1280, height: 720 }],
+    images: [{ url: asset("/assets/sabine/hero-klangschalen.jpg"), width: 1280, height: 720 }],
   },
 };
 
@@ -29,7 +31,7 @@ export default function SabineHome() {
       {/* Ritual invitation hero — short poetic lead */}
       <Hero
         size="full"
-        image="/assets/sabine/01-hero.jpg"
+        image="/assets/sabine/hero-klangschalen.jpg"
         alt="Sabine Ajouri im Schneidersitz mit Klangschalen in der Natur"
         position="75% 12%"
         eyebrow="Vita Sonus · Neuburg"
@@ -68,7 +70,7 @@ export default function SabineHome() {
           <figure className="reveal ken-wrap md:col-span-5">
             <div className="relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
-                src="/assets/sabine/02-portrait.jpg"
+                src="/assets/sabine/portrait-herbst.jpg"
                 alt="Sabine Ajouri, lächelnd, im Herbstlicht"
                 position="50% 30%"
                 className="ken-img absolute inset-0 h-full w-full object-cover"
@@ -101,6 +103,14 @@ export default function SabineHome() {
           </PullQuote>
         </div>
       </section>
+
+      {/* Cinematic band — real session outdoors */}
+      <FullBleed
+        src="/assets/sabine/klangschalen-band.jpg"
+        alt="Sabine Ajouri spielt Klangschalen im Freien"
+        position="50% 55%"
+        height="tall"
+      />
 
       {/* ChapterIndex journey */}
       <section className="section-y bg-surface">
@@ -143,6 +153,32 @@ export default function SabineHome() {
         </div>
       </section>
 
+      {/* Real photography */}
+      <section className="section-y-tight">
+        <div className="container-x">
+          <PhotoStrip
+            photos={[
+              {
+                src: "/assets/sabine/arme-offen.jpg",
+                alt: "Sabine Ajouri sitzt mit offenen Armen zwischen Klangschalen",
+                position: "50% 40%",
+              },
+              {
+                src: "/assets/sabine/namaste.jpg",
+                alt: "Sabine Ajouri mit gefalteten Händen",
+                position: "50% 35%",
+              },
+              {
+                src: "/assets/sabine/klangschalen-detail.jpg",
+                alt: "Klangschalen im Gras",
+                position: "50% 50%",
+              },
+            ]}
+            caption="Sabine Ajouri · Vita Sonus · Neuburg"
+          />
+        </div>
+      </section>
+
       {/* Editorial covers */}
       <section className="section-y">
         <div className="container-x">
@@ -159,9 +195,9 @@ export default function SabineHome() {
               eyebrow="Angebote"
               title="Klangreise & mehr"
               text="Klangreise, Klangmassage, Meditation und Regulationsabend — Formate für Auszeit."
-              image="/assets/sabine/03-bowls.jpg"
-              position="50% 50%"
-              alt="Klangschalen"
+              image="/assets/sabine/schneidersitz.jpg"
+              position="50% 45%"
+              alt="Sabine Ajouri im Schneidersitz zwischen Klangschalen"
               aspect="tall"
             />
             <EditorialCover
@@ -169,9 +205,9 @@ export default function SabineHome() {
               eyebrow="Studio"
               title="Freitagabend. Tür offen."
               text="Jeden Freitag 16:30–18:00 ohne Anmeldung — für einen ersten Eindruck."
-              image="/assets/sabine/04-klangmassage.jpg"
-              position="55% 45%"
-              alt="Klangmassage"
+              image="/assets/sabine/klangschalen-spiel.jpg"
+              position="50% 50%"
+              alt="Hände mit Klöppel an einer Klangschale"
               aspect="tall"
             />
             <EditorialCover
@@ -179,9 +215,9 @@ export default function SabineHome() {
               eyebrow="Kontakt"
               title="Melde dich. Ganz in Ruhe."
               text="Adresse, Telefon und der Platz für den Buchungskalender."
-              image="/assets/sabine/01-hero.jpg"
-              position="50% 40%"
-              alt="Sabine Ajouri mit Klangschalen"
+              image="/assets/sabine/lachen.jpg"
+              position="50% 30%"
+              alt="Sabine Ajouri lacht im Herbstlicht"
               aspect="tall"
             />
           </div>

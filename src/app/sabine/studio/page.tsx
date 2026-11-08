@@ -20,7 +20,7 @@ export default function SabineStudio() {
     <>
       <Hero
         size="page"
-        image="/assets/sabine/06-studio.jpg"
+        image="/assets/sabine/meditation.jpg"
         alt="Sabine Ajouri in Meditationshaltung mit Klangschalen"
         position="50% 28%"
         eyebrow="Studio · Vita Sonus"
@@ -134,8 +134,8 @@ export default function SabineStudio() {
         <div className="container-x grid gap-8 md:grid-cols-12 md:items-center md:gap-10">
           <div className="reveal ken-wrap relative aspect-[4/3] overflow-hidden md:col-span-7">
             <Img
-              src="/assets/sabine/06-studio.jpg"
-              alt="Sabine Ajouri in Meditationshaltung mit Klangschalen"
+              src="/assets/sabine/studio-schalen.jpg"
+              alt="Sabine Ajouri sitzt zwischen ihren Klangschalen"
               position="50% 28%"
               className="ken-img absolute inset-0 h-full w-full object-cover"
             />
