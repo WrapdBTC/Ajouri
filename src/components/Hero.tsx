@@ -59,7 +59,7 @@ export function Hero({
               </div>
             )}
           </div>
-          <div className="anim-settle relative aspect-[4/3] overflow-hidden md:col-span-5 md:col-start-8 md:aspect-[4/5] md:max-h-[34rem]">
+          <div className="anim-settle relative aspect-[4/5] overflow-hidden md:col-span-5 md:col-start-8 md:max-h-[34rem]">
             <Img
               src={image}
               alt={alt}

@@ -133,15 +133,15 @@ export default function SabineStudio() {
 
       <section className="section-y-tight">
         <div className="container-x grid gap-8 md:grid-cols-12 md:items-center md:gap-10">
-          <div className="reveal ken-wrap relative aspect-[4/3] overflow-hidden md:col-span-7">
+          <div className="reveal ken-wrap relative aspect-[4/5] overflow-hidden md:col-span-5">
             <Img
               src="/assets/sabine/studio-schalen.jpg"
               alt="Sabine Ajouri sitzt zwischen ihren Klangschalen"
-              position="50% 28%"
+              position="50% 75%"
               className="ken-img absolute inset-0 h-full w-full object-cover"
             />
           </div>
-          <div className="reveal sticky-caption md:col-span-4 md:col-start-9">
+          <div className="reveal sticky-caption md:col-span-5 md:col-start-7">
             <Eyebrow>Der Raum</Eyebrow>
             <h2 className="display-3 mt-4">
               Ein Studio für <em>Klang und Stille.</em>

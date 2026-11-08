@@ -171,7 +171,7 @@ export default function SabineHome() {
               {
                 src: "/assets/sabine/klangschalen-detail.jpg",
                 alt: "Klangschalen im Gras",
-                position: "50% 50%",
+                position: "8% 60%",
               },
             ]}
             caption="Sabine Ajouri · Vita Sonus · Neuburg"

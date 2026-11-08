@@ -34,7 +34,8 @@ const offerings = [
       "Klangschalen auf und um den Körper — Vibration, Wärme und Resonanz, die tief in Gewebe und Nervensystem wirken.",
     time: "45–60 Min.",
     image: "/assets/sabine/04-klangmassage.jpg",
-    position: "55% 45%",
+    position: "40% 50%",
+    landscape: true,
   },
   {
     numeral: "III",
@@ -110,7 +111,9 @@ export default function SabineAngebote() {
                   i === offerings.length - 1 ? "border-b" : ""
                 }`}
               >
-                <div className="ken-wrap relative aspect-[16/10] overflow-hidden bg-surface md:col-span-5 md:aspect-[4/5]">
+                <div className={`ken-wrap relative overflow-hidden bg-surface md:col-span-5 ${
+                    "landscape" in o ? "aspect-[16/10] md:aspect-[4/3] md:self-center" : "aspect-[4/5]"
+                  }`}>
                   <Img
                     src={o.image}
                     alt=""
