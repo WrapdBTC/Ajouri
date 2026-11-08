@@ -15,7 +15,7 @@ type Props = {
   sticky?: boolean;
 };
 
-/** Editorial split: oversized photo + sticky caption column (7/4). */
+/** Editorial split: portrait photo + caption column (5/6). */
 export function SplitFeature({
   image,
   alt,
@@ -29,9 +29,9 @@ export function SplitFeature({
   sticky = true,
 }: Props) {
   return (
-    <div className={`grid gap-10 md:grid-cols-12 md:items-start md:gap-12 ${className}`}>
+    <div className={`grid gap-10 md:grid-cols-12 md:items-center md:gap-12 ${className}`}>
       <div
-        className={`reveal ken-wrap relative aspect-[4/5] overflow-hidden bg-surface md:col-span-7 md:aspect-auto md:min-h-[36rem] lg:min-h-[38rem] ${
+        className={`reveal ken-wrap relative aspect-[4/5] overflow-hidden bg-surface md:col-span-5 md:aspect-[4/5] ${
           flip ? "md:order-2" : ""
         }`}
       >
@@ -44,7 +44,7 @@ export function SplitFeature({
       </div>
 
       <div
-        className={`reveal md:col-span-4 ${flip ? "md:order-1" : "md:col-start-9"} ${
+        className={`reveal md:col-span-6 ${flip ? "md:order-1" : "md:col-start-7"} ${
           sticky ? "sticky-caption" : ""
         }`}
       >

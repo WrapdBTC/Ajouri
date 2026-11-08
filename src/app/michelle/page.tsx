@@ -64,7 +64,7 @@ export default function MichelleHome() {
           <SplitFeature
             image="/assets/michelle/portal-herbst.jpg"
             alt="Michelle Ajouri lächelnd im Herbstlicht"
-            position="50% 40%"
+            position="50% 70%"
             index="I"
             eyebrow="Über mich"
             title={
