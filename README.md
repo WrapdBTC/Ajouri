@@ -43,7 +43,7 @@ zwei Farbwelten plus Hub — jeweils mit Hell-/Dunkelmodus (`data-mode`):
 
 Gemeinsames Studio (beide Praxen):
 
-- Amalienstr. 60, 86633 Neuburg
+- Sternstraße 180, 86633 Neuburg
 - Michelle: +49 1577 5056789 · info@michelleajouri.de
 - Sabine: 0160 99 300 610 · info@vitasonus.de
 

@@ -30,8 +30,8 @@ export default function SabineHome() {
       <Hero
         size="full"
         image="/assets/sabine/01-hero.jpg"
-        alt="Dunkles Klangstudio mit Klangschalen und warmem Indigo-Licht"
-        position="50% 45%"
+        alt="Sabine Ajouri im Schneidersitz mit Klangschalen in der Natur"
+        position="75% 12%"
         eyebrow="Vita Sonus · Neuburg"
         title={
           <>
@@ -69,8 +69,8 @@ export default function SabineHome() {
             <div className="relative aspect-[4/5] overflow-hidden bg-surface">
               <Img
                 src="/assets/sabine/02-portrait.jpg"
-                alt="Sabine Ajouri mit Klangschale im Studio"
-                position="50% 22%"
+                alt="Sabine Ajouri, lächelnd, im Herbstlicht"
+                position="50% 30%"
                 className="ken-img absolute inset-0 h-full w-full object-cover"
               />
             </div>
@@ -181,7 +181,7 @@ export default function SabineHome() {
               text="Adresse, Telefon und der Platz für den Buchungskalender."
               image="/assets/sabine/01-hero.jpg"
               position="50% 40%"
-              alt="Studio Vita Sonus"
+              alt="Sabine Ajouri mit Klangschalen"
               aspect="tall"
             />
           </div>

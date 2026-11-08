@@ -43,22 +43,17 @@ export function Hero({
         priority
         className="anim-settle absolute inset-0 -z-10 h-full w-full object-cover"
       />
-      {/* Base wash — readable before image settles (stronger on pale themes) */}
-      <div aria-hidden className="absolute inset-0 -z-10 bg-bg/55" />
+      {/* Light wash + directional scrims: photo stays visible, copy stays readable */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-bg/15" />
       <div
         aria-hidden
-        className={`absolute inset-0 -z-10 bg-gradient-to-t from-bg ${
-          isPage ? "via-bg/85 to-bg/45" : "via-bg/80 to-bg/35"
+        className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-bg/90 via-bg/35 to-transparent md:block"
+      />
+      <div
+        aria-hidden
+        className={`absolute inset-x-0 bottom-0 -z-10 bg-gradient-to-t from-bg via-bg/60 to-transparent ${
+          isPage ? "h-[75%]" : "h-[65%] md:h-[55%]"
         }`}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 hidden bg-gradient-to-r from-bg/95 via-bg/50 to-bg/10 md:block"
-      />
-      {/* Extra bottom scrim for busy photography */}
-      <div
-        aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-10 h-[55%] bg-gradient-to-t from-bg via-bg/70 to-transparent"
       />
 
       <div

@@ -178,7 +178,7 @@ export default function HubPage() {
                 Wo du uns <em>findest.</em>
               </>
             }
-            lead="Gemeinsames Studio in der Amalienstraße — zwei Handwerke unter einem Dach. Jede Praxis hat ihren eigenen Draht."
+            lead="Neues gemeinsames Studio in der Sternstraße — zwei Handwerke unter einem Dach. Jede Praxis hat ihren eigenen Draht."
           />
 
           <div className="mt-12 grid items-stretch border-t border-line md:mt-16 md:grid-cols-2">

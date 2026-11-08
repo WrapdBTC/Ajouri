@@ -10,7 +10,7 @@ import { contact, mailto, mapsHref } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Kontakt & Termin",
   description:
-    "Vita Sonus — Amalienstr. 60, 86633 Neuburg. Telefon und Terminanfrage bei Sabine Ajouri.",
+    "Vita Sonus — Sternstraße 180, 86633 Neuburg. Telefon und Terminanfrage bei Sabine Ajouri.",
 };
 
 const c = contact.sabine;
@@ -36,7 +36,7 @@ export default function SabineKontakt() {
       <Hero
         size="page"
         image="/assets/sabine/01-hero.jpg"
-        alt="Klangstudio Vita Sonus"
+        alt="Sabine Ajouri mit Klangschalen"
         position="76% 50%"
         eyebrow="Kontakt · Vita Sonus"
         title={

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Michelle Ajouri — Glamour Treatments",
     description: "Schönheit beginnt mit Verstehen.",
-    images: [{ url: asset("/assets/michelle/01-hero.jpg"), width: 1280, height: 720 }],
+    images: [{ url: asset("/assets/michelle/07-hero.jpg"), width: 2400, height: 1600 }],
   },
 };
 
@@ -27,9 +27,9 @@ export default function MichelleHome() {
     <>
       <Hero
         size="full"
-        image="/assets/michelle/01-hero.jpg"
-        alt="Helle Behandlungssuite mit Liege, Analysegerät und goldenen Details"
-        position="58% 50%"
+        image="/assets/michelle/07-hero.jpg"
+        alt="Michelle Ajouri sitzt lachend im Herbstgras"
+        position="70% 60%"
         eyebrow="Glamour Treatments · Neuburg an der Donau"
         title={
           <>
@@ -60,8 +60,8 @@ export default function MichelleHome() {
         <div className="container-x">
           <SplitFeature
             image="/assets/michelle/02-portrait.jpg"
-            alt="Michelle Ajouri, Hautexpertin"
-            position="48% 28%"
+            alt="Michelle Ajouri, Hautexpertin, im hellen Studio"
+            position="55% 35%"
             index="I"
             eyebrow="Über mich"
             title={

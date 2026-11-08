@@ -10,7 +10,7 @@ import { contact, mailto, mapsHref } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Kontakt & Termin",
   description:
-    "Glamour Treatments — Amalienstr. 60, 86633 Neuburg. Telefon, WhatsApp und Terminanfrage bei Michelle Ajouri.",
+    "Glamour Treatments — Sternstraße 180, 86633 Neuburg. Telefon, WhatsApp und Terminanfrage bei Michelle Ajouri.",
 };
 
 const c = contact.michelle;
@@ -26,7 +26,7 @@ const faq = [
   },
   {
     q: "Parken?",
-    a: "In der Amalienstraße und Umgebung — kurze Wege zum Studio.",
+    a: "Sag bei der Terminanfrage kurz Bescheid — ich beschreibe dir gern den Weg zum neuen Studio in der Sternstraße.",
   },
 ];
 

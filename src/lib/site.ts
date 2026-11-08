@@ -50,7 +50,7 @@ export const family: {
 
 /** Shared studio — both practices under one roof. */
 export const studio = {
-  street: "Amalienstr. 60",
+  street: "Sternstraße 180",
   city: "86633 Neuburg",
 } as const;
 

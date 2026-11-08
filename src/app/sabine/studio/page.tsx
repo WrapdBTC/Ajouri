@@ -10,7 +10,7 @@ import { contact, mapsHref } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Offenes Studio",
   description:
-    "Offenes Studio bei Vita Sonus: Freitag 16:30–18:00 Uhr ohne Anmeldung — Amalienstr. 60, Neuburg. Sabine Ajouri.",
+    "Offenes Studio bei Vita Sonus: Freitag 16:30–18:00 Uhr ohne Anmeldung — Sternstraße 180, Neuburg. Sabine Ajouri.",
 };
 
 const c = contact.sabine;
@@ -21,7 +21,7 @@ export default function SabineStudio() {
       <Hero
         size="page"
         image="/assets/sabine/06-studio.jpg"
-        alt="Sabine Ajouri mit Klangschale im gemeinsamen Studio"
+        alt="Sabine Ajouri in Meditationshaltung mit Klangschalen"
         position="50% 28%"
         eyebrow="Studio · Vita Sonus"
         title={
@@ -135,7 +135,7 @@ export default function SabineStudio() {
           <div className="reveal ken-wrap relative aspect-[4/3] overflow-hidden md:col-span-7">
             <Img
               src="/assets/sabine/06-studio.jpg"
-              alt="Sabine Ajouri mit Klangschale im Studio"
+              alt="Sabine Ajouri in Meditationshaltung mit Klangschalen"
               position="50% 28%"
               className="ken-img absolute inset-0 h-full w-full object-cover"
             />

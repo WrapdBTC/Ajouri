@@ -28,7 +28,7 @@
 /* ---------- Palettes ----------
  * Worlds set via [data-theme] on PageShell.
  * Site-wide light/dark via html[data-mode="light"|"dark"].
- * Default world look = light for hub/michelle, dark for sabine;
+ * All worlds share Creme · Sand · Gold and default to light;
  * the opposite mode flips each world meaningfully.
  */
 
@@ -50,40 +50,44 @@
   color-scheme: light;
 }
 
-/* Michelle — champagne, ivory, nude, espresso (clinic light) */
+/* Michelle — Markenblatt Look 1 „Berry mit Grün & Gold“
+ * Creme 60 · Tiefwald 20 · Berry 10 · Sand 5 · Gold 5.
+ * Tiefwald = Textfarbe; Gold tief #8a6a35 für kleine Goldschrift auf hellem Grund. */
 [data-theme="michelle"] {
-  --t-bg: #f8f1e9;
-  --t-surface: #efe3d5;
-  --t-elev: #fdf9f4;
-  --t-ink: #2b1f18;
-  --t-muted: #6f5b4b;
-  --t-line: rgb(122 90 60 / 0.2);
-  --t-accent: #b08a62;
-  --t-accent-text: #80603f;
-  --t-deep: #2b1f18;
-  --t-deep-ink: #f3e7da;
-  --t-btn: #2b1f18;
-  --t-btn-ink: #fbf5ee;
-  --t-header: #f4e9dd;
+  --t-bg: #f7f3ec;
+  --t-surface: #efe7da;
+  --t-elev: #fbf9f4;
+  --t-ink: #1f3328;
+  --t-muted: #4f6157;
+  --t-line: rgb(31 51 40 / 0.16);
+  --t-accent: #c6a15b;
+  --t-accent-text: #8a6a35;
+  --t-deep: #1f3328;
+  --t-deep-ink: #f7f3ec;
+  --t-btn: #521e34;
+  --t-btn-ink: #f7f3ec;
+  --t-header: #f7f3ec;
   color-scheme: light;
 }
 
-/* Sabine — midnight indigo, gold, soft sand (ritual dark by default) */
+/* Sabine — Vita Sonus: gemeinsame Basis mit Michelle (Creme · Sand · Gold),
+ * eigene Stimme: Nachtblau (statt Tiefwald) + Kupfer (statt Berry).
+ * Creme 60 · Nachtblau 20 · Kupfer 10 · Sand 5 · Gold 5. Gold tief #8a6a35 für kleine Goldschrift auf hell. */
 [data-theme="sabine"] {
-  --t-bg: #0e1430;
-  --t-surface: #131a3b;
-  --t-elev: #19214a;
-  --t-ink: #f2ebe0;
-  --t-muted: #c9c0b2;
-  --t-line: rgb(239 230 214 / 0.16);
-  --t-accent: #c9a45c;
-  --t-accent-text: #e0c588;
-  --t-deep: #080c1f;
-  --t-deep-ink: #e9dfcc;
-  --t-btn: #c9a45c;
-  --t-btn-ink: #0e1430;
-  --t-header: #0e1430;
-  color-scheme: dark;
+  --t-bg: #f7f3ec;
+  --t-surface: #efe7da;
+  --t-elev: #fbf9f4;
+  --t-ink: #1c2541;
+  --t-muted: #4f5772;
+  --t-line: rgb(28 37 65 / 0.15);
+  --t-accent: #c6a15b;
+  --t-accent-text: #8a6a35;
+  --t-deep: #1c2541;
+  --t-deep-ink: #f7f3ec;
+  --t-btn: #8e4f32;
+  --t-btn-ink: #f7f3ec;
+  --t-header: #f7f3ec;
+  color-scheme: light;
 }
 
 /* ----- Mode overrides: darken light worlds ----- */
@@ -106,57 +110,40 @@ html[data-mode="dark"] [data-theme="hub"] {
 }
 
 html[data-mode="dark"] [data-theme="michelle"] {
-  --t-bg: #1a1410;
-  --t-surface: #241c16;
-  --t-elev: #2e241c;
-  --t-ink: #f5ebe1;
-  --t-muted: #c4b0a0;
-  --t-line: rgb(245 235 225 / 0.15);
-  --t-accent: #c9a074;
-  --t-accent-text: #ddb892;
-  --t-deep: #100c09;
-  --t-deep-ink: #f3e7da;
-  --t-btn: #f5ebe1;
-  --t-btn-ink: #1a1410;
-  --t-header: #1a1410;
+  --t-bg: #131e18;
+  --t-surface: #18271f;
+  --t-elev: #1f3328;
+  --t-ink: #f7f3ec;
+  --t-muted: #c4bcad;
+  --t-line: rgb(247 243 236 / 0.15);
+  --t-accent: #c6a15b;
+  --t-accent-text: #d8b878;
+  --t-deep: #0c140f;
+  --t-deep-ink: #f7f3ec;
+  --t-btn: #c6a15b;
+  --t-btn-ink: #1f3328;
+  --t-header: #131e18;
   color-scheme: dark;
 }
 
-/* Sabine already dark — deepen slightly in explicit dark mode */
+/* Sabine dunkel — Nachtblau als Grund */
 html[data-mode="dark"] [data-theme="sabine"] {
-  --t-bg: #0a0f24;
-  --t-surface: #0f1532;
-  --t-elev: #151c40;
-  --t-ink: #f5eee2;
-  --t-muted: #cfc6b8;
-  --t-line: rgb(245 238 226 / 0.14);
-  --t-accent: #d0ad68;
-  --t-accent-text: #e6cc94;
-  --t-deep: #050814;
-  --t-deep-ink: #ebe1ce;
-  --t-btn: #d0ad68;
-  --t-btn-ink: #0a0f24;
-  --t-header: #0a0f24;
+  --t-bg: #111830;
+  --t-surface: #162040;
+  --t-elev: #1c2541;
+  --t-ink: #f7f3ec;
+  --t-muted: #c7c1b4;
+  --t-line: rgb(247 243 236 / 0.15);
+  --t-accent: #c6a15b;
+  --t-accent-text: #d8b878;
+  --t-deep: #0a0f20;
+  --t-deep-ink: #f7f3ec;
+  --t-btn: #c6a15b;
+  --t-btn-ink: #1c2541;
+  --t-header: #111830;
   color-scheme: dark;
 }
 
-/* ----- Mode overrides: lighten Sabine ----- */
-html[data-mode="light"] [data-theme="sabine"] {
-  --t-bg: #f3efe6;
-  --t-surface: #e8e1d3;
-  --t-elev: #faf7f1;
-  --t-ink: #12182e;
-  --t-muted: #5a6178;
-  --t-line: rgb(18 24 46 / 0.14);
-  --t-accent: #9a7a3a;
-  --t-accent-text: #7a6028;
-  --t-deep: #12182e;
-  --t-deep-ink: #f3efe6;
-  --t-btn: #12182e;
-  --t-btn-ink: #f3efe6;
-  --t-header: #ebe4d6;
-  color-scheme: light;
-}
 
 body:has(> [data-theme="michelle"]) { background-color: var(--t-bg); }
 body:has(> [data-theme="sabine"]) { background-color: var(--t-bg); }
@@ -532,12 +519,12 @@ body:has(> [data-theme="hub"]) { background-color: var(--t-bg); }
 }
 
 /* Dark-leaning surfaces — stronger body / step copy */
-[data-theme="sabine"] .body-copy,
+html[data-mode="dark"] [data-theme="sabine"] .body-copy,
 html[data-mode="dark"] [data-theme="hub"] .body-copy,
 html[data-mode="dark"] [data-theme="michelle"] .body-copy {
   color: color-mix(in oklab, var(--t-ink) 78%, var(--t-muted));
 }
-[data-theme="sabine"] .lead,
+html[data-mode="dark"] [data-theme="sabine"] .lead,
 html[data-mode="dark"] [data-theme="hub"] .lead,
 html[data-mode="dark"] [data-theme="michelle"] .lead {
   color: color-mix(in oklab, var(--t-ink) 72%, var(--t-muted));
